@@ -1,0 +1,215 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+/*carousel*/
+.carousel{
+    height: 400px;
+    background-color: #000;
+    color: #fff;
+    font-size: 50px;
+    position: relative;
+    margin: 0 auto;
+}
+.carousel p{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*navbar*/
+nav{
+    z-index: 1;
+    width: 1150px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: solid 2px #d5d5d5;
+    border-top: none;
+    border-radius: 0 0 80px 80px;
+}
+nav ul{
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.menu li{
+        list-style: none;
+        font-size: 14px;
+        margin: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    text-shadow: #000 2px 2px 3px;	
+    display: block;
+	font-size: 15px;
+	color: #4F92B9;
+	letter-spacing: 0.6rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	user-select: none;
+    line-height: 30px;
+}
+
+.menu li a:hover{
+    color: #000;
+}
+/*scroll bar nav*/
+
+/*.fixed{
+    position: fixed;       on pourrait aussi juste utilisé {position: sticky} (sauf IE) et donc pas besoin de javaScript
+    top: 0;
+}
+*/
+
+/*responsive horizontal nav-bar*/
+@media (max-width: 1175px){
+    nav{
+        border: none;
+        border-radius: 0 0 0 0;
+    }
+    .menu{
+        z-index: 1;
+        margin: 0px;
+        width: 100%;
+        overflow: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        -moz-animation-name: highlightsFromRight;
+        -moz-animation-iteration-count: 1;
+        -moz-animation-timing-function: ease-in;
+        -moz-animation-duration: 0.4s;
+        -webkit-animation-name: highlightsFromRight;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-in;
+        -webkit-animation-duration: 0.4s;
+        animation-name: highlightsFromRight;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.4s;
+    }
+    .menu ul{
+        display: flex;
+    }
+    .menu li{
+        display: table-cell;
+        font-size: 14px;
+        margin: auto 36.8px;
+    }
+}
+
+/*article*/
+h2{
+    text-align: center;
+}
+
+#article{
+    margin-left: 15%;
+    margin-right: 25px;
+    max-width: 700px;
+    margin-top: 50px;
+    text-align: justify;
+    float: left;
+}
+
+#article h1{
+    text-align: center;
+}
+
+#article p{
+    font-size: 20px;
+    line-height: 30px; 
+}
+
+
+/*reading-companion*/
+
+
+
+.reading-companion{
+    height: 3330px;
+    position: relative;
+    float: left;
+    margin: 138px 5px 0 25px;
+}
+
+.reading-companion-sticky{
+    width: 300px;
+}
+
+.reading-companion-tabs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 0 8px;
+    padding: 0px;
+}
+
+.reading-companion-tabs li{
+    width: 100%;
+    list-style: none;
+}
+
+.reading-companion-tab{
+    padding: 8px 8px 8px 15px;
+    border: solid;
+    border-color: #d5d5d5;
+    background-color: #eee;
+    border-width: 1px;
+    text-align: left;
+    width: 100%;
+    color: #069;
+    font-size: 16px;
+    line-height: 1.15;
+}
+
+
+
+.reading-companion-panel-list{
+    padding-left: 15px;
+}
+
+.reading-companion-section-item a{
+    color: #069;
+    user-select: none;
+    text-decoration: none;
+    padding: 8px 0 8px 0px;
+    display: block;
+    font-size: 16px;
+    font-family: Arial;
+}
+@media (max-width: 1260px){
+    .sidebar{
+        display: none;
+    }
+}
+
+.reading-companion-panel ol{
+    list-style-type: decimal;
+}
+
+/*footer*/
+
+footer{
+    clear: both;
+    position: relative;
+    height: 450px;
+    background-color: #f9f9f9;
+    border-top: 3px solid #ececec;
+}
+
+
+
+
+
