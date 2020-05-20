@@ -1,0 +1,233 @@
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    color: #069;
+    margin: 0;
+    padding-top: 48px;
+}
+
+/*carousel*/
+.carousel{
+    height: 400px;
+    background-color: #000;
+    color: #fff;
+    font-size: 50px;
+    position: relative;
+    margin: 0 auto;
+}
+.carousel p{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*navbar*/
+nav{
+    z-index: 1;
+    width: 1150px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: solid 2px #d5d5d5;
+    border-top: none;
+    border-radius: 0 0 80px 80px;
+}
+nav ul{
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.menu li{
+        list-style: none;
+        font-size: 14px;
+        margin: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    text-shadow: #000 2px 2px 3px;	
+    display: block;
+	font-size: 15px;
+	color: #4F92B9;
+	letter-spacing: 0.6rem;
+	text-transform: uppercase;
+	cursor: pointer;
+	user-select: none;
+    line-height: 30px;
+}
+
+.menu li a:hover{
+    color: #000;
+}
+/*scroll bar nav*/
+
+.fixed{
+    position: fixed;       /*on pourrait aussi juste utilisé {position: sticky} (sauf IE) et donc pas besoin de JS*/
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+
+/*responsive horizontal nav-bar*/
+@media (max-width: 1100px){
+    nav{
+        border: none;
+        border-radius: 0 0 0 0;
+    }
+    .menu{
+        z-index: 1;
+        margin: 0px;
+        width: 100%;
+        overflow: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        -moz-animation-name: highlightsFromRight;
+        -moz-animation-iteration-count: 1;
+        -moz-animation-timing-function: ease-in;
+        -moz-animation-duration: 0.4s;
+        -webkit-animation-name: highlightsFromRight;
+        -webkit-animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease-in;
+        -webkit-animation-duration: 0.4s;
+        animation-name: highlightsFromRight;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.4s;
+    }
+    .menu ul{
+        display: flex;
+    }
+    .menu li{
+        display: table-cell;
+        font-size: 14px;
+        margin: auto 36.8px;
+    }
+}
+/*first-part*/
+#first-part{
+    background-color: #f1f1f1; 
+    text-align: center;
+    width: 1024px;
+    margin: auto;
+}
+
+#first-part div:nth-of-type(-n+2){
+    margin-top: 48px;
+}
+
+#first-part div{
+    background-color: white;
+    border-style: none;
+    border-color: dimgrey;
+    display: inline-block;
+    text-align: justify;
+    width: 400px;
+    height: 264px;
+    margin: 15px;
+    overflow-y: scroll;
+}
+
+#first-part div::-webkit-scrollbar {
+    display: none;
+}
+
+#first-part div .titreArticle{
+    font-weight: bold;
+    text-align: center;
+}
+
+#first-part div a{
+    position: relative;
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+@media (max-width: 990px){
+    
+    #first-part{
+        width: auto;
+    }
+    #first-part div:nth-of-type(1){
+        margin-top: 48px;
+    }
+    #first-part div:nth-of-type(2){
+        margin-top: 15px;
+    }
+    #first-part div{
+        width: 600px;
+        height: 350px;
+        font-size: 20px;
+    }
+}
+@media (max-width: 1500px){
+    svg{
+        display: none;
+    }
+}
+
+.teamE{
+    font-size: 1px;
+    text-anchor: start; 
+    fill: none;
+    stroke-width: 0.035;
+    stroke: grey;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+}
+
+
+.teamE:hover{
+    fill: black;
+}
+
+.teamEYellow{
+    font-size: 2px;
+    fill: yellow;
+    font-weight: 800;
+    text-anchor: start;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+}
+
+svg{
+    height: 500px;
+    position: absolute;
+}
+
+/*footer*/
+
+footer{
+    clear: both;
+    position: relative;
+    height: 450px;
+    background-color: #f9f9f9;
+    border-top: 3px solid #ececec;
+}
+
+.container{
+    width: inherit;
+    height: inherit;
+}
+
