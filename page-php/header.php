@@ -1,3 +1,4 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <pre>
@@ -17,7 +18,7 @@
         <header>
             <nav class="menu">
                 <ul>
-                    <li><a href="acceuil/acceuil.php">acceuil</a></li>
+                    <li><a href="/acceuil/acceuil.php">acceuil</a></li>
                     <li><a href="#">cathégorie</a></li>
                     <li><a href="#">news</a></li>
                     <li><a href="#">matériel</a></li>
