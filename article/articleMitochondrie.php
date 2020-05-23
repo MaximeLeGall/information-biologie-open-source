@@ -18,5 +18,4 @@
 
 <?php require_once "companion-article.php" ?>
 
-<script src="articles.js" type="text/javascript"></script>
 <?php require_once "../page-php/footer.php" ?>

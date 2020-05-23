@@ -74,12 +74,12 @@ nav ul{
 }
 /*scroll bar nav*/
 
-.fixed{
-    position: fixed;       /*on pourrait aussi juste utilisé {position: sticky} (sauf IE) et donc pas besoin de JS*/
+/* .fixed{
+    position: fixed;       on pourrait aussi juste utilisé {position: sticky} (sauf IE) et donc pas besoin de JS
     top: 0;
     left: 0;
     right: 0;
-}
+} */
 
 
 /*responsive horizontal nav-bar*/

@@ -27,5 +27,4 @@
     </div>
 </div>
 
-<script src="acceuil.js" type="text/javascript"></script>
 <?php require_once "../page-php/footer.php"?>

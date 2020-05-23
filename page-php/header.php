@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php
+                // add style file
             $itemSelected = explode("/", $_SERVER['SCRIPT_NAME']);
             if(in_array("acceuil", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="acceuil.css">
@@ -17,7 +18,7 @@
         </div>
         
         <header>
-            <nav class="menu">
+            <nav class="menu" data-sticky="sticky">
                 <ul>
                     <li><a href="http://localhost:8000/acceuil/acceuil.php">acceuil</a></li>
                     <li><a href="#">cathégorie</a></li>

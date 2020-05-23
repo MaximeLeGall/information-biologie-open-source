@@ -8,4 +8,5 @@
             </div>
         </footer>
     </body>
+    <script src="../page-php/function-animations-pages.js" type="text/javascript"></script>
 </html>

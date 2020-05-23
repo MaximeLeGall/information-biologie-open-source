@@ -4,18 +4,20 @@
     var title = document.querySelectorAll("h1, h2")
     var liste = document.querySelector(".reading-companion-panel-list")
     var hrefCompanion = document.querySelector(".reading-companion-section-item a")
-    for(i = 0; i < title.length; i++){
-        hrefCompanion.innerHTML = title[i].textContent
-        hrefCompanion.setAttribute("href", "#link"+[i])
-        title[i].setAttribute("id", "link"+[i])
-        var companionLink = document.querySelector(".reading-companion-section-item").cloneNode(true)
-        liste.appendChild(companionLink)
+    if(liste != undefined){
+        for(i = 0; i < title.length; i++){
+            hrefCompanion.innerHTML = title[i].textContent
+            hrefCompanion.setAttribute("href", "#link"+[i])
+            title[i].setAttribute("id", "link"+[i])
+            var companionLink = document.querySelector(".reading-companion-section-item").cloneNode(true)
+            liste.appendChild(companionLink)
+        }
+        liste.removeChild(liste.getElementsByTagName("li")[0])
     }
-    liste.removeChild(liste.getElementsByTagName("li")[0])
 })();
 
 
-//menu collant 
+//nav-bar and companion, sticky 
 (function(){
     var scrollY = function(){
         var supportPageOffset = window.pageXOffset !== undefined;
@@ -84,15 +86,6 @@
     
     
 })();
-
-
-
-
-
-
-
-
-
 
 
 
