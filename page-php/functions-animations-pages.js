@@ -1,5 +1,4 @@
-
-//Automatisation de l'incrémentation des titres ddans companion
+//Automatisation de l'incrémentation des titres dans companion
 (function(){
     var title = document.querySelectorAll("h1, h2")
     var liste = document.querySelector(".reading-companion-panel-list")
