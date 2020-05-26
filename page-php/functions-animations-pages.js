@@ -12,8 +12,20 @@
             liste.appendChild(companionLink)
         }
         liste.removeChild(liste.getElementsByTagName("li")[0])
+
     }
+        //align title in screen
+        function offsetAnchor() {
+            if(location.hash.length !== 0) {
+                window.scrollTo(window.scrollX, window.scrollY - 100);
+            }
+        }
+        
+        window.addEventListener("hashchange", offsetAnchor);
+        window.setTimeout(offsetAnchor, 1);
+
 })();
+
 
 
 //nav-bar and companion, sticky 
@@ -25,7 +37,7 @@
     }
     
     var elements = document.querySelectorAll('[data-sticky]')
-    for(var i = 0; elements.length; i++){
+    for(var i = 0; i < elements.length; i++){
         (function(element){
             var rect = element.getBoundingClientRect()
             var top = rect.top + scrollY()
@@ -42,7 +54,6 @@
             fakeElement.style.width = rect.width + "px"
             fakeElement.style.height = rect.height + "px"
             var onScroll = function(){ 
-                //var hasScrollClass = element.classList.contains("fixed")    //pas d'exécution de la condition dès que l'on scroll
                 if(scrollY() > constraintBottom && element.style.position != "absolute"){
                     element.style.position = "absolute"
                     element.style.bottom = "0"
