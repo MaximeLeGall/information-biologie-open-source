@@ -4,9 +4,9 @@
         <link rel="stylesheet" type="text/css" href="../page-php/header-footer.css">
         <?php
                 // add style file
-            $itemSelected = explode("/", $_SERVER['SCRIPT_NAME']);
-            if(in_array("acceuil", $itemSelected)):?>
-                <link rel="stylesheet" type="text/css" href="acceuil.css">
+            $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
+            if(in_array("index", $itemSelected)):?>
+                <link rel="stylesheet" type="text/css" href="index.css">
             <?php elseif(in_array("article", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="articles.css">
             <?php endif?>
@@ -21,7 +21,7 @@
         <header>
             <nav class="menu" data-sticky="sticky">
                 <ul>
-                    <li><a href="http://localhost:8000/acceuil/acceuil.php">acceuil</a></li>
+                    <li><a href="http://localhost:8000/index.php">acceuil</a></li>
                     <li><a href="#">cathégorie</a></li>
                     <li><a href="#">news</a></li>
                     <li><a href="#">matériel</a></li>

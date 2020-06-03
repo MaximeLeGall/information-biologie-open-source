@@ -1,4 +1,4 @@
-<?php require  __DIR__ . "../../page-php/header.php"?>
+<?php require  __DIR__ . "../page-php/header.php"?>
 
 
 <svg class="svgLength" viewbox="0 0 8 6">
@@ -27,4 +27,4 @@
     </div>
 </div>
 
-<?php require_once __DIR__ . "../../page-php/footer.php"?>
+<?php require_once __DIR__ . "../page-php/footer.php"?>
