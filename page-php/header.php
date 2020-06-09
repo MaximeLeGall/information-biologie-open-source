@@ -14,8 +14,21 @@
         <title>vieillissement</title>
     </head>
     <body> 
-        <div class="carousel">
-            <p>LOGO</p>
+        <div class="overlay">
+            <div class="overlay-words">
+                <span class="js-font-overlay">ADN</span>
+                <span class="js-font-overlay">mitochondrie</span>
+                <span class="js-font-overlay">nutrition</span>
+                <span class="js-font-overlay">maladie</span>
+                <span class="js-font-overlay">ADN</span>
+                <span class="js-font-overlay">cellulaire</span>
+                <span class="js-font-overlay">et</span>
+                <span class="js-font-overlay">vieillissement</span>
+                <span class="js-font-overlay">cellulaire</span>
+                <span class="js-font-overlay">cancer</span>
+                <span class="js-font-overlay">molécules</span>
+            </div>
+
         </div>
         
         <header>

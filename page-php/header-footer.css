@@ -10,21 +10,15 @@ body{
     padding: 0;
 }
 /*carousel*/
-.carousel{
-    height: 400px;
+.overlay{
+    height: 500px;
     background-color: #000;
     color: #fff;
     font-size: 50px;
     position: relative;
     margin: 0 auto;
 }
-.carousel p{
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 
 /*navbar*/
 nav{
