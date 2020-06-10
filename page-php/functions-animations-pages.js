@@ -1,4 +1,4 @@
-//Automatisation de l'incrémentation des titres dans companion
+//Automatisation de l'implémentation des titres dans companion
 (function(){
     var title = document.querySelectorAll("h1, h2")
     var liste = document.querySelector(".reading-companion-panel-list")
@@ -22,7 +22,6 @@
         }
         
         window.addEventListener("hashchange", offsetAnchor);
-        window.setTimeout(offsetAnchor, 1);
 
 })();
 
@@ -75,8 +74,8 @@
                 }
             }
 
-            //redimentionné quand l'utilisateur modifie la taille de la fenetre
 
+            //redimentionné quand l'utilisateur modifie la taille de la fenetre
             var onResize = function(){
                 element.style.position = "static"
                 fakeElement.style.display = "none"
