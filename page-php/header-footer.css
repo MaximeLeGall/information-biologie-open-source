@@ -11,14 +11,30 @@ body{
 }
 /*carousel*/
 .overlay{
+    display: flex;
+    justify-content: center;
     height: 500px;
     background-color: #000;
-    color: #fff;
     font-size: 50px;
     position: relative;
     margin: 0 auto;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 900;
+    -webkit-text-stroke: azure 1px;;
 }
 
+.overlay-css{
+    opacity: 0.5;
+}
+
+/* .js-overlay-active{
+    color: azure;
+    opacity: 1;
+    -webkit-text-stroke: 0;
+} */
 
 /*navbar*/
 nav{

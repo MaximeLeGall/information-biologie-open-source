@@ -16,17 +16,17 @@
     <body> 
         <div class="overlay">
             <div class="overlay-words">
-                <span class="js-font-overlay">ADN</span>
-                <span class="js-font-overlay">mitochondrie</span>
-                <span class="js-font-overlay">nutrition</span>
-                <span class="js-font-overlay">maladie</span>
-                <span class="js-font-overlay">ADN</span>
-                <span class="js-font-overlay">cellulaire</span>
-                <span class="js-font-overlay">et</span>
-                <span class="js-font-overlay">vieillissement</span>
-                <span class="js-font-overlay">cellulaire</span>
-                <span class="js-font-overlay">cancer</span>
-                <span class="js-font-overlay">molécules</span>
+                <span class="overlay-css js-overlay-active">ADN</span>
+                <span class="overlay-css js-overlay-active">mitochondrie</span>
+                <span class="overlay-css js-overlay-active">nutrition</span>
+                <span class="overlay-css js-overlay-active">maladie</span>
+                <span class="overlay-css js-overlay-active">ADN</span>
+                <span class="overlay-css js-overlay-active">cellulaire</span>
+                <span class="overlay-css js-overlay-active">et</span>
+                <span class="overlay-css js-overlay-active">vieillissement</span>
+                <span class="overlay-css js-overlay-active">cellulaire</span>
+                <span class="overlay-css js-overlay-active">cancer</span>
+                <span class="overlay-css js-overlay-active">molécules</span>
             </div>
 
         </div>
