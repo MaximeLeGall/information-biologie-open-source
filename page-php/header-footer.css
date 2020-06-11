@@ -15,26 +15,30 @@ body{
     justify-content: center;
     height: 500px;
     background-color: #000;
-    font-size: 50px;
+    font-size: 40px;
     position: relative;
-    margin: 0 auto;
     overflow-x: hidden;
     white-space: nowrap;
     text-transform: uppercase;
     font-family: sans-serif;
     font-weight: 900;
-    -webkit-text-stroke: azure 1px;;
+    -webkit-text-stroke: azure 1px;
+}
+
+.overlay-words{
+    line-height: 100%;
+    margin: auto 0;
 }
 
 .overlay-css{
     opacity: 0.5;
 }
 
-/* .js-overlay-active{
+.js-overlay-actives{
     color: azure;
     opacity: 1;
     -webkit-text-stroke: 0;
-} */
+}
 
 /*navbar*/
 nav{
