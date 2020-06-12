@@ -96,5 +96,14 @@
     
 })();
 
-
+var overlayLenght = document.querySelector(".overlay-words").childElementCount;
+var word = document.querySelector(".overlay-words").children;
+for(i = 0; i < overlayLenght; i++){
+    var arrayOverlayWords = [];
+    if(arrayOverlayWords.includes(word[i])){
+        
+    }
+    console.log(word[i].textContent);
+    console.log(i);
+}
 
