@@ -106,7 +106,7 @@ function animationOverlayWords(){
     var arrayOverlayWords = [];
     for(i = 0; i < overlayLenght; i++){
         if(arrayOverlayWords[0] != null){
-            var element = 0;
+            let element = 0;
             while(element < arrayOverlayWords.length && word[i].textContent != ""){
                 if(arrayOverlayWords[element].includes(word[i].textContent)){
                     arrayOverlayWords[element][1].push(i);
@@ -122,22 +122,30 @@ function animationOverlayWords(){
             arrayOverlayWords.push([word[i].textContent,[i]]);
         }
     }
-        //activation overlay
-    const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénérative","et cancer"],["molécules","antivieillissement"]]
-    var randomElementIteration = function(numberIteration){
+        //choix aléatoire des ittérations
+    const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]]
+    const randomElementIteration = function(numberIteration){
         return Math.round(Math.random() * Math.floor(numberIteration));
     }
-    arrayPhrases.forEach(phrase => {
-        arrayOverlayWords.forEach(element => {
-            var randomIteration = randomElementIteration(element[1].length);
-            if(phrase[0] == element[0]){
-                for(word of phrase){
-                    console.log(word);
-                }
-                // console.log(randomIteration);
-                // console.log(element);
-            }
-        });
-    });
+    for(phrase of arrayPhrases){
+        var actifWord = [];
+        var randomIndexKey = [];
+        var keyWord = [];
+        function filtreWord(arrayOverlayWords, word){
+            return arrayOverlayWords.filter(el => el.indexOf(word) !== -1)
+        }
+        for(word of phrase){
+            actifWord.push(filtreWord(arrayOverlayWords, word));
+        }
+        for(element of actifWord){
+            randomIndexKey.push(randomElementIteration(element[0][1].length));
+        }
+        for(index of randomIndexKey){
+            keyWord.push(element[0][1][index]);
+        }
+        console.log(keyWord);
+    }
+        //activation overlay
+    
 }
 animationOverlayWords()
