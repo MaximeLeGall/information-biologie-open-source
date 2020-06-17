@@ -34,7 +34,7 @@ body{
     opacity: 0.5;
 }
 
-.js-overlay-actives{
+.js-overlay-active{
     color: azure;
     opacity: 1;
     -webkit-text-stroke: 0;
