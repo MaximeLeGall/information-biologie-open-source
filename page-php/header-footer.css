@@ -13,7 +13,7 @@ body{
 .overlay{
     display: flex;
     justify-content: center;
-    height: 500px;
+    height: 455px;
     background-color: #000;
     font-size: 40px;
     position: relative;
@@ -35,9 +35,24 @@ body{
 }
 
 .js-overlay-active{
-    color: azure;
-    opacity: 1;
-    -webkit-text-stroke: 0;
+    /* color: azure;
+    -webkit-text-stroke: 0; */
+    animation: activation 3s;
+}
+
+@keyframes activation{
+    from{
+        opacity: 1;
+    }
+
+    50%{
+        color: azure;
+    }
+
+    to{
+        opacity: 1;
+        color: azure;
+    }
 }
 
 /*navbar*/

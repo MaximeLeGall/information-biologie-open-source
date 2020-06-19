@@ -46,16 +46,6 @@
                 <span class="overlay-css">et</span>
                 <span class="overlay-css">neurodégénératives</span>
                 <br>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">vieillissement</span>
-                <br>
                 <span class="overlay-css">neurodégénératives</span>
                 <span class="overlay-css">nutrition</span>
                 <span class="overlay-css">et cancer</span>
