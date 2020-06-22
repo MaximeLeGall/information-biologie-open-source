@@ -19,12 +19,12 @@
                 <span class="overlay-css">neurodégénératives</span>
                 <span class="overlay-css">nutrition</span>
                 <span class="overlay-css">maladies</span>
-                <span class="overlay-css">antivieillissement</span>
+                <span class="overlay-css">molécules</span>
                 <span class="overlay-css">cellulaire</span>
                 <span class="overlay-css">et</span>
                 <span class="overlay-css">vieillissement</span>
+                <span class="overlay-css">antivieillissement</span>
                 <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">molécules</span>
                 <br>
                 <span class="overlay-css">nutrition</span>
                 <span class="overlay-css">et</span>
@@ -132,7 +132,7 @@
         <header>
             <nav class="menu" data-sticky="sticky">
                 <ul>
-                    <li><a href="http://localhost:8000/index.php">acceuil</a></li>
+                    <li><a href="http://localhost:8000/index.php">accueil</a></li>
                     <li><a href="#">cathégorie</a></li>
                     <li><a href="#">news</a></li>
                     <li><a href="#">matériel</a></li>
