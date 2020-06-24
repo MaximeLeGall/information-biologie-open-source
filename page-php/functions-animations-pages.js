@@ -100,52 +100,76 @@
 //animation overlay-words
 
 function animationOverlayWords(){
-        //stockage des différentes itérations de l'overlay
+        //stockage des différentes répétition dans l'overlay
     var overlayLenght = document.querySelector(".overlay-words").childElementCount;
-    var word = document.querySelector(".overlay-words").children;
+    var allSpanWord = document.querySelector(".overlay-words").children;
     var arrayOverlayWords = [];
     for(i = 0; i < overlayLenght; i++){
-        if(arrayOverlayWords[0] != null){
-            let element = 0;
-            while(element < arrayOverlayWords.length && word[i].textContent != ""){
-                if(arrayOverlayWords[element].includes(word[i].textContent)){
-                    arrayOverlayWords[element][1].push(i);
-                    break;
+        if(allSpanWord[i].getBoundingClientRect().left > 0 && allSpanWord[i].getBoundingClientRect().right < window.innerWidth){
+            if(arrayOverlayWords[0] != null){   
+                let element = 0;
+                while(element < arrayOverlayWords.length && allSpanWord[i].textContent != ""){  //si textContent = "": il sagit d'un <br>
+                    if(arrayOverlayWords[element].includes(allSpanWord[i].textContent)){
+                        arrayOverlayWords[element][1].push(i);
+                        break;
+                    }
+                    if(element + 1 == arrayOverlayWords.length){
+                        arrayOverlayWords.push([allSpanWord[i].textContent,[i]]);
+                        break;
+                    }
+                    element++;
                 }
-                if(element + 1 == arrayOverlayWords.length){
-                    arrayOverlayWords.push([word[i].textContent,[i]]);
-                    break;
-                }
-                element++;
+            } else{
+                arrayOverlayWords.push([allSpanWord[i].textContent,[i]]);
             }
-        } else{
-            arrayOverlayWords.push([word[i].textContent,[i]]);
         }
-    }
-        //choix aléatoire des ittérations
-    const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]]
-    const randomElementIteration = function(numberIteration){
-        return Math.round(Math.random() * Math.floor(numberIteration));
-    }
-    for(phrase of arrayPhrases){
-        var actifWord = [];
-        var randomIndexKey = [];
-        var keyWord = [];
-        function filtreWord(arrayOverlayWords, word){
-            return arrayOverlayWords.filter(el => el.indexOf(word) !== -1)
-        }
-        for(word of phrase){
-            actifWord.push(filtreWord(arrayOverlayWords, word));
-        }
-        for(element of actifWord){
-            randomIndexKey.push(randomElementIteration(element[0][1].length));
-        }
-        for(index of randomIndexKey){
-            keyWord.push(element[0][1][index]);
-        }
-        console.log(keyWord);
-    }
-        //activation overlay
+    };
+    activationPhrase()
+
+        //choix aléatoire des itérations de chaque phrase
     
+    function activationPhrase(){
+        const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
+        const randomElementIteration = function(parseFloatPossibleIteration){
+            return Math.round(Math.random() * Math.floor(parseFloatPossibleIteration));
+        };
+        const filtreWord = function(arrayOverlayWords, word){
+            return arrayOverlayWords.filter(el => el.indexOf(word) !== -1)
+        };
+        var incrément = 0;
+        arrayPhrases.forEach(phrase => {
+            setTimeout(function() {
+                let elementArrayOverlayWords;
+                let randomIndexKey;
+                let arrayKeyWord = [];
+                let i = 0;
+                for(elementPhrase of phrase){
+                    let keyWord = 0;
+                    let elementIndex = phrase.length - arrayKeyWord.length;
+                    elementArrayOverlayWords = filtreWord(arrayOverlayWords, elementPhrase);
+                    while(keyWord < arrayKeyWord[i-1]){
+                        randomIndexKey = randomElementIteration(elementArrayOverlayWords[0][1].length - elementIndex);
+                        keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
+                    }
+                    if(arrayKeyWord[0] == null){
+                        randomIndexKey = randomElementIteration(elementArrayOverlayWords[0][1].length - phrase.length);
+                        keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
+                    }
+                    arrayKeyWord.push(keyWord);
+                    i++
+                }
+                    //activation de la nouvelle phrase et désactivation de l'ancienne
+                for(spanWord of allSpanWord){
+                        spanWord.classList.remove("js-overlay-active");
+                }
+                for(indexActive of arrayKeyWord){
+                    allSpanWord[indexActive].classList.add("js-overlay-active");
+                }
+                console.log("coucou")
+            }, 1 + incrément, incrément += 4000);
+        })
+        console.log(incrément)
+        setTimeout(activationPhrase, incrément);
+    };
 }
 animationOverlayWords()
