@@ -126,38 +126,70 @@ function animationOverlayWords(){
     };
     activationPhrase()
 
+
         //choix aléatoire des itérations de chaque phrase
     
     function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
+            console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
             return Math.round(Math.random() * Math.floor(parseFloatPossibleIteration));
         };
-        const filtreWord = function(arrayOverlayWords, word){
+        const filterWord = function(arrayOverlayWords, word){
             return arrayOverlayWords.filter(el => el.indexOf(word) !== -1)
         };
         var incrément = 0;
         arrayPhrases.forEach(phrase => {
             setTimeout(function() {
                 let elementArrayOverlayWords;
+                let lenghtIteration;
+
+                        //suppression de l'index de l'itération si > au dernier index de l'élément suivant
+
+                let lastKey = null;
+                let viableIteration = [];
+                phrase.reverse();
+                console.log(phrase)
+                for(elementReversedPhrase of phrase){
+                    elementArrayOverlayWords = filterWord(arrayOverlayWords, elementReversedPhrase);
+                    lenghtIteration = elementArrayOverlayWords[0][1].length - 1;
+                    if(lastKey != null){
+                        while(elementArrayOverlayWords[0][1].every(elem => elem < lastKey) == false){
+                            elementArrayOverlayWords[0][1].pop();
+                        }
+                    }
+                    viableIteration.push(elementArrayOverlayWords[0]);
+                    lastKey = elementArrayOverlayWords[0][1][lenghtIteration];
+                }
+
+                        //choix aléatoire des itérations
+                
+                phrase.reverse();
                 let randomIndexKey;
                 let arrayKeyWord = [];
                 let i = 0;
                 for(elementPhrase of phrase){
+                    console.log(elementPhrase)
                     let keyWord = 0;
-                    let elementIndex = phrase.length - arrayKeyWord.length;
-                    elementArrayOverlayWords = filtreWord(arrayOverlayWords, elementPhrase);
+                    elementArrayOverlayWords = filterWord(viableIteration, elementPhrase);
+                    console.log(elementArrayOverlayWords[0][1])
+                    lenghtIteration = elementArrayOverlayWords[0][1].length - 1;
+                    let stop = 0;
                     while(keyWord < arrayKeyWord[i-1]){
-                        randomIndexKey = randomElementIteration(elementArrayOverlayWords[0][1].length - elementIndex);
+                        randomIndexKey = randomElementIteration(lenghtIteration);
                         keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
+                        stop++;
                     }
                     if(arrayKeyWord[0] == null){
-                        randomIndexKey = randomElementIteration(elementArrayOverlayWords[0][1].length - phrase.length);
+                        randomIndexKey = randomElementIteration(lenghtIteration);
                         keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
                     }
+                    console.log(randomIndexKey)
+                    console.log(keyWord)
                     arrayKeyWord.push(keyWord);
                     i++
                 }
+                console.log(phrase)
                     //activation de la nouvelle phrase et désactivation de l'ancienne
                 for(spanWord of allSpanWord){
                         spanWord.classList.remove("js-overlay-active");
@@ -165,10 +197,8 @@ function animationOverlayWords(){
                 for(indexActive of arrayKeyWord){
                     allSpanWord[indexActive].classList.add("js-overlay-active");
                 }
-                console.log("coucou")
             }, 1 + incrément, incrément += 4000);
         })
-        console.log(incrément)
         setTimeout(activationPhrase, incrément);
     };
 }
