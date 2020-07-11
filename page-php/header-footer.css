@@ -14,7 +14,6 @@ body{
     display: flex;
     justify-content: center;
     height: 455px;
-    background-color: #000;
     font-size: 40px;
     position: relative;
     overflow-x: hidden;
@@ -23,15 +22,20 @@ body{
     font-family: sans-serif;
     font-weight: 900;
     -webkit-text-stroke: azure 1px;
+    background-image: url("image-overlay-1920/1.jpg");
+    background-position: center;
+    background-size: 70%;
 }
 
+
 .overlay-words{
+    z-index: 2;
     line-height: 100%;
     margin: auto 0;
 }
 
 .overlay-css{
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 .js-overlay-active{
@@ -45,9 +49,7 @@ body{
         opacity: 1;
     }
 
-    50%{
-        color: azure;
-    }
+    
 
     to{
         opacity: 1;

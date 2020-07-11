@@ -98,8 +98,22 @@
 
 
 //animation overlay-words
+(function animationBackgroundOverlay(){
+    var overlayImage = document.querySelector(".overlay");
+    var arraySrcImage = [];
+    var i = 1;
+    var srcImage = "image-overlay-1920/" + i + ".jpg";
+    console.log(url(srcImage))
+    while(url(srcImage) != undefined && i < 10){
+        srcImage = "image-overlay-1920/" + i + ".jpg";
+        arraySrcImage.push(srcImage)
+        // console.log(overlayImage.style.background-image)
+        i++
+    }
+    console.log(arraySrcImage)
+}());
 
-function animationOverlayWords(){
+(function animationOverlayWords(){
         //stockage des différentes répétition dans l'overlay
     var overlayLenght = document.querySelector(".overlay-words").childElementCount;
     var allSpanWord = document.querySelector(".overlay-words").children;
@@ -124,12 +138,11 @@ function animationOverlayWords(){
             }
         }
     };
-    activationPhrase()
 
 
         //choix aléatoire des itérations de chaque phrase
     
-    function activationPhrase(){
+    (function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
             console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
@@ -199,7 +212,7 @@ function animationOverlayWords(){
                 }
             }, 1 + incrément, incrément += 4000);
         })
+        console.log("incrément: " + incrément)
         setTimeout(activationPhrase, incrément);
-    };
-}
-animationOverlayWords()
+    }());
+}());
