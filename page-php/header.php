@@ -2,6 +2,20 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../page-php/header-footer.css">
+        <!-- (function animationBackgroundOverlay(){
+            var overlayImage = document.querySelector(".overlay");
+            var arraySrcImage = [];
+            var i = 1;
+            var srcImage = "image-overlay-1920/" + i + ".jpg";
+            console.log(url(srcImage))
+            while(url(srcImage) != undefined && i < 10){
+                srcImage = "image-overlay-1920/" + i + ".jpg";
+                arraySrcImage.push(srcImage)
+                // console.log(overlayImage.style.background-image)
+                i++
+            }
+            console.log(arraySrcImage)
+        }()); -->
             
                 <!--  add style file -->
             <?php $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
@@ -13,7 +27,18 @@
         
         <title>vieillissement</title>
     </head>
-    <body> 
+    <body>
+        <?php 
+            $arraySrcImage = [];
+            $i = 1;
+            $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+            while(file_exists($srcImage)){
+                array_push($arraySrcImage, $srcImage);
+                $i++;
+                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+            }
+            print_r($arraySrcImage);
+        ?>
         <div class="overlay">
             <div class="overlay-words">
                 <span class="overlay-css">neurodégénératives</span>
