@@ -97,21 +97,31 @@
 
 
 
-//animation overlay-words
-(function animationBackgroundOverlay(){
-    var overlayImage = document.querySelector(".overlay");
-    var arraySrcImage = [];
-    var i = 1;
-    var srcImage = "image-overlay-1920/" + i + ".jpg";
-    console.log(url(srcImage))
-    while(url(srcImage) != undefined && i < 10){
-        srcImage = "image-overlay-1920/" + i + ".jpg";
-        arraySrcImage.push(srcImage)
-        // console.log(overlayImage.style.background-image)
-        i++
-    }
-    console.log(arraySrcImage)
-}());
+    //animation overlay-words
+(function(){
+    // for(i = 0; i < arraySrcImage.length; i++){
+
+    // }
+    var timeImage;
+    var imageOverlay = document.querySelector(".imageOverlay");
+    setInterval(function animationBackgroundOverlay() {
+        timeImage = 0;
+        arraySrcImage.forEach(element => {
+            setTimeout(function() {
+                imageOverlay.style.backgroundImage = "url(" + element + ")";
+            }, 1 + timeImage, timeImage += 6000);
+        });
+        return animationBackgroundOverlay;
+    }(), timeImage);
+})();
+// (function animationBackgroundOverlay(){
+//     i = 0;
+//     while(i < arraySrcImage.length){
+//         console.log(arraySrcImage[i])
+//         i++
+//     }
+//     console.log(arraySrcImage)
+// }());
 
 (function animationOverlayWords(){
         //stockage des différentes répétition dans l'overlay

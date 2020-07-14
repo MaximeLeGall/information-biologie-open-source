@@ -28,18 +28,7 @@
         <title>vieillissement</title>
     </head>
     <body>
-        <?php 
-            $arraySrcImage = [];
-            $i = 1;
-            $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
-            while(file_exists($srcImage)){
-                array_push($arraySrcImage, $srcImage);
-                $i++;
-                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
-            }
-            print_r($arraySrcImage);
-        ?>
-        <div class="overlay">
+        <div class="overlay imageOverlay">
             <div class="overlay-words">
                 <span class="overlay-css">neurodégénératives</span>
                 <span class="overlay-css">et</span>

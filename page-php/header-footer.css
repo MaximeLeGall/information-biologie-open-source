@@ -22,11 +22,21 @@ body{
     font-family: sans-serif;
     font-weight: 900;
     -webkit-text-stroke: azure 1px;
-    background-image: url("image-overlay-1920/1.jpg");
     background-position: center;
     background-size: 70%;
 }
 
+/* .imageOverlay{
+    animation: animation-backround-image 4000 ease-in 0;
+}
+@keyframes animation-backround-image{
+    from{
+
+    } 
+    to{
+        background-image: ;
+    }
+} */
 
 .overlay-words{
     z-index: 2;
