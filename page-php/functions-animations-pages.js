@@ -99,16 +99,25 @@
 
     //animation overlay-words
 (function(){
-    // for(i = 0; i < arraySrcImage.length; i++){
+    var arrayImage = [];
+    var backgroudImageOverlay = document.querySelector(".backgroud-image-overlay");
+    for(i = 0; i < arraySrcImage.length; i++){
+        var newImage = document.createElement("img");
+        newImage.classList.add("image" + i);
+        newImage.setAttribute("src",  arraySrcImage[i]);
+        backgroudImageOverlay.appendChild(newImage);
+        arrayImage.push("image" + i);
+    }
 
-    // }
     var timeImage;
-    var imageOverlay = document.querySelector(".imageOverlay");
+    var allImage = document.querySelectorAll(".backgroud-image-overlay img");
+    console.log(allImage)
     setInterval(function animationBackgroundOverlay() {
         timeImage = 0;
-        arraySrcImage.forEach(element => {
+        arrayImage.forEach(element => {
             setTimeout(function() {
-                imageOverlay.style.backgroundImage = "url(" + element + ")";
+                var imageDisplay = document.querySelector(element);
+                imageDisplay.style.zIndex = "1";
             }, 1 + timeImage, timeImage += 6000);
         });
         return animationBackgroundOverlay;
@@ -152,7 +161,7 @@
 
         //choix aléatoire des itérations de chaque phrase
     
-    (function activationPhrase(){
+    function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
             console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
@@ -224,5 +233,5 @@
         })
         console.log("incrément: " + incrément)
         setTimeout(activationPhrase, incrément);
-    }());
+    };
 }());
