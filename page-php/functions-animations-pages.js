@@ -97,9 +97,42 @@
 
 
 
-//animation overlay-words
+    //animation overlay-words
+(function(){
+    var arrayImage = [];
+    var backgroudImageOverlay = document.querySelector(".backgroud-image-overlay");
+    for(i = 0; i < arraySrcImage.length; i++){
+        var newImage = document.createElement("img");
+        newImage.classList.add("image" + i);
+        newImage.setAttribute("src",  arraySrcImage[i]);
+        backgroudImageOverlay.appendChild(newImage);
+        arrayImage.push("image" + i);
+    }
 
-function animationOverlayWords(){
+    var timeImage;
+    var allImage = document.querySelectorAll(".backgroud-image-overlay img");
+    console.log(allImage)
+    setInterval(function animationBackgroundOverlay() {
+        timeImage = 0;
+        arrayImage.forEach(element => {
+            setTimeout(function() {
+                var imageDisplay = document.querySelector(element);
+                imageDisplay.style.zIndex = "1";
+            }, 1 + timeImage, timeImage += 6000);
+        });
+        return animationBackgroundOverlay;
+    }(), timeImage);
+})();
+// (function animationBackgroundOverlay(){
+//     i = 0;
+//     while(i < arraySrcImage.length){
+//         console.log(arraySrcImage[i])
+//         i++
+//     }
+//     console.log(arraySrcImage)
+// }());
+
+(function animationOverlayWords(){
         //stockage des différentes répétition dans l'overlay
     var overlayLenght = document.querySelector(".overlay-words").childElementCount;
     var allSpanWord = document.querySelector(".overlay-words").children;
@@ -124,7 +157,6 @@ function animationOverlayWords(){
             }
         }
     };
-    activationPhrase()
 
 
         //choix aléatoire des itérations de chaque phrase
@@ -199,7 +231,7 @@ function animationOverlayWords(){
                 }
             }, 1 + incrément, incrément += 4000);
         })
+        console.log("incrément: " + incrément)
         setTimeout(activationPhrase, incrément);
     };
-}
-animationOverlayWords()
+}());

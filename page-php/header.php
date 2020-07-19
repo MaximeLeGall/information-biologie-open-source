@@ -2,9 +2,23 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../page-php/header-footer.css">
-        <?php
-                // add style file
-            $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
+        <!-- (function animationBackgroundOverlay(){
+            var overlayImage = document.querySelector(".overlay");
+            var arraySrcImage = [];
+            var i = 1;
+            var srcImage = "image-overlay-1920/" + i + ".jpg";
+            console.log(url(srcImage))
+            while(url(srcImage) != undefined && i < 10){
+                srcImage = "image-overlay-1920/" + i + ".jpg";
+                arraySrcImage.push(srcImage)
+                // console.log(overlayImage.style.background-image)
+                i++
+            }
+            console.log(arraySrcImage)
+        }()); -->
+            
+                <!--  add style file -->
+            <?php $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
             if(in_array("index", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="index.css">
             <?php elseif(in_array("article", $itemSelected)):?>
@@ -13,121 +27,138 @@
         
         <title>vieillissement</title>
     </head>
-    <body> 
-        <div class="overlay">
-            <div class="overlay-words">
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">et cancer</span>
-                <br>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">maladies</span>
-                <br>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <br>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">antivieillissement</span>
-                <br>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">et</span>
-                <br>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">molécules</span>
-                <br>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">nutrition</span>
-                <br>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">molécules</span>
-                <br>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">molécules</span>
-                <br>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">maladies</span>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <br>
-                <span class="overlay-css">antivieillissement</span>
-                <span class="overlay-css">molécules</span>
-                <span class="overlay-css">neurodégénératives</span>
-                <span class="overlay-css">vieillissement</span>
-                <span class="overlay-css">nutrition</span>
-                <span class="overlay-css">et cancer</span>
-                <span class="overlay-css">et</span>
-                <span class="overlay-css">cellulaire</span>
-                <span class="overlay-css">maladies</span>
+    <body>
+        <?php 
+            $arraySrcImage = [];
+            $i = 1;
+            $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+            while(file_exists($srcImage)){
+                array_push($arraySrcImage, $srcImage);
+                $i++;
+                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+            }
+        ?>
+        <script>
+            var arraySrcImage = <?php echo json_encode($arraySrcImage); ?>;
+        </script>
+        <div class="carousel">
+            <div class="backgroud-image-overlay">
             </div>
-
+            <div class="overlay">
+                <div class="overlay-words">
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">et cancer</span>
+                    <br>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">maladies</span>
+                    <br>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <br>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <br>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">et</span>
+                    <br>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">molécules</span>
+                    <br>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">nutrition</span>
+                    <br>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">molécules</span>
+                    <br>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">molécules</span>
+                    <br>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">maladies</span>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <br>
+                    <span class="overlay-css">antivieillissement</span>
+                    <span class="overlay-css">molécules</span>
+                    <span class="overlay-css">neurodégénératives</span>
+                    <span class="overlay-css">vieillissement</span>
+                    <span class="overlay-css">nutrition</span>
+                    <span class="overlay-css">et cancer</span>
+                    <span class="overlay-css">et</span>
+                    <span class="overlay-css">cellulaire</span>
+                    <span class="overlay-css">maladies</span>
+                </div>
+            </div>
         </div>
+        
         
         <header>
             <nav class="menu" data-sticky="sticky">
