@@ -108,29 +108,31 @@
         backgroudImageOverlay.appendChild(newImage);
         arrayImage.push("image" + i);
     }
-
+    
     var timeImage;
-    var allImage = document.querySelectorAll(".backgroud-image-overlay img");
-    console.log(allImage)
+    console.log(arrayImage)
     setInterval(function animationBackgroundOverlay() {
         timeImage = 0;
         arrayImage.forEach(element => {
             setTimeout(function() {
-                var imageDisplay = document.querySelector(element);
-                imageDisplay.style.zIndex = "1";
+                var nextImage = function(){
+                    var indexNextImage = arrayImage.indexOf(element) + 1;
+                    if(indexNextImage >= arrayImage.length){
+                        return arrayImage[0];
+                    }
+                    else{
+                        return arrayImage[indexNextImage];
+                    }
+                }
+                document.querySelector("." + nextImage()).style.zIndex = "1";
+                var currentImage = document.querySelector("." + element);
+                console.log(currentImage)
+                currentImage.classList.add("change-animation")
             }, 1 + timeImage, timeImage += 6000);
         });
         return animationBackgroundOverlay;
     }(), timeImage);
 })();
-// (function animationBackgroundOverlay(){
-//     i = 0;
-//     while(i < arraySrcImage.length){
-//         console.log(arraySrcImage[i])
-//         i++
-//     }
-//     console.log(arraySrcImage)
-// }());
 
 (function animationOverlayWords(){
         //stockage des différentes répétition dans l'overlay

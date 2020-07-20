@@ -32,26 +32,30 @@ body{
     -webkit-text-stroke: azure 1px;
 }
 
-
 .backgroud-image-overlay img{
     height: var(--height-carousel);
     width: 100%;
     position: absolute;
 }
-/* .imageOverlay3{
-
-} */
-/* .imageOverlay{
-    animation: animation-backround-image 4000 ease-in 0;
+.change-animation{
+    animation: animation-background-image 6s ease-in-out 0s;
+    z-index: 2;
 }
-@keyframes animation-backround-image{
-    from{
 
+@keyframes animation-background-image{
+    from{
     } 
-    to{
-        
+
+    50%{
+        opacity: 1;
+        /* clip-path: circle(150% at 50% 50%); */
     }
-} */
+
+    to{
+        opacity: 0;
+        /* clip-path: circle(0% at -50% -50%); */
+    }
+}
 
 .overlay-words{
     z-index: 2;
