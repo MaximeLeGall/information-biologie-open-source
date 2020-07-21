@@ -32,13 +32,13 @@ body{
     -webkit-text-stroke: azure 1px;
 }
 
-.backgroud-image-overlay img{
+.backgroud-image-carousel img{
     height: var(--height-carousel);
     width: 100%;
     position: absolute;
 }
 .change-animation{
-    animation: animation-background-image 6s ease-in-out 0s;
+    animation: animation-background-image 7s ease-in-out 0s;
     z-index: 2;
 }
 

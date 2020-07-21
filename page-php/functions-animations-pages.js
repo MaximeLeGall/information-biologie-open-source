@@ -96,11 +96,10 @@
 })();
 
 
-
-    //animation overlay-words
+    //animation backgroud-image carousel
 (function(){
     var arrayImage = [];
-    var backgroudImageOverlay = document.querySelector(".backgroud-image-overlay");
+    var backgroudImageOverlay = document.querySelector(".backgroud-image-carousel");
     for(i = 0; i < arraySrcImage.length; i++){
         var newImage = document.createElement("img");
         newImage.classList.add("image" + i);
@@ -110,30 +109,41 @@
     }
     
     var timeImage;
-    console.log(arrayImage)
     setInterval(function animationBackgroundOverlay() {
         timeImage = 0;
         arrayImage.forEach(element => {
             setTimeout(function() {
+                var currentImage = document.querySelector("." + element);
                 var nextImage = function(){
                     var indexNextImage = arrayImage.indexOf(element) + 1;
                     if(indexNextImage >= arrayImage.length){
-                        return arrayImage[0];
+                        return document.querySelector("." + arrayImage[0]);
                     }
                     else{
-                        return arrayImage[indexNextImage];
+                        return document.querySelector("." + arrayImage[indexNextImage]);
                     }
                 }
-                document.querySelector("." + nextImage()).style.zIndex = "1";
-                var currentImage = document.querySelector("." + element);
-                console.log(currentImage)
-                currentImage.classList.add("change-animation")
-            }, 1 + timeImage, timeImage += 6000);
+                var previousImage = function(){
+                    var indexPreviousImage = arrayImage.indexOf(element) - 1;
+                    if(indexPreviousImage < 0){
+                        return document.querySelector("." + arrayImage[arrayImage.length - 1]);
+                    }
+                    else{
+                        return document.querySelector("." + arrayImage[indexPreviousImage]);
+                    }
+                }
+                previousImage().classList.remove("change-animation");
+                nextImage().style.zIndex = "1";
+                currentImage.style.zIndex = "";
+                currentImage.classList.add("change-animation");
+            }, 1 + timeImage, timeImage += 7000);
         });
         return animationBackgroundOverlay;
     }(), timeImage);
 })();
 
+
+    //animation overlay-words carousel
 (function animationOverlayWords(){
         //stockage des différentes répétition dans l'overlay
     var overlayLenght = document.querySelector(".overlay-words").childElementCount;
@@ -163,7 +173,7 @@
 
         //choix aléatoire des itérations de chaque phrase
     
-    function activationPhrase(){
+    (function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
             console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
@@ -235,5 +245,5 @@
         })
         console.log("incrément: " + incrément)
         setTimeout(activationPhrase, incrément);
-    };
+    }());
 }());
