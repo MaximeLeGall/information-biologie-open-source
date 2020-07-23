@@ -173,7 +173,7 @@
 
         //choix aléatoire des itérations de chaque phrase
     
-    (function activationPhrase(){
+    function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
             console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
@@ -245,5 +245,5 @@
         })
         console.log("incrément: " + incrément)
         setTimeout(activationPhrase, incrément);
-    }());
+    };
 }());

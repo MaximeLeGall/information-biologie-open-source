@@ -18,19 +18,6 @@ body{
 .carousel{
     display: block;
 }
-.overlay{
-    display: flex;
-    justify-content: center;
-    height: var(--height-carousel);
-    font-size: 40px;
-    position: relative;
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-transform: uppercase;
-    font-family: sans-serif;
-    font-weight: 900;
-    -webkit-text-stroke: azure 1px;
-}
 
 .backgroud-image-carousel img{
     height: var(--height-carousel);
@@ -55,6 +42,21 @@ body{
         opacity: 0;
         /* clip-path: circle(0% at -50% -50%); */
     }
+}
+
+.overlay{
+    display: flex;
+    justify-content: center;
+    height: var(--height-carousel);
+    font-size: 40px;
+    position: relative;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-weight: 900;
+    color: #ffffff21;
+    -webkit-text-stroke: azure 1px;
 }
 
 .overlay-words{
