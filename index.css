@@ -1,12 +1,15 @@
+:root{
+    --background-first-part: #f1f1f1;
+}
 
 /*first-part*/
 
 #first-part{
-    width: 90%;
+    width: 92%;
     margin: 0 auto;
-    background-color: #f1f1f1;
+    background-color: var(--background-first-part);
     text-align: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 h2{
@@ -23,9 +26,31 @@ h2{
     display: inline-flex;
 }
 
-.newArticles div{
+
+.arrowChangeArticle{
+    height: 50px;
+    padding: 122px 0;
+    cursor: pointer;
+    position: absolute;
+    background-color: var(--background-first-part);
+    z-index: 1;
+}
+
+
+.leftArrow{
+    left: 4%;
+}
+
+.rightArrow{
+    right: 4%;
+}
+
+.inlineArticle{
+    display: inline-flex;
+}
+
+.inlineArticle div{
     background-color: white;
-    display: block;
     text-align: justify;
     width: 400px;
     height: 264px;
@@ -33,7 +58,7 @@ h2{
     overflow-y: scroll;
 }
 
-.newArticles div::-webkit-scrollbar {
+.inlineArticle div::-webkit-scrollbar {
     display: none;
 }
 
@@ -52,24 +77,8 @@ h2{
     text-decoration: none;
 }
 
-@media (max-width: 990px){
-    
-    #first-part{
-        width: auto;
-    }
-    #first-part div:nth-of-type(1){
-        margin-top: 48px;
-    }
-    #first-part div:nth-of-type(2){
-        margin-top: 15px;
-    }
-    #first-part div{
-        width: 600px;
-        height: 350px;
-        font-size: 20px;
-    }
-}
 
+/* seconde-part */
 #seconde-part{
     height: 400px;
     width: 100%;

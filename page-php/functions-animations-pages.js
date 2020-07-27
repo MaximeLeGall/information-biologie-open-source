@@ -15,13 +15,13 @@
 
     }
         //align title in screen
-        function offsetAnchor() {
-            if(location.hash.length !== 0) {
-                window.scrollTo(window.scrollX, window.scrollY - 100);
-            }
+    function offsetAnchor() {
+        if(location.hash.length !== 0) {
+            window.scrollTo(window.scrollX, window.scrollY - 100);
         }
-        
-        window.addEventListener("hashchange", offsetAnchor);
+    }
+    
+    window.addEventListener("hashchange", offsetAnchor);
 
 })();
 
@@ -43,7 +43,7 @@
             var offset = parseInt( element.getAttribute("data-offset") || 0, 10)
             if(element.getAttribute("data-constraint")){
                 var constraint = document.querySelector(element.getAttribute("data-constraint"))
-            } 
+            }
             else{
                 var constraint = document.body
             }
@@ -88,11 +88,9 @@
             }
 
             window.addEventListener("scroll", onScroll)
-            window.addEventListener("resize",onResize)
+            window.addEventListener("resize", onResize)
         })(elements[i])
     }
-    
-    
 })();
 
 
