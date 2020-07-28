@@ -234,7 +234,7 @@
                 console.log(phrase)
                     //activation de la nouvelle phrase et désactivation de l'ancienne
                 for(spanWord of allSpanWord){
-                        spanWord.classList.remove("js-overlay-active");
+                    spanWord.classList.remove("js-overlay-active");
                 }
                 for(indexActive of arrayKeyWord){
                     allSpanWord[indexActive].classList.add("js-overlay-active");
