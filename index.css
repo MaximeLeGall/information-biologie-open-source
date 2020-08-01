@@ -47,6 +47,7 @@ h2{
 
 .inlineArticle{
     display: inline-flex;
+    margin-left: 50px;
 }
 
 .inlineArticle div{
@@ -58,13 +59,29 @@ h2{
     overflow-y: scroll;
 }
 
-.activeArticle{
-    animation: animation_activeArticle 1.5s linear 0s;
+.hideArticle{
+    animation: animation_hideArticle 1.3s linear forwards 0s;
 }
 
-@keyframes animation_activeArticle{
+@keyframes animation_hideArticle{
     from{
-        display: block;
+        opacity: 1;
+    }
+    95%{
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.visibleArticle{
+    animation: animation_visibleArticle 1.5s linear 0s;
+}
+
+@keyframes animation_visibleArticle{
+    from{
         opacity: 0;
     }
     to{

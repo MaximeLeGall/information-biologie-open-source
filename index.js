@@ -4,61 +4,73 @@
 (function(){
     var firstPart, 
     firstPart_width,
-    abstractArticle,
-    abstractArticle_width,
-    abstractArticle_all,
-    abstractArticle_last_index,
-    abstractArticle_visible,
+    article,
+    article_width,
+    article_all,
+    article_last_index,
     arrowChangeArticle,
-    arrowChangeArticle_width;
+    arrowChangeArticle_width,
+    activeArticle_lenght,
+    allActiveArticle_width,
+    element;
     var visibleArticle = function(){
         firstPart = document.querySelector("#first-part");
         firstPart_width = firstPart.getBoundingClientRect().width;
-        abstractArticle = document.querySelector(".inlineArticle div");
-        abstractArticle_width = abstractArticle.getBoundingClientRect().width + 30;
-        abstractArticle_all = document.querySelectorAll(".inlineArticle div");
-        abstractArticle_last_index = abstractArticle_all.length;
-        arrowChangeArticle = document.querySelector(".arrowChangeArticle");
-        arrowChangeArticle_width = arrowChangeArticle.getBoundingClientRect().width * 2;
-        for(i = 0; i < abstractArticle_last_index; i++){
-            if(abstractArticle_width * (i + 1) + arrowChangeArticle_width < firstPart_width){
-                abstractArticle_all[i].classList.add("activeArticle");
+        article = document.querySelector(".inlineArticle div");
+        article_width = article.getBoundingClientRect().width + 30;
+        article_all = document.querySelectorAll(".inlineArticle div");
+        article_last_index = article_all.length;
+        activearticle_lenght = 0;
+        arrowChangeArticle_width = document.querySelector(".arrowChangeArticle").getBoundingClientRect().width * 2;
+        for(i = 0; i < article_last_index; i++){
+            element = article_all[i];
+            if(article_width * (i + 1) + arrowChangeArticle_width < firstPart_width){
+                element.classList.remove("hideArticle");
+                element.classList.add("visibleArticle");
+                activeArticle_lenght += 1;
             } 
             else{
-                abstractArticle_all[i].style.display = "none";
+                element.classList.remove("visibleArticle");
+                element.classList.add("hideArticle");
             }
         }
+        allActiveArticle_width = activeArticle_lenght * article_width;
     }
-    visibleArticle()
-    window.addEventListener("resize", visibleArticle)
+    visibleArticle();
+    window.addEventListener("resize", visibleArticle);
         
 
-    var lastAbstractArticle_width = 0;
+    var lastArticle_width = 0;
     var inlineArticle = document.querySelector(".inlineArticle");
-    var activeArticle_all = document.querySelectorAll(".activeArticle");
+    var activeArticle_all = document.querySelectorAll(".visibleArticle");
     var activeArticle_last;
     var activeArticle_first;
-    var article_invisible_width = abstractArticle_width * (abstractArticle_last_index - 1 - activeArticle_all.length);
+    var article_invisible_width = article_width * (article_last_index - 1 - activeArticle_all.length);
     function nextArticle(){
-        if(lastAbstractArticle_width < 0){
-            activeArticle_all = document.querySelectorAll(".activeArticle");
+        if(lastArticle_width < 0){
+            activeArticle_all = document.querySelectorAll(".visibleArticle");
             activeArticle_first = activeArticle_all[0];
-            lastAbstractArticle_width = lastAbstractArticle_width + abstractArticle_width;
-            inlineArticle.style.transform = "translateX(" + lastAbstractArticle_width + "px)";
+            activeArticle_last = activeArticle_all[activeArticle_all.length - 1];
+            lastArticle_width = lastArticle_width + article_width;
+            inlineArticle.style.transform = "translateX(" + lastArticle_width + "px)";
+            activeArticle_first.previousElementSibling.classList.add("visibleArticle");
+            activeArticle_first.previousElementSibling.classList.remove("hideArticle");
+            activeArticle_last.classList.add("hideArticle");
+            activeArticle_last.classList.remove("visibleArticle");
         }
     }
 
     function previousArticle(){
-        if( - lastAbstractArticle_width <= article_invisible_width){
-            activeArticle_all = document.querySelectorAll(".activeArticle");
+        if( - lastArticle_width <= article_invisible_width){
+            activeArticle_all = document.querySelectorAll(".visibleArticle");
             activeArticle_first = activeArticle_all[0];
             activeArticle_last = activeArticle_all[activeArticle_all.length - 1];
-            console.log(activeArticle_last)
-            lastAbstractArticle_width = lastAbstractArticle_width - abstractArticle_width;
-            inlineArticle.style.transform = "translateX(" + lastAbstractArticle_width +"px)";
-            activeArticle_first.style.opacity = "0";
-            activeArticle_last.nextElementSibling.style.display = "";
-            activeArticle_last.nextElementSibling.classList.add("activeArticle");
+            lastArticle_width = lastArticle_width - article_width;
+            inlineArticle.style.transform = "translateX(" + lastArticle_width +"px)";
+            activeArticle_first.classList.remove("visibleArticle");
+            activeArticle_first.classList.add("hideArticle");
+            activeArticle_last.nextElementSibling.classList.remove("hideArticle");
+            activeArticle_last.nextElementSibling.classList.add("visibleArticle");
         }
     }
     document.querySelector(".leftArrow").addEventListener("click", nextArticle);
