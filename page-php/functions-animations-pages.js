@@ -15,13 +15,13 @@
 
     }
         //align title in screen
-        function offsetAnchor() {
-            if(location.hash.length !== 0) {
-                window.scrollTo(window.scrollX, window.scrollY - 100);
-            }
+    function offsetAnchor() {
+        if(location.hash.length !== 0) {
+            window.scrollTo(window.scrollX, window.scrollY - 100);
         }
-        
-        window.addEventListener("hashchange", offsetAnchor);
+    }
+    
+    window.addEventListener("hashchange", offsetAnchor);
 
 })();
 
@@ -43,7 +43,7 @@
             var offset = parseInt( element.getAttribute("data-offset") || 0, 10)
             if(element.getAttribute("data-constraint")){
                 var constraint = document.querySelector(element.getAttribute("data-constraint"))
-            } 
+            }
             else{
                 var constraint = document.body
             }
@@ -88,19 +88,16 @@
             }
 
             window.addEventListener("scroll", onScroll)
-            window.addEventListener("resize",onResize)
+            window.addEventListener("resize", onResize)
         })(elements[i])
     }
-    
-    
 })();
 
 
-
-    //animation overlay-words
+    //animation backgroud-image carousel
 (function(){
     var arrayImage = [];
-    var backgroudImageOverlay = document.querySelector(".backgroud-image-overlay");
+    var backgroudImageOverlay = document.querySelector(".backgroud-image-carousel");
     for(i = 0; i < arraySrcImage.length; i++){
         var newImage = document.createElement("img");
         newImage.classList.add("image" + i);
@@ -108,30 +105,43 @@
         backgroudImageOverlay.appendChild(newImage);
         arrayImage.push("image" + i);
     }
-
+    
     var timeImage;
-    var allImage = document.querySelectorAll(".backgroud-image-overlay img");
-    console.log(allImage)
     setInterval(function animationBackgroundOverlay() {
         timeImage = 0;
         arrayImage.forEach(element => {
             setTimeout(function() {
-                var imageDisplay = document.querySelector(element);
-                imageDisplay.style.zIndex = "1";
-            }, 1 + timeImage, timeImage += 6000);
+                var currentImage = document.querySelector("." + element);
+                var nextImage = function(){
+                    var indexNextImage = arrayImage.indexOf(element) + 1;
+                    if(indexNextImage >= arrayImage.length){
+                        return document.querySelector("." + arrayImage[0]);
+                    }
+                    else{
+                        return document.querySelector("." + arrayImage[indexNextImage]);
+                    }
+                }
+                var previousImage = function(){
+                    var indexPreviousImage = arrayImage.indexOf(element) - 1;
+                    if(indexPreviousImage < 0){
+                        return document.querySelector("." + arrayImage[arrayImage.length - 1]);
+                    }
+                    else{
+                        return document.querySelector("." + arrayImage[indexPreviousImage]);
+                    }
+                }
+                previousImage().classList.remove("change-animation");
+                nextImage().style.zIndex = "1";
+                currentImage.style.zIndex = "";
+                currentImage.classList.add("change-animation");
+            }, 1 + timeImage, timeImage += 7000);
         });
         return animationBackgroundOverlay;
     }(), timeImage);
 })();
-// (function animationBackgroundOverlay(){
-//     i = 0;
-//     while(i < arraySrcImage.length){
-//         console.log(arraySrcImage[i])
-//         i++
-//     }
-//     console.log(arraySrcImage)
-// }());
 
+
+    //animation overlay-words carousel
 (function animationOverlayWords(){
         //stockage des différentes répétition dans l'overlay
     var overlayLenght = document.querySelector(".overlay-words").childElementCount;
@@ -224,7 +234,7 @@
                 console.log(phrase)
                     //activation de la nouvelle phrase et désactivation de l'ancienne
                 for(spanWord of allSpanWord){
-                        spanWord.classList.remove("js-overlay-active");
+                    spanWord.classList.remove("js-overlay-active");
                 }
                 for(indexActive of arrayKeyWord){
                     allSpanWord[indexActive].classList.add("js-overlay-active");

@@ -1,28 +1,56 @@
+:root{
+    --background-first-part: #f1f1f1;
+}
 
 /*first-part*/
 
+#first-part{
+    width: 92%;
+    margin: 0 auto;
+    background-color: var(--background-first-part);
+    text-align: center;
+    overflow: hidden;
+}
+
 h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     color: #069;
     margin: 0;
-    padding-top: 48px;
+    padding: 48px 0;
 }
 
-#first-part{
-    background-color: #f1f1f1; 
-    text-align: center;
-    width: 1024px;
-    margin: auto;
+.newArticles{
+    display: inline-flex;
 }
 
-#first-part div:nth-of-type(-n+2){
-    margin-top: 48px;
+
+.arrowChangeArticle{
+    height: 50px;
+    padding: 122px 0;
+    cursor: pointer;
+    position: absolute;
+    background-color: var(--background-first-part);
+    z-index: 1;
 }
 
-#first-part div{
+
+.leftArrow{
+    left: 4%;
+}
+
+.rightArrow{
+    right: 4%;
+}
+
+.inlineArticle{
+    display: inline-flex;
+}
+
+.inlineArticle div{
     background-color: white;
-    border-style: none;
-    border-color: dimgrey;
-    display: inline-block;
     text-align: justify;
     width: 400px;
     height: 264px;
@@ -30,7 +58,36 @@ h2{
     overflow-y: scroll;
 }
 
-#first-part div::-webkit-scrollbar {
+.hideArticle{
+    animation: animation_hideArticle 1.3s linear forwards 0s;
+}
+
+@keyframes animation_hideArticle{
+    from{
+        opacity: 1;
+    }
+    95%{
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.visibleArticle{
+    animation: animation_visibleArticle 1.5s linear 0s;
+}
+
+@keyframes animation_visibleArticle{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.inlineArticle div::-webkit-scrollbar {
     display: none;
 }
 
@@ -49,58 +106,9 @@ h2{
     text-decoration: none;
 }
 
-@media (max-width: 990px){
-    
-    #first-part{
-        width: auto;
-    }
-    #first-part div:nth-of-type(1){
-        margin-top: 48px;
-    }
-    #first-part div:nth-of-type(2){
-        margin-top: 15px;
-    }
-    #first-part div{
-        width: 600px;
-        height: 350px;
-        font-size: 20px;
-    }
-}
-@media (max-width: 1500px){
-    svg{
-        display: none;
-    }
-}
 
-.teamE{
-    font-size: 1px;
-    text-anchor: start; 
-    fill: none;
-    stroke-width: 0.035;
-    stroke: grey;
-    font-family: sans-serif;
-    text-transform: uppercase;
+/* seconde-part */
+#seconde-part{
+    height: 400px;
     width: 100%;
-    height: 100%;
-}
-
-
-.teamE:hover{
-    fill: black;
-}
-
-.teamEYellow{
-    font-size: 2px;
-    fill: yellow;
-    font-weight: 800;
-    text-anchor: start;
-    font-family: sans-serif;
-    text-transform: uppercase;
-    width: 100%;
-    height: 100%;
-}
-
-svg{
-    height: 500px;
-    position: absolute;
 }

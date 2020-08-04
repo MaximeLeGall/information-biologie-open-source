@@ -31,18 +31,28 @@
         <?php 
             $arraySrcImage = [];
             $i = 1;
-            $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+            if(in_array("index", $itemSelected)){
+                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+            }
+            elseif(in_array("article", $itemSelected)){
+                $srcImage = "../page-php/image-overlay-1920/" . $i . ".jpg";
+            }
             while(file_exists($srcImage)){
                 array_push($arraySrcImage, $srcImage);
                 $i++;
-                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+                if(in_array("index", $itemSelected)){
+                    $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
+                }
+                elseif(in_array("article", $itemSelected)){
+                    $srcImage = "../page-php/image-overlay-1920/" . $i . ".jpg";
+                }
             }
         ?>
         <script>
             var arraySrcImage = <?php echo json_encode($arraySrcImage); ?>;
         </script>
         <div class="carousel">
-            <div class="backgroud-image-overlay">
+            <div class="backgroud-image-carousel">
             </div>
             <div class="overlay">
                 <div class="overlay-words">
