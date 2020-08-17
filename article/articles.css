@@ -69,7 +69,13 @@ h1, h2{
     line-height: 1.15;
 }
 
+.reading-companion-panel{
+    display: none;
+}
 
+.reading-companion--active{
+    display: block;
+}
 
 .reading-companion-panel-list{
     padding-left: 15px;

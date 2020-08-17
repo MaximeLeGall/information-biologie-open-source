@@ -93,6 +93,22 @@
     }
 })();
 
+    //companion button 
+function switchButton(newButton){
+    console.log(newButton);
+    var allCompanionActive = document.querySelectorAll(".reading-companion--active");
+    var allCompanionPanel = document.querySelectorAll(".reading-companion-panel");
+    allCompanionActive.forEach(element =>{
+        element.classList.remove("reading-companion--active");
+    });
+    newButton.classList.add(".reading-companion--active")
+    allCompanionPanel.forEach(element => {
+        if(element.getAttribute("name") === newButton.getAttribute("id")){
+            element.classList.add("reading-companion--active")
+        }
+    });
+}
+
 
     //animation backgroud-image carousel
 (function(){

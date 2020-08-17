@@ -1,6 +1,6 @@
 
 
-//switch carousel first-part
+//first-part switch carousel 
 (function(){
     var firstPart_width,
         article_width,

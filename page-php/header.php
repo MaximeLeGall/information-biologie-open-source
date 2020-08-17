@@ -2,20 +2,6 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../page-php/header-footer.css">
-        <!-- (function animationBackgroundOverlay(){
-            var overlayImage = document.querySelector(".overlay");
-            var arraySrcImage = [];
-            var i = 1;
-            var srcImage = "image-overlay-1920/" + i + ".jpg";
-            console.log(url(srcImage))
-            while(url(srcImage) != undefined && i < 10){
-                srcImage = "image-overlay-1920/" + i + ".jpg";
-                arraySrcImage.push(srcImage)
-                // console.log(overlayImage.style.background-image)
-                i++
-            }
-            console.log(arraySrcImage)
-        }()); -->
             
                 <!--  add style file -->
             <?php $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
