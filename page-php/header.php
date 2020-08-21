@@ -15,28 +15,25 @@
     </head>
     <body>
         <?php 
+            $srcImage = "page-php/image-overlay-1920/";
+            $newpath = "../";
+            $loop = 0;
+            if(!file_exists($srcImage)){
+                while(!file_exists($srcImage)){
+                    $srcImage = $newpath . $srcImage;
+                    $newpath .= $newpath;
+                }
+            }
+            $images = array_diff(scandir($srcImage), ["..", "."]);
             $arraySrcImage = [];
-            $i = 1;
-            if(in_array("index", $itemSelected)){
-                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
-            }
-            elseif(in_array("article", $itemSelected)){
-                $srcImage = "../page-php/image-overlay-1920/" . $i . ".jpg";
-            }
-            while(file_exists($srcImage)){
-                array_push($arraySrcImage, $srcImage);
-                $i++;
-                if(in_array("index", $itemSelected)){
-                    $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
-                }
-                elseif(in_array("article", $itemSelected)){
-                    $srcImage = "../page-php/image-overlay-1920/" . $i . ".jpg";
-                }
+            foreach ($images as $image){
+                array_push($arraySrcImage, $srcImage . $image);
             }
         ?>
         <script>
             var arraySrcImage = <?php echo json_encode($arraySrcImage); ?>;
         </script>
+        
         <div class="carousel">
             <div class="backgroud-image-carousel">
             </div>
