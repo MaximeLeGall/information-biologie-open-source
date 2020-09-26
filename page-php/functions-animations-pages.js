@@ -93,6 +93,22 @@
     }
 })();
 
+    //companion button 
+function switchButton(newButton){
+    console.log(newButton);
+    var companionPanelActive = document.querySelector(".reading-companion-panel--active");
+    var allCompanionPanel = document.querySelectorAll(".reading-companion-panel");
+    var companionTabActive = document.querySelector(".reading-companion-tab--active");
+    companionPanelActive.classList.remove("reading-companion-panel--active");
+    companionTabActive.classList.remove("reading-companion-tab--active");
+    newButton.classList.add("reading-companion-tab--active");
+    allCompanionPanel.forEach(element => {
+        if(element.getAttribute("name") === newButton.getAttribute("id")){
+            element.classList.add("reading-companion-panel--active")
+        }
+    });
+}
+
 
     //animation backgroud-image carousel
 (function(){

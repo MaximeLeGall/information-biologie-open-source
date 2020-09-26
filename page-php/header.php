@@ -2,20 +2,6 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../page-php/header-footer.css">
-        <!-- (function animationBackgroundOverlay(){
-            var overlayImage = document.querySelector(".overlay");
-            var arraySrcImage = [];
-            var i = 1;
-            var srcImage = "image-overlay-1920/" + i + ".jpg";
-            console.log(url(srcImage))
-            while(url(srcImage) != undefined && i < 10){
-                srcImage = "image-overlay-1920/" + i + ".jpg";
-                arraySrcImage.push(srcImage)
-                // console.log(overlayImage.style.background-image)
-                i++
-            }
-            console.log(arraySrcImage)
-        }()); -->
             
                 <!--  add style file -->
             <?php $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
@@ -29,28 +15,25 @@
     </head>
     <body>
         <?php 
+            $srcImage = "page-php/image-overlay-1920/";
+            $newpath = "../";
+            $loop = 0;
+            if(!file_exists($srcImage)){
+                while(!file_exists($srcImage)){
+                    $srcImage = $newpath . $srcImage;
+                    $newpath .= $newpath;
+                }
+            }
+            $images = array_diff(scandir($srcImage), ["..", "."]);
             $arraySrcImage = [];
-            $i = 1;
-            if(in_array("index", $itemSelected)){
-                $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
-            }
-            elseif(in_array("article", $itemSelected)){
-                $srcImage = "../page-php/image-overlay-1920/" . $i . ".jpg";
-            }
-            while(file_exists($srcImage)){
-                array_push($arraySrcImage, $srcImage);
-                $i++;
-                if(in_array("index", $itemSelected)){
-                    $srcImage = "page-php/image-overlay-1920/" . $i . ".jpg";
-                }
-                elseif(in_array("article", $itemSelected)){
-                    $srcImage = "../page-php/image-overlay-1920/" . $i . ".jpg";
-                }
+            foreach ($images as $image){
+                array_push($arraySrcImage, $srcImage . $image);
             }
         ?>
         <script>
             var arraySrcImage = <?php echo json_encode($arraySrcImage); ?>;
         </script>
+        
         <div class="carousel">
             <div class="backgroud-image-carousel">
             </div>
