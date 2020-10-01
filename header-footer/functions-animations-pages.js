@@ -95,7 +95,6 @@
 
     //companion button 
 function switchButton(newButton){
-    console.log(newButton);
     var companionPanelActive = document.querySelector(".reading-companion-panel--active");
     var allCompanionPanel = document.querySelectorAll(".reading-companion-panel");
     var companionTabActive = document.querySelector(".reading-companion-tab--active");
@@ -112,14 +111,15 @@ function switchButton(newButton){
 
     //animation backgroud-image carousel
 (function(){
+        //creation of different images
     var arrayImage = [];
     var backgroudImageOverlay = document.querySelector(".backgroud-image-carousel");
     for(i = 0; i < arraySrcImage.length; i++){
         var newImage = document.createElement("img");
         newImage.classList.add("image" + i);
+        arrayImage.push("image" + i);
         newImage.setAttribute("src",  arraySrcImage[i]);
         backgroudImageOverlay.appendChild(newImage);
-        arrayImage.push("image" + i);
     }
     
     var timeImage;
@@ -187,7 +187,7 @@ function switchButton(newButton){
 
         //choix aléatoire des itérations de chaque phrase
     
-    function activationPhrase(){
+    (function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
             console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
@@ -207,7 +207,6 @@ function switchButton(newButton){
                 let lastKey = null;
                 let viableIteration = [];
                 phrase.reverse();
-                console.log(phrase)
                 for(elementReversedPhrase of phrase){
                     elementArrayOverlayWords = filterWord(arrayOverlayWords, elementReversedPhrase);
                     lenghtIteration = elementArrayOverlayWords[0][1].length - 1;
@@ -227,27 +226,20 @@ function switchButton(newButton){
                 let arrayKeyWord = [];
                 let i = 0;
                 for(elementPhrase of phrase){
-                    console.log(elementPhrase)
                     let keyWord = 0;
                     elementArrayOverlayWords = filterWord(viableIteration, elementPhrase);
-                    console.log(elementArrayOverlayWords[0][1])
                     lenghtIteration = elementArrayOverlayWords[0][1].length - 1;
-                    let stop = 0;
                     while(keyWord < arrayKeyWord[i-1]){
                         randomIndexKey = randomElementIteration(lenghtIteration);
                         keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
-                        stop++;
                     }
                     if(arrayKeyWord[0] == null){
                         randomIndexKey = randomElementIteration(lenghtIteration);
                         keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
                     }
-                    console.log(randomIndexKey)
-                    console.log(keyWord)
                     arrayKeyWord.push(keyWord);
                     i++
                 }
-                console.log(phrase)
                     //activation de la nouvelle phrase et désactivation de l'ancienne
                 for(spanWord of allSpanWord){
                     spanWord.classList.remove("js-overlay-active");
@@ -257,7 +249,11 @@ function switchButton(newButton){
                 }
             }, 1 + incrément, incrément += 4000);
         })
-        console.log("incrément: " + incrément)
         setTimeout(activationPhrase, incrément);
-    };
-}());
+    });
+})();
+
+function profileOption(){
+    var connectionElement = document.querySelector(".connection-element");
+    
+};

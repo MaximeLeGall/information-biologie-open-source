@@ -1,5 +1,4 @@
-<?php require  __DIR__ . "../../page-php/header.php"?>
-
+<?php require  __DIR__ . "../../header-footer/header.php"?>
 
 <div class="article">
         <div id="article-content">
@@ -20,4 +19,4 @@
         <?php require_once __DIR__ . "../../article/companion-article.php" ?>
 </div>
 
-<?php require_once __DIR__ . "../../page-php/footer.php" ?>
+<?php require_once __DIR__ . "../../header-footer/footer.php" ?>
