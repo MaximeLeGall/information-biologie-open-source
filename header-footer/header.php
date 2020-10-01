@@ -1,7 +1,13 @@
+<?php
+    require_once __DIR__ . "../../account/connection-verification.php";
+    init_php_session();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang = "fr">
     <head>
-        <link rel="stylesheet" type="text/css" href="../page-php/header-footer.css">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" type="text/css" href="/Vieillissement/header-footer/header-footer.css">
             
                 <!--  add style file -->
             <?php $itemSelected = preg_split("/(\/|\.)/", $_SERVER['SCRIPT_NAME']);
@@ -10,14 +16,12 @@
             <?php elseif(in_array("article", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="articles.css">
             <?php endif?>
-        
         <title>vieillissement</title>
     </head>
     <body>
         <?php 
-            $srcImage = "page-php/image-overlay-1920/";
+            $srcImage = "header-footer/image-overlay-1920/";
             $newpath = "../";
-            $loop = 0;
             if(!file_exists($srcImage)){
                 while(!file_exists($srcImage)){
                     $srcImage = $newpath . $srcImage;
@@ -33,8 +37,23 @@
         <script>
             var arraySrcImage = <?php echo json_encode($arraySrcImage); ?>;
         </script>
-        
+
         <div class="carousel">
+            <div class="header-profile-menu">
+                <button id="connection-status" onmouseenter="profileOption()">
+                    <?php if(is_logged()):?>
+                        <?= htmlspecialchars($_SESSION['user_name']) . " connecté";?>
+                    <?php else:?>
+                        Déconnecté
+                    <?php endif;?>
+                    <div class="indication-status" style="background-color:<?php if(is_logged()){echo '#77CB9B';}else{echo 'red';}?>" ></div>
+                </button>
+                <ul  class="header-profile-button">
+                    <li><a>Messages</a></li>
+                    <li><a>Paramètres</a></li>
+                    <li><a>Déconnexion</a></li>
+                </ul>
+            </div>
             <div class="backgroud-image-carousel">
             </div>
             <div class="overlay">
@@ -156,12 +175,11 @@
         <header>
             <nav class="menu" data-sticky="sticky">
                 <ul>
-                    <li><a href="http://localhost:8000/index.php">accueil</a></li>
+                    <li><a href="http://localhost/Vieillissement/index.php">accueil</a></li>
                     <li><a href="#">cathégorie</a></li>
                     <li><a href="#">news</a></li>
                     <li><a href="#">matériel</a></li>
                     <li><a href="#">nutrition <br> &amp; cosmétique</a></li>
                 </ul>
             </nav>
-        </header>    
-    
+        </header>

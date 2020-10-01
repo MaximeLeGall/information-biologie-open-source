@@ -13,6 +13,54 @@ body{
     margin: 0;
     padding: 0;
 }
+
+/*connection button*/
+.header-profile-menu{
+    position: absolute;
+    z-index: 4;
+    top: 0px;
+    right: 0px;
+}
+#connection-status{
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+    padding: 10px;
+    border-style: none;
+    background-color:rgba(255,255,255,0.5);
+    outline: none;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #4F92B9;
+    margin-right: 0;
+}
+
+.indication-status{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    margin-left: 4px;
+}
+
+#connection-status:hover{
+    background-color:rgba(255,255,255,1);
+}
+
+.header-profile-button{
+    list-style: none;
+    font-size: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(173, 173, 173);
+    background-color: rgba(255,255,255,1);
+    margin: 10px 0 0 0;
+    padding: 0 40px;
+}
+.header-profile-button li{
+    padding: 6px 0;
+    border: 1px solid  rgb(173, 173, 173);
+}
+
 /*carousel*/
 
 .carousel{

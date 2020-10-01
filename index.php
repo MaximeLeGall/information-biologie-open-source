@@ -1,5 +1,4 @@
-<?php require  __DIR__ . "../page-php/header.php"?>
-
+<?php require  __DIR__ . "../header-footer/header.php"?>
 
 <div id="first-part">
     <h2>Derniers articles</h2>
@@ -7,7 +6,7 @@
         <img class="arrowChangeArticle leftArrow" src="index-image\icon-arrière-50.png" alt="image flèche vers élement précedent">
         <div class="inlineArticle">
             <div>
-                <p class="titreArticle">Integrating cellular senescence with the concept of damage accumulation in aging: Relevance for clearance of senescent cells</p><a href="http://localhost:8000/article/articleMitochondrie.php">Understanding the aging process and ways to manipulate it is of major importance for biology and medicine. Among the many aging theories advanced over the years, the concept most consistent with experimental evidence posits the buildup of numerous forms of molecular damage as a foundation of the aging process. Here, we discuss that this concept integrates well with recent findings on cellular senescence, offering a novel view on the role of senescence in aging and age‐related disease. </a>
+                <p class="titreArticle">Integrating cellular senescence with the concept of damage accumulation in aging: Relevance for clearance of senescent cells</p><a href="http://localhost/Vieillissement/article/articleMitochondrie.php">Understanding the aging process and ways to manipulate it is of major importance for biology and medicine. Among the many aging theories advanced over the years, the concept most consistent with experimental evidence posits the buildup of numerous forms of molecular damage as a foundation of the aging process. Here, we discuss that this concept integrates well with recent findings on cellular senescence, offering a novel view on the role of senescence in aging and age‐related disease. </a>
             </div>
             <div>
                 <p class="titreArticle">MicroRNA Regulation of Oxidative Stress-Induced Cellular Senescence</p><a>Aging is a time-related process of functional deterioration at cellular, tissue, organelle, and organismal level that ultimately brings life to end. Cellular senescence, a state of permanent cell growth arrest in response to cellular stress, is believed to be the driver of the aging process and age-related disorders. The free radical theory of aging, referred to as oxidative stress (OS) theory below, is one of the most studied aging promoting mechanisms.</a>
@@ -30,4 +29,4 @@
 </div>
 <div id="seconde-part"></div>
 <script src="index.js" type="text/javascript"></script>
-<?php require_once __DIR__ . "../page-php/footer.php"?>
+<?php require_once __DIR__ . "../header-footer/footer.php"?>
