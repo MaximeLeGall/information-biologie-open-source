@@ -253,7 +253,21 @@ function switchButton(newButton){
     });
 })();
 
-function profileOption(){
-    var connectionElement = document.querySelector(".connection-element");
-    
+function activationProfileOption(element1, element2){
+    if(document.querySelector(element1)){
+        document.querySelector(element1).style.visibility = "visible";
+    }
+    if(document.querySelector(element2)){
+        document.querySelector(element2).style.backgroundColor = "rgba(255,255,255,1)";
+    }
 };
+
+function desactivationProfileOption(element1, element2){
+    if(document.querySelector(element1)){
+        document.querySelector(element1).style.visibility = "hidden";
+    }
+    if(document.querySelector(element2)){
+        document.querySelector(element2).style.backgroundColor = "rgba(255,255,255,0.5)";
+    }
+};
+

@@ -1,6 +1,11 @@
 <?php
     require_once __DIR__ . "../../account/connection-verification.php";
     init_php_session();
+    if(isset($_GET['action']) && !empty($_GET['action']) && $_GET['action'] == 'logout'){
+        clean_php_session();
+        header('Cache-Control: no-cache, Location: index.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,8 +44,8 @@
         </script>
 
         <div class="carousel">
-            <div class="header-profile-menu">
-                <button id="connection-status" onmouseenter="profileOption()">
+            <div class="header-profile-menu" onmouseleave="desactivationProfileOption('.header-profile-button', '#connection-status')">
+                <button id="connection-status" onmouseenter="activationProfileOption('.header-profile-button', '#connection-status')">
                     <?php if(is_logged()):?>
                         <?= htmlspecialchars($_SESSION['user_name']) . " connecté";?>
                     <?php else:?>
@@ -48,11 +53,13 @@
                     <?php endif;?>
                     <div class="indication-status" style="background-color:<?php if(is_logged()){echo '#77CB9B';}else{echo 'red';}?>" ></div>
                 </button>
-                <ul  class="header-profile-button">
-                    <li><a>Messages</a></li>
-                    <li><a>Paramètres</a></li>
-                    <li><a>Déconnexion</a></li>
-                </ul>
+                <?php if(is_logged()):?>
+                    <ul  class="header-profile-button" style="visibility: hidden">
+                        <li><a>Messages</a></li>
+                        <li><a>Paramètres</a></li>
+                        <li><a href="?action=logout">Se déconnecter</a></li>
+                    </ul>
+                <?php endif?>
             </div>
             <div class="backgroud-image-carousel">
             </div>
