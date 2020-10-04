@@ -27,15 +27,15 @@ body{
     display: flex;
     align-items: baseline;
     cursor: pointer;
+    text-decoration: none;
     padding: 10px;
-    border-style: none;
+    border-radius: 20px;
     background-color:rgba(255,255,255,0.5);
-    outline: none;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: #4F92B9;
-    margin-right: 0;
+    margin: 4px 29.3px 0 0;
     width: max-content;
 }
 
@@ -47,7 +47,7 @@ body{
 }
 
 
-.header-profile-button{
+.header-profile-buttons{
     list-style: none;
     font-size: 15px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -57,32 +57,52 @@ body{
     padding: 0;
     border-radius: 6px;
     border: 2px solid  rgb(173, 173, 173);
+    width: 184.5px;
 }
 
-.header-profile-button li{
-    width: 185px;
+.header-profile-buttons form{
+    width: 0;
+    height: 0;
+}
+
+.header-profile-buttons li{
     height: 31.6px;
-    cursor: pointer;
 }
 
-.header-profile-button li:nth-child(n+2){
+.header-profile-buttons li:nth-child(n+3){
     border-top: 2px solid  rgb(173, 173, 173);
 }
 
-
-.header-profile-button li a:hover{
-    background-color: #4F92B9;
-    color: rgba(255,255,255,1);
+.header-profile-buttons li:first-of-type button{
+    border-radius: 4.5px 4.5px 0px 0px;
 }
 
-.header-profile-button li a{
+.header-profile-buttons li:last-of-type button{
+    border-radius: 0px 0px 4.5px 4.5px;
+}
+
+.header-profile-buttons li:first-child{
+    border: none;
+}
+
+.header-profile-buttons li button{
     display: flex;
     align-items: center;
     padding-left: 40px;
     height: 100%;
-    max-width: 100%;
-    text-decoration: none;
-    color:  rgb(173, 173, 173);
+    width: 100%;
+    box-sizing: none;
+    outline: none;
+    color: rgb(173, 173, 173);
+    background-color: rgba(255,255,255,1);
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.header-profile-buttons li button:hover{
+    background-color: #4F92B9;
+    color: rgba(255,255,255,1);
 }
 
 /*carousel*/
