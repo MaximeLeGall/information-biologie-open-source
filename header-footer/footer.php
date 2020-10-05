@@ -1,9 +1,7 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-1">
-                        <a href="http://localhost/Vieillissement/connection-page.php">page de connexion</a>
-                    </div>
+                    <div class="col-1"></div>
                     <div class="col-2"></div>
                     <div class="col-3"></div>
                 </div>
