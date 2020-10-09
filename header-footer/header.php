@@ -50,7 +50,7 @@
             <div class="header-profile-menu" onmouseleave="desactivationProfileOption('.header-profile-buttons', '#connection-status')">
                 <a id="connection-status" <?php if(!is_logged()){echo "href='http://localhost/Vieillissement/connection-page.php'";}?> onmouseenter="activationProfileOption('.header-profile-buttons', '#connection-status')">
                     <?php if(is_logged()):?>
-                        <?= "Bienvenue " . htmlspecialchars($_SESSION['user_name']);?>
+                        <?= "Bienvenue " . htmlspecialchars($_SESSION['user_pseudo']);?>
                     <?php else:?>
                         Se Connecter
                     <?php endif;?>

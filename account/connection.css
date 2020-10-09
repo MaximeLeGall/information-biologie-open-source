@@ -32,11 +32,13 @@ h1{
 }
 
 #connection-form input{
-    margin-bottom: 10px;
-    width: 200px;
-    height: 30px;
+    width: 300px;
+    height: 40px;
     border-radius: 6px;
     border: 2px solid  rgb(173, 173, 173);
+    font-size: 1em;
+    padding-left: 16px;
+    margin-bottom: 10px;
 }
 
 #connection-form button{
@@ -63,11 +65,8 @@ h1{
     position: absolute;
     color: red;
     font-size: 16px;
-    background-color: rgb(255,255,255);
-    border-radius: 6px;
     text-align: center;
     top: 100px;
-    padding: 0 5px;
 }
 
 .separation{
@@ -129,7 +128,7 @@ h1{
     margin-bottom: 0;
 }
 
-.account-creation p{
+.title-precision{
     margin: 0;
     padding-left: 40px;
     font-family: 'Pacifico', cursive;
@@ -160,6 +159,8 @@ h1{
     height: 40px;
     border-radius: 6px;
     border: 2px solid  rgb(173, 173, 173);
+    font-size: 1em;
+    padding-left: 16px;
 }
 
 #creat-account-form p{
@@ -182,7 +183,6 @@ h1{
     transition: ease-in 0.3s;
     font-size: 16px;
     font-weight: bold;
-
 }
 
 #creat-account-form button:hover{
