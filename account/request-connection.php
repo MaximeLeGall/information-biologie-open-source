@@ -3,7 +3,7 @@ require __DIR__ . "../connection-verification.php";
 init_php_session();
 require 'account/db-config.php';
 
-if(isset($_POST['valid_connection']) || isset($_POST['verified_account'])){
+if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
     try{
         $options = [
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
@@ -42,8 +42,7 @@ if(isset($_POST['valid_connection']) || isset($_POST['verified_account'])){
         if(isset($_POST['new_pseudo']) && !empty($_POST['new_pseudo']) && isset($_POST['new_email']) && !empty($_POST['new_email']) && isset($_POST['new_password']) && !empty($_POST['new_password'])){
             $new_pseudo = $_POST['new_pseudo'];
             $new_email = $_POST['new_email'];
-            $new_password = $_POST['new_Password'];
-            echo($new_email);
+            $new_password = password_hash($_POST['new_password'], PASSWORD_BCRYPT, ["cost" => 10]);
 
             if(isset($_POST['new_account'])){
                 $verified_account = $PDO -> prepare('SELECT * FROM t_users WHERE user_pseudo = ? OR user_email = ?');
@@ -51,24 +50,25 @@ if(isset($_POST['valid_connection']) || isset($_POST['verified_account'])){
                 $verified_account -> bindValue(2, $new_email);
 
                 $verified_account -> execute();
-                $existing_account = $verified_account -> fetch(PDO::FETCH_ASSOC); 
-                $existing_account -> closeCursor();
+                $existing_account = $verified_account -> fetchALL(PDO::FETCH_ASSOC); 
+                $verified_account -> closeCursor();
 
                 if($existing_account){
-                    if($existing_account['user_email'] == $new_email){
-                        $invalid_email = "adresse e-mail déjà utilisé";
-                    }
-                    if($existing_account['user_pseudo'] == $new_pseudo){
-                        $invalid_pseudo = "pseudo  déjà existant";
+                    foreach ($existing_account as $invalid_element) {
+                        if($invalid_element['user_email'] == $new_email){
+                            $invalid_email = "adresse e-mail déjà utilisé";
+                        }
+                        if($invalid_element['user_pseudo'] == $new_pseudo){
+                            $invalid_pseudo = "pseudo  déjà existant";
+                        }
                     }
                 }
                 else{
-                    $account_creation = $PDO -> prepare('INSERT INTO t_users (user_pseudo, user_password, user_registration, user_email) VALUES(`?`, `?`, NOW(), `?`)');
-                    $account_creation -> binValue(1, $new_pseudo);
-                    $account_creation -> binValue(2, $new_email);
-                    $account_creation -> binValue(3, $new_password);
+                    $account_creation = $PDO -> prepare('INSERT INTO t_users (user_pseudo, user_password, user_registration, user_email, user_admin) VALUES(?, ?, NOW(), ?, 0)');
+                    $account_creation -> bindValue(1, $new_pseudo, PDO::PARAM_STR);
+                    $account_creation -> bindValue(2, $new_password, PDO::PARAM_STR);
+                    $account_creation -> bindValue(3, $new_email, PDO::PARAM_STR);
 
-                    echo('2' . $new_email);
                     $account_creation -> execute();
                 }
             }

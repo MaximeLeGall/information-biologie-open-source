@@ -17,10 +17,13 @@ function hiddenElement(selectElement, elementOverflowScroll){
         removeElement.parentNode.removeChild(removeElement);
     }
     if(document.querySelector(elementOverflowScroll)){
-        document.querySelector(elementOverflowScroll).style.overflow = 'scroll';
+        document.querySelector(elementOverflowScroll).style.overflow = 'auto';
     }
 }
-window.addEventListener("load", hiddenElement('.background-account-creation', 'body'));
 
+window.addEventListener("load", hiddenElement('.background-account-creation', 'body'));
+if(postNewAccount === 1){
+    visibleElement('.connection-page', 'body');
+}
 
 

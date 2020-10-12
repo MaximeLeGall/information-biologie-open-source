@@ -63,7 +63,6 @@
                         <li><button>Paramètres</button></li>
                         <li><button type="submit" name="action" value="logout" form="header-profile-button">Se déconnecter</button></li>
                     </ul>
-                    <!-- href="/Vieillissement/index.php?action=logout" -->
                 <?php endif?>
             </div>
             <div class="backgroud-image-carousel">
