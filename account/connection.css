@@ -123,10 +123,18 @@ h1{
     border: 2px solid  rgb(173, 173, 173);
 }
 
+.img-close{
+    float: right;
+    padding: 6px;
+    cursor: pointer;
+}
+
 .account-creation h2{
+    position: relative;
     font-family: 'Pacifico', cursive;
     color: #4F92B9;
     margin-bottom: 0;
+    width: 400px;
 }
 
 .title-precision{

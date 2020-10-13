@@ -19,6 +19,7 @@
     </div>
     <div class="background-account-creation" >
         <div class="account-creation">
+            <img class="img-close" src="index-image/icons8-close-window-24.png" alt="fermeture création compte" onclick="(hiddenElement('.background-account-creation', 'body'))">
             <h2>Inscription</h2>
             <p class="title-precision">facile et rapide</p>
             <div class="title-separation"></div>

@@ -184,13 +184,11 @@ function switchButton(newButton){
         }
     };
 
-
         //choix aléatoire des itérations de chaque phrase
     
     (function activationPhrase(){
         const arrayPhrases = [["vieillissement","cellulaire"],["nutrition","et","vieillissement"],["maladies","neurodégénératives","et cancer"],["molécules","antivieillissement"]];
         const randomElementIteration = function(parseFloatPossibleIteration){
-            console.log("parseFloatPossibleIteration: " + parseFloatPossibleIteration)
             return Math.round(Math.random() * Math.floor(parseFloatPossibleIteration));
         };
         const filterWord = function(arrayOverlayWords, word){
@@ -200,23 +198,26 @@ function switchButton(newButton){
         arrayPhrases.forEach(phrase => {
             setTimeout(function() {
                 let elementArrayOverlayWords;
-                let lenghtIteration;
+                let lenghtKeys;
 
-                        //suppression de l'index de l'itération si > au dernier index de l'élément suivant
+                        //suppression de la dernière clé si > a la dernière clé de l'élément précédent (élément suivant de la phrase)
 
                 let lastKey = null;
                 let viableIteration = [];
                 phrase.reverse();
                 for(elementReversedPhrase of phrase){
                     elementArrayOverlayWords = filterWord(arrayOverlayWords, elementReversedPhrase);
-                    lenghtIteration = elementArrayOverlayWords[0][1].length - 1;
+                    lenghtKeys = elementArrayOverlayWords[0][1].length - 1;
                     if(lastKey != null){
-                        while(elementArrayOverlayWords[0][1].every(elem => elem < lastKey) == false){
+                        while(elementArrayOverlayWords[0][1][lenghtKeys] > lastKey){
                             elementArrayOverlayWords[0][1].pop();
                         }
+                        viableIteration.push(elementArrayOverlayWords[0]);
+                        lastKey = elementArrayOverlayWords[0][1][elementArrayOverlayWords[0][1].length - 1];    //attention: lengthKey correspond au nombre de clées avant suppression (si suppression clé renvoie undefined)
+                    }else{
+                        viableIteration.push(elementArrayOverlayWords[0]);
+                        lastKey = elementArrayOverlayWords[0][1][lenghtKeys];
                     }
-                    viableIteration.push(elementArrayOverlayWords[0]);
-                    lastKey = elementArrayOverlayWords[0][1][lenghtIteration];
                 }
 
                         //choix aléatoire des itérations
@@ -228,14 +229,18 @@ function switchButton(newButton){
                 for(elementPhrase of phrase){
                     let keyWord = 0;
                     elementArrayOverlayWords = filterWord(viableIteration, elementPhrase);
-                    lenghtIteration = elementArrayOverlayWords[0][1].length - 1;
-                    while(keyWord < arrayKeyWord[i-1]){
-                        randomIndexKey = randomElementIteration(lenghtIteration);
+                    lenghtKeys = elementArrayOverlayWords[0][1].length - 1;
+                    if(arrayKeyWord[0] == null){
+                        randomIndexKey = randomElementIteration(lenghtKeys);
                         keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
                     }
-                    if(arrayKeyWord[0] == null){
-                        randomIndexKey = randomElementIteration(lenghtIteration);
-                        keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
+                    else{
+                        var numberIterations = 0;
+                        while(keyWord < arrayKeyWord[i-1] && numberIterations < 50){
+                            randomIndexKey = randomElementIteration(lenghtKeys);
+                            keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
+                            numberIterations ++;
+                        }
                     }
                     arrayKeyWord.push(keyWord);
                     i++
@@ -250,7 +255,7 @@ function switchButton(newButton){
             }, 1 + incrément, incrément += 4000);
         })
         setTimeout(activationPhrase, incrément);
-    });
+    })();
 })();
 
 function activationProfileOption(element1, element2){
