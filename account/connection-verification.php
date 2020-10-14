@@ -14,7 +14,7 @@
     }
 
     function is_logged() : bool{
-        if(isset($_SESSION['user_name'])){
+        if(isset($_SESSION['user_pseudo'])){
             return true;
         }
         return false;

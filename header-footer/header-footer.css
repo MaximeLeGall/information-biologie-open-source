@@ -37,6 +37,7 @@ body{
     color: #4F92B9;
     margin: 4px 29.3px 0 0;
     width: max-content;
+    transition: ease-in 0.3s;
 }
 
 .indication-status{
