@@ -60,7 +60,7 @@
                     <ul  class="header-profile-buttons" style="visibility: hidden">
                         <form action="" method="POST" id="header-profile-button"></form>
                         <li><button>Messages</button></li>
-                        <li><button>Paramètres</button></li>
+                        <li><button type="button" onclick="window.location.href='http://localhost/Vieillissement/profile.php'">Profil</button></li>
                         <li><button type="submit" name="action" value="logout" form="header-profile-button">Se déconnecter</button></li>
                     </ul>
                 <?php endif?>

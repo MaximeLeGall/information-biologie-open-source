@@ -20,12 +20,9 @@
         return false;
     }
 
-    function admin() : bool{
-        if(is_logged()){
-            if(isset($_SESSION['user_admin']) && $_SESSION['user_admin'] == 1){
-                return true;
-            }
+    function user_status() : int{
+        if(is_logged() && isset($_SESSION['user_status'])){ 
+            return $_SESSION['user_status'];
         }
-        return false;
     }
 ?>
