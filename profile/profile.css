@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+.profile{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.menu-profile{
+    width: 7%;
+    min-width: 120px;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    border-right: 2px solid  rgb(173, 173, 173);
+    margin-right: 3%;
+}
+
+.menu-profile input{
+    width: 120px;
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    letter-spacing: .019em;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255,255,255);
+    color: #3c4043;
+    border-radius: 0 20px 20px 0;
+    outline: none;
+}
+
+.menu-profile input:hover{
+    background-color: #4f92b917;
+}
+
+
+.dashboard-profile{
+    height: 500px;
+    width: 800px;
+}
+
+
+

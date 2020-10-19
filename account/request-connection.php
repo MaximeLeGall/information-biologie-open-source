@@ -23,6 +23,9 @@ if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
                 $connection = $PDO -> prepare('SELECT * FROM t_users WHERE user_email = ?');
                 $connection -> bindValue(1, $useremail);
 
+                $last_connection = $PDO -> prepare('UPDATE t_users SET user_last_connection = NOW() WHERE user_email = ?');
+                $last_connection -> bindValue(1,$useremail);
+
                 $connection -> execute();
                 $informations_user = $connection -> fetch(PDO::FETCH_ASSOC);
                 if($informations_user){
@@ -30,6 +33,8 @@ if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
                         $_SESSION['user_pseudo'] = $informations_user['user_pseudo'];
                         $_SESSION['user_email'] = $informations_user['user_email'];
                         $_SESSION['user_status'] = $informations_user['user_status'];
+                        $last_connection -> execute();
+
                         header('Location: http://localhost/Vieillissement/index.php');
                         exit;
                     }
@@ -65,7 +70,7 @@ if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
                     }
                 }
                 else{
-                    $account_creation = $PDO -> prepare('INSERT INTO t_users (user_pseudo, user_password, user_registration, user_email, user_admin) VALUES(?, ?, NOW(), ?, 0)');
+                    $account_creation = $PDO -> prepare('INSERT INTO t_users (user_pseudo, user_password, user_registration, user_email, user_admin, user_last_connection) VALUES(?, ?, NOW(), ?, 0, NOW())');
                     $account_creation -> bindValue(1, $new_pseudo, PDO::PARAM_STR);
                     $account_creation -> bindValue(2, $new_password, PDO::PARAM_STR);
                     $account_creation -> bindValue(3, $new_email, PDO::PARAM_STR);

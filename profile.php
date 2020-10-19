@@ -7,12 +7,12 @@
 <?php else:?>
     <div class="profile">
         <div class="menu-profile">
-            <input type="button" value="profil">
-            <input type="button" value="message">
-            <input type="button" value="paramètres">
-            <input type="button" value="statut">
+            <input type="button" value="profil" class=".reading-companion-tab--active">
+            <input type="button" value="message" onclick="switchButton(this)">
+            <input type="button" value="paramètres" onclick="switchButton(this)">
+            <input type="button" value="statut" onclick="switchButton(this)">
         </div>
-        <div class="dashboard-profile">
+        <div class="dashboard-profile .reading-companion-panel--active">
             <?php if(user_status() !== null){
                     switch (user_status()){
                         case 0:
@@ -27,6 +27,15 @@
                             break;
                     };
             };?>
+        </div>
+        <div class=".reading-companion-panel">
+
+        </div>
+        <div class=".reading-companion-panel">
+
+        </div>
+        <div class=".reading-companion-panel">
+
         </div>
     </div>
 <?php endif;?>
