@@ -33,6 +33,9 @@ if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
                         $_SESSION['user_pseudo'] = $informations_user['user_pseudo'];
                         $_SESSION['user_email'] = $informations_user['user_email'];
                         $_SESSION['user_status'] = $informations_user['user_status'];
+                        $_SESSION['user_last_connection'] = $informations_user['user_last_connection'];
+                        $_SESSION['user_registration'] = $informations_user['user_registration'];
+
                         $last_connection -> execute();
 
                         header('Location: http://localhost/Vieillissement/index.php');
