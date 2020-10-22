@@ -82,9 +82,11 @@
 
 .user-status{
     position: absolute;
+    display: flex;
     text-decoration: solid underline #4F92B9;
     right: 0px;
-    margin: 0 10px;
+    padding: 5px;
+    margin: 0 5px;
 }
 
 .user-date{
@@ -106,13 +108,102 @@
 .comment{
     max-width: 500px;
     height: 100px;
-    background-color:  rgba(173, 173, 173, 0.5);
+    background-color:  rgba(173, 173, 173, 0.192);
     border: 2px solid  rgb(173, 173, 173);
     border-radius: 6px;
 }
 
 .sujets-suivis{
     margin-top: 50px;
+}
+
+    /*parametre*/
+
+.change{
+    display: flex;
+    align-items: baseline;
+}
+
+.change:nth-child(n+2){
+    margin-top: 50px;
+}
+
+.current-information{
+    margin: 0;
+}
+
+.b-change{
+    margin-left: 23px;
+    height: fit-content;
+    padding: 10px;
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.change:first-of-type button{
+    margin-left: 102px;
+}
+
+.change:nth-of-type(3) button:nth-of-type(1){
+    margin-left: 67px;
+}
+
+.all-changes{
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.delete-account{
+    display: flex;
+    margin-top: 50px;
+    align-items: baseline;
+}
+
+.delete-account .b-change{
+    background-color: rgba(231, 38, 38, 0.781);
+    color: rgb(255,255,255);
+    font-weight: 900;
+}
+
+.delete-account .b-change:hover{
+    background-color: rgb(231, 38, 38);
+}
+
+.background-modification{
+    position: absolute;
+    background-color: rgb(255,255,255,0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 400;
+    right: 0;
+}
+
+.modification-window{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    background-color: rgb(255,255,255);
+    margin: auto;
+}
+
+.information{
+    color:  #4F92B9;
+}
+
+#b-confirmation{
+    width: 100px;
+    margin: 0 auto;
+    padding: 8px;
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
 }
 
 

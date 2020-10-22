@@ -24,7 +24,7 @@
             <?php elseif(in_array("connection-page", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="account/connection.css">
             <?php elseif(in_array("profile", $itemSelected)):?>
-                <link rel="stylesheet" type="text/css" href="profile/profile.css">
+                <link rel="stylesheet" type="text/css" href="user-informations/user-informations.css">
             <?php endif?>
         <title>vieillissement</title>
     </head>

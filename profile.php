@@ -7,12 +7,12 @@
 <?php else:?>
     <div class="profile">
         <div class="menu-profil">
-            <input type="button" value="profil" id="profil" class="reading-companion-tab reading-companion-tab--active" onclick="switchButton(this)">
+            <input type="button" value="profil" id="profil" class="reading-companion-tab" onclick="switchButton(this)">
             <input type="button" value="message" id="message" class="reading-companion-tab" onclick="switchButton(this)">
-            <input type="button" value="paramètres" id="parametres" class="reading-companion-tab" onclick="switchButton(this)">
+            <input type="button" value="paramètres" id="parametres" class="reading-companion-tab reading-companion-tab--active" onclick="switchButton(this)">
         </div>
         <div class="dashboard-profil">
-            <div class="reading-companion-panel reading-companion-panel--active profil-panel" name="profil">
+            <div class="reading-companion-panel profil-panel" name="profil">
                 <div class="user">
                     <p class="user-pseudo">Pseudo: <?php echo htmlspecialchars($_SESSION['user_pseudo'])?></p>
                     <div class="user-status">
@@ -20,16 +20,17 @@
                             if(user_status() !== null){
                                 switch (user_status()){
                                     case 0:
-                                        echo "Status: Utilisateur";
+                                        $status = "Utilisateur";
                                         break;
                                     case 1:
-                                        echo "Status: Rédacteur";
+                                        $status = "Rédacteur";
                                         break;
                                 
                                     case 2:
-                                        echo "Status: Administrateur";
+                                        $status = "Administrateur";
                                         break;
                                 };
+                                echo "Statut: " . $status;
                             };
                             
                         ?>
@@ -51,11 +52,35 @@
             <div class="reading-companion-panel message-panel" name="message">
 
             </div>
-            <div class="reading-companion-panel parametres-panel" name="parametres">
-
+            <div class="reading-companion-panel parametres-panel reading-companion-panel--active" name="parametres">
+                <div class="all-changes">
+                    <div class="change">
+                        <p class="current-information">Pseudo actuel: <?php echo htmlspecialchars($_SESSION['user_pseudo'])?></p>
+                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification', true, 'pseudo')">Modifier pseudo</button>
+                    </div>
+                    <div class="change">
+                        <p class="current-information">E-mail actuel: <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
+                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification', true, 'email')">Modifier e-mail</button>
+                    </div>
+                    <div class="change">
+                        <p class="current-information">Statut actuel: <?php echo ($status)?></p>
+                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification')">Devenir rédacteur</button>
+                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire administrateur', 'Je confirme', '.background-modification')">Devenir administrateur</button>
+                    </div>
+                </div>
+                <div class="delete-account">
+                    <p class="current-information">Suppression du compte: <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
+                    <button type="button" class="b-change" onclick="delete_account(this)">Supprimer</button>
+                </div>
+                <div class="background-modification" style="display: none;">
+                    <div class="modification-window">
+                        <h2 class="information"></h2>
+                        <button type="button" id="b-confirmation"></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 <?php endif;?>
-
+<script src="/Vieillissement/user-informations/user-informations.js"></script>
 <?php require __DIR__ . "../header-footer/footer.php";?>
