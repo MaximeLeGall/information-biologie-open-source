@@ -1,5 +1,6 @@
 <?php
-    require  __DIR__ . "../header-footer/header.php";
+    require __DIR__ . "../header-footer/header.php";
+    require __DIR__ . "../user-informations/account-modification.php";
 ?>
 
 <?php if(!is_logged()):?>
@@ -56,27 +57,28 @@
                 <div class="all-changes">
                     <div class="change">
                         <p class="current-information">Pseudo actuel: <?php echo htmlspecialchars($_SESSION['user_pseudo'])?></p>
-                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification', true, 'pseudo')">Modifier pseudo</button>
+                        <button type="button" class="b-change" onclick="modify('Modifié:</br> mon pseudo', 'Je confirme', '.background-modification', true, 'new_pseudo')">Modifier pseudo</button>
                     </div>
                     <div class="change">
                         <p class="current-information">E-mail actuel: <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
-                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification', true, 'email')">Modifier e-mail</button>
+                        <button type="button" class="b-change" onclick="modify('Modifié:</br> l\'adresse email', 'Je confirme', '.background-modification', true, 'new_email')">Modifier e-mail</button>
                     </div>
                     <div class="change">
                         <p class="current-information">Statut actuel: <?php echo ($status)?></p>
-                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification')">Devenir rédacteur</button>
-                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire administrateur', 'Je confirme', '.background-modification')">Devenir administrateur</button>
+                        <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification', false)">Devenir rédacteur</button>
+                        <!-- <button type="button" class="b-change" onclick="modify('Demande:</br> devenire administrateur', 'Je confirme', '.background-modification', false)">Devenir administrateur</button> -->
                     </div>
                 </div>
                 <div class="delete-account">
                     <p class="current-information">Suppression du compte: <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
                     <button type="button" class="b-change" onclick="delete_account(this)">Supprimer</button>
                 </div>
-                <div class="background-modification" style="display: none;">
-                    <div class="modification-window">
+                <div class="background-modification" style="display: <?php if(isset($invalid_pseudo) || isset($invalid_email)){ echo 'block;';}else{ echo 'none;';}?>">
+                    <form class="modification-window" action="profile.php" method="POST">
                         <h2 class="information"></h2>
-                        <button type="button" id="b-confirmation"></button>
-                    </div>
+                        <p class="invalide" style="visibility:<?php if(isset($invalid_pseudo) || isset($invalid_email)){echo 'visible;';}else{echo 'hidden;';}?>"><?php if(isset($invalid_pseudo)){echo $invalid_pseudo;}elseif(isset($invalid_email)){echo $invalid_email;}?></p>
+                        <button type="submit" id="b-confirmation" name="account_modification"></button>
+                    </form>
                 </div>
             </div>
         </div>
