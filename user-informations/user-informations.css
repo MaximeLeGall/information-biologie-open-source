@@ -1,0 +1,217 @@
+
+
+
+
+
+
+
+.profile{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+    /* menu profil */
+.menu-profil{
+    width: 7%;
+    min-width: 120px;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    border-right: 2px solid  rgb(173, 173, 173);
+    margin-right: 4%;
+}
+
+.reading-companion-tab{
+    width: 120px;
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    letter-spacing: .019em;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(255,255,255);
+    color: #3c4043;
+    border-radius: 0 20px 20px 0;
+    outline: none;
+}
+
+.reading-companion-tab:hover{
+    background-color:  #e8f0fe9f;
+}
+
+.reading-companion-tab--active:hover, .reading-companion-tab--active{
+    color: #1a73e8;;
+    background-color: #e8f0fe;
+}
+
+
+.dashboard-profil{
+    height: 500px;
+    width: 800px;
+    margin-top: 50px;
+}
+
+
+.reading-companion-panel{
+    display: none;
+}
+
+.reading-companion-panel--active{
+    display: flex;
+    flex-direction: column;
+}
+
+    /*profil*/
+.user{
+    position: relative;
+    display: flex;
+    border-bottom: 2px solid #4F92B9;
+    max-width: 600px;
+}
+
+.user-pseudo{
+    margin: 0;
+    padding: 5px;
+    background-color: #4F92B9;
+    color: rgb(255,255,255);
+    font-weight: 800;
+}
+
+.user-status{
+    position: absolute;
+    display: flex;
+    text-decoration: solid underline #4F92B9;
+    right: 0px;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.user-date{
+    margin-top: 50px;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    padding-left: 20px;
+    max-width: 480px;
+}
+
+.last-comment{
+    margin-top: 50px;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    padding: 0 20px 20px 20px;
+    max-width: 460px;
+}
+
+.comment{
+    max-width: 500px;
+    height: 100px;
+    background-color:  rgba(173, 173, 173, 0.192);
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+}
+
+.sujets-suivis{
+    margin-top: 50px;
+}
+
+    /*parametre*/
+
+.change{
+    display: flex;
+    align-items: baseline;
+}
+
+.change:nth-child(n+2){
+    margin-top: 50px;
+}
+
+.current-information{
+    margin: 0;
+}
+
+.b-change{
+    margin-left: 23px;
+    height: fit-content;
+    padding: 10px;
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.change:first-of-type button{
+    margin-left: 102px;
+}
+
+.change:nth-of-type(3) button:nth-of-type(1){
+    margin-left: 67px;
+}
+
+.all-changes{
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.delete-account{
+    display: flex;
+    margin-top: 50px;
+    align-items: baseline;
+}
+
+.delete-account .b-change{
+    background-color: rgba(231, 38, 38, 0.781);
+    color: rgb(255,255,255);
+    font-weight: 900;
+}
+
+.delete-account .b-change:hover{
+    background-color: rgb(231, 38, 38);
+}
+
+.background-modification{
+    position: absolute;
+    background-color: rgb(255,255,255,0.5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 400;
+    right: 0;
+}
+
+.modification-window{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 250px;
+    height: 300px;
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    background-color: rgb(255,255,255);
+    margin: auto;
+}
+
+.information{
+    color:  #4F92B9;
+}
+
+#b-confirmation{
+    width: 100px;
+    margin: 20px auto 0 auto;
+    padding: 8px;
+    border: 2px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+}
+
+.modification-window input{
+    width: 180px;
+    height: 20px;
+    margin: 0 auto;
+}
+
+
+
+

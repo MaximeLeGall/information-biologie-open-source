@@ -236,9 +236,12 @@ function switchButton(newButton){
                     }
                     else{
                         var numberIterations = 0;
-                        while(keyWord < arrayKeyWord[i-1] && numberIterations < 50){
+                        while(keyWord < arrayKeyWord[i-1] && numberIterations < 51){
                             randomIndexKey = randomElementIteration(lenghtKeys);
                             keyWord = elementArrayOverlayWords[0][1][randomIndexKey];
+                            if(numberIterations == 50){
+                                keyWord = elementArrayOverlayWords[0][1][lenghtKeys];
+                            }
                             numberIterations ++;
                         }
                     }
@@ -258,6 +261,8 @@ function switchButton(newButton){
     })();
 })();
 
+
+    // bouton de connexion du header
 function activationProfileOption(element1, element2){
     if(document.querySelector(element1)){
         document.querySelector(element1).style.visibility = "visible";

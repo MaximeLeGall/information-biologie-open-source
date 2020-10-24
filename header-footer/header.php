@@ -23,6 +23,8 @@
                 <link rel="stylesheet" type="text/css" href="articles.css">
             <?php elseif(in_array("connection-page", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="account/connection.css">
+            <?php elseif(in_array("profile", $itemSelected)):?>
+                <link rel="stylesheet" type="text/css" href="user-informations/user-informations.css">
             <?php endif?>
         <title>vieillissement</title>
     </head>
@@ -60,7 +62,7 @@
                     <ul  class="header-profile-buttons" style="visibility: hidden">
                         <form action="" method="POST" id="header-profile-button"></form>
                         <li><button>Messages</button></li>
-                        <li><button>Paramètres</button></li>
+                        <li><button type="button" onclick="window.location.href='http://localhost/Vieillissement/profile.php'">Profil</button></li>
                         <li><button type="submit" name="action" value="logout" form="header-profile-button">Se déconnecter</button></li>
                     </ul>
                 <?php endif?>

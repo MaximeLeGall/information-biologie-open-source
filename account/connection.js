@@ -22,7 +22,7 @@ function hiddenElement(selectElement, elementOverflowScroll){
 }
 
 window.addEventListener("load", hiddenElement('.background-account-creation', 'body'));
-if(postNewAccount === 1){
+if(postNewAccount == 1){
     visibleElement('.connection-page', 'body');
 }
 
