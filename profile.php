@@ -1,6 +1,6 @@
 <?php
     require __DIR__ . "../header-footer/header.php";
-    require __DIR__ . "../user-informations/account-modification.php";
+    require __DIR__ . "../user-informations/request-account-modification.php";
 ?>
 
 <?php if(!is_logged()):?>
@@ -10,7 +10,10 @@
         <div class="menu-profil">
             <input type="button" value="profil" id="profil" class="reading-companion-tab" onclick="switchButton(this)">
             <input type="button" value="message" id="message" class="reading-companion-tab" onclick="switchButton(this)">
-            <input type="button" value="paramètres" id="parametres" class="reading-companion-tab reading-companion-tab--active" onclick="switchButton(this)">
+            <input type="button" value="paramètres" id="parametres" class="reading-companion-tab" onclick="switchButton(this)">
+            <?php if(user_status() == 1 || user_status() == 2):?>
+                <input type="button" value="rédaction" id="redaction" class="reading-companion-tab reading-companion-tab--active" onclick="switchButton(this)">
+            <?php endif;?>
         </div>
         <div class="dashboard-profil">
             <div class="reading-companion-panel profil-panel" name="profil">
@@ -33,7 +36,6 @@
                                 };
                                 echo "Statut: " . $status;
                             };
-                            
                         ?>
                     </div>
                     
@@ -53,15 +55,17 @@
             <div class="reading-companion-panel message-panel" name="message">
 
             </div>
-            <div class="reading-companion-panel parametres-panel reading-companion-panel--active" name="parametres">
+            <div class="reading-companion-panel parametres-panel" name="parametres">
                 <div class="all-changes">
                     <div class="change">
                         <p class="current-information">Pseudo actuel: <?php echo htmlspecialchars($_SESSION['user_pseudo'])?></p>
-                        <button type="button" class="b-change" onclick="modify('Modifié:</br> mon pseudo', 'Je confirme', '.background-modification', true, 'new_pseudo')">Modifier pseudo</button>
+                        <?php $modifyPseudoSetting = "'Modifié:</br> mon pseudo', 'Je confirme', '.background-modification', true, 'new_pseudo'";?>
+                        <button type="button" class="b-change" onclick="modify(<?php echo $modifyPseudoSetting?>)">Modifier pseudo</button>
                     </div>
                     <div class="change">
                         <p class="current-information">E-mail actuel: <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
-                        <button type="button" class="b-change" onclick="modify('Modifié:</br> l\'adresse email', 'Je confirme', '.background-modification', true, 'new_email')">Modifier e-mail</button>
+                        <?php $modifyEmailSetting = "'Modifié:</br> l\'adresse email', 'Je confirme', '.background-modification', true, 'new_email'";?>
+                        <button type="button" class="b-change"  onclick="modify(<?php echo $modifyEmailSetting?>)">Modifier e-mail</button>
                     </div>
                     <div class="change">
                         <p class="current-information">Statut actuel: <?php echo ($status)?></p>
@@ -73,7 +77,7 @@
                     <p class="current-information">Suppression du compte: <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
                     <button type="button" class="b-change" onclick="delete_account(this)">Supprimer</button>
                 </div>
-                <div class="background-modification" style="display: <?php if(isset($invalid_pseudo) || isset($invalid_email)){ echo 'block;';}else{ echo 'none;';}?>">
+                <div class="background-modification" style="display: none">
                     <form class="modification-window" action="profile.php" method="POST">
                         <h2 class="information"></h2>
                         <p class="invalide" style="visibility:<?php if(isset($invalid_pseudo) || isset($invalid_email)){echo 'visible;';}else{echo 'hidden;';}?>"><?php if(isset($invalid_pseudo)){echo $invalid_pseudo;}elseif(isset($invalid_email)){echo $invalid_email;}?></p>
@@ -81,8 +85,42 @@
                     </form>
                 </div>
             </div>
+            <div class="reading-companion-panel redaction-panel reading-companion-panel--active" name="redaction">
+                <div>
+                    <p>Nombre d'article écrits:</p>
+                    <p>Liste des articles:</p>
+                    <ul>
+                        <li></li>
+                    </ul>
+                    <div class="new-article">
+                        <p>Rédigé un nouvelle article:</p>
+                        <div class="field-choice">
+                            <p>Sélectionné le domaine de l'article:</p>
+                            <select name="field" id="field-name">
+                                <option value="">Choisire le domaine</option>
+                            </select>
+                        </div>
+                        <button class="creat-art">&Eacute;crire un article</button>
+                        <div class="wirting-article" style="display: none">
+                            <div class="b-article">
+                                <button type="button" class="main-title">Titre principale</button>
+                                <button type="button" class="other-title">Autre titre</button>
+                            </div>
+                            <input type="text" name="content_article" class="content-article">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <?php endif;?>
 <script src="/Vieillissement/user-informations/user-informations.js"></script>
+<?php 
+    if(isset($invalid_pseudo)){
+        echo '<script> modify(' . $modifyPseudoSetting . ') </script>';
+    }
+    if(isset($invalid_email)){
+        echo '<script> modify(' . $modifyEmailSetting . ') </script>';
+    }
+?>
 <?php require __DIR__ . "../header-footer/footer.php";?>

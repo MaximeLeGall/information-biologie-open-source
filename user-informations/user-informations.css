@@ -1,10 +1,5 @@
 
 
-
-
-
-
-
 .profile{
     display: flex;
     justify-content: center;
@@ -212,6 +207,52 @@
     margin: 0 auto;
 }
 
+.invalide{
+    height: 18px;
+    color: red;
+    font-size: 16px;
+}
+
+/*redation*/
+
+.new-article{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 6px;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.field-choice{
+    display: flex;
+    align-items: baseline;
+}
 
 
+.new-article p{
+    margin-top: 30px;
+    margin-bottom: 0;
+}
 
+#field-name{
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    margin-left: 20px;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 4px;
+}
+
+
+.creat-art{
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+.content-article{
+    width: 100%;
+}

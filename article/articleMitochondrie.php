@@ -26,7 +26,3 @@
 </div>
 
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>
-<?php
-        $article_encode = htmlspecialchars($article);
-        echo $article_encode;
-?>
