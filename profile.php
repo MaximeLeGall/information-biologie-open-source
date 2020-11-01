@@ -68,7 +68,7 @@
                         <button type="button" class="b-change"  onclick="modify(<?php echo $modifyEmailSetting?>)">Modifier e-mail</button>
                     </div>
                     <div class="change">
-                        <p class="current-information">Statut actuel: <?php echo ($status)?></p>
+                        <p class="current-information">Statut actuel: <?php echo $status?></p>
                         <button type="button" class="b-change" onclick="modify('Demande:</br> devenire rédacteur', 'Je confirme', '.background-modification', false)">Devenir rédacteur</button>
                         <!-- <button type="button" class="b-change" onclick="modify('Demande:</br> devenire administrateur', 'Je confirme', '.background-modification', false)">Devenir administrateur</button> -->
                     </div>
@@ -100,13 +100,15 @@
                                 <option value="">Choisire le domaine</option>
                             </select>
                         </div>
-                        <button class="creat-art">&Eacute;crire un article</button>
-                        <div class="wirting-article" style="display: none">
-                            <div class="b-article">
-                                <button type="button" class="main-title">Titre principale</button>
-                                <button type="button" class="other-title">Autre titre</button>
-                            </div>
-                            <input type="text" name="content_article" class="content-article">
+                    </div>
+                    <div class="article">
+                    </div>
+                    <div class="wirting-article">
+                        <textarea type="text" id="textarea" placeholder="Vous pouvez écrire ici."></textarea>
+                        <div class="b-article">
+                            <button type="button" class="main-title" value="h1">Titre principale</button>
+                            <button type="button" class="other-title" value="h2">Autre titre</button>
+                            <button type="button" class="paragraph" value="p">Paragraphe</button>
                         </div>
                     </div>
                 </div>

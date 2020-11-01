@@ -11,7 +11,6 @@
     width: 7%;
     min-width: 120px;
     display: flex;
-    height: inherit;
     flex-direction: column;
     border-right: 2px solid  rgb(173, 173, 173);
     margin-right: 4%;
@@ -44,7 +43,7 @@
 
 
 .dashboard-profil{
-    height: 500px;
+    min-height: 500px;
     width: 800px;
     margin-top: 50px;
 }
@@ -213,15 +212,15 @@
     font-size: 16px;
 }
 
-/*redation*/
+/*redaction*/
 
 .new-article{
     display: flex;
     flex-direction: column;
     border: 1px solid  rgb(173, 173, 173);
     border-radius: 6px;
-    padding: 20px;
-    max-width: 600px;
+    padding: 0 20px 20px 20px;
+    max-width: 460px;
 }
 
 .field-choice{
@@ -253,6 +252,65 @@
     margin-top: 30px;
 }
 
-.content-article{
+.article{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.wirting-article{
+    display: flex;
     width: 100%;
 }
+
+.wirting-article button{
+    min-width: fit-content;
+    padding: 5px;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+#textarea{
+    width: 100%;
+    max-width: 650px;
+    min-height: 300px;
+    border-radius: 6px;
+    border: 1px solid  rgb(173, 173, 173);
+    text-align: center;
+}
+
+.b-article{
+    display: flex;
+    flex-direction: column;
+}
+
+.b-add-part{
+
+    max-width: fit-content;
+    padding: 5px;
+    border: 1px solid  rgb(173, 173, 173);
+    border-radius: 4px;
+    margin: 30px auto 0 auto;
+}
+
+h1, h2{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.article{
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 50px;
+    margin-right: 0;
+    text-align: justify;
+}
+
+.article p{
+    font-size: 20px;
+    line-height: 30px; 
+}
+
