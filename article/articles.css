@@ -6,9 +6,15 @@
     flex-wrap: nowrap;
 }
 
+
 /*article-content*/
+
 h1, h2{
     text-align: center;
+}
+
+h2{
+    margin-top: 100px;
 }
 
 #article-content{
@@ -21,7 +27,6 @@ h1, h2{
     float: left;
 }
 
-
 #article-content p{
     font-size: 20px;
     line-height: 30px; 
@@ -29,8 +34,6 @@ h1, h2{
 
 
 /*reading-companion*/
-
-
 
 .reading-companion{
     height: 3330px;
@@ -106,6 +109,7 @@ h1, h2{
     font-size: 16px;
     font-family: Arial;
 }
+
 @media (max-width: 1260px){
     .sidebar{
         display: none;
