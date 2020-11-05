@@ -252,11 +252,6 @@
     margin-top: 30px;
 }
 
-.article{
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-}
 
 .wirting-article{
     display: flex;
@@ -300,7 +295,7 @@ h1, h2{
     margin-top: 100px;
 }
 
-.article{
+.article-presentation{
     display: block;
     width: 100%;
     max-width: 700px;
@@ -309,8 +304,32 @@ h1, h2{
     text-align: justify;
 }
 
-.article p{
+.article-presentation p{
     font-size: 20px;
     line-height: 30px; 
 }
+
+#valide-article{
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 15px;
+    margin: 20px 35%;
+    outline: none;
+    background-color: #4F92B9;
+    color: rgb(255,255,255); 
+    border-radius: 20px;
+    border: 2px solid  rgb(173, 173, 173);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .15rem;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    transition: ease-in 0.3s;
+}
+
+#valide-article:hover{
+    filter: brightness(90%);
+    border-color: black;
+}
+
 

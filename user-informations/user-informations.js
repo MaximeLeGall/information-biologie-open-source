@@ -24,32 +24,51 @@ function modify(information, buttonWord, displayedElement, input, inputName){
 
 //add element into the article
 
-var allButtonType = document.querySelectorAll('button');
-for(let buttonType of allButtonType){
-    buttonType.addEventListener('click', function(){
-        var article = document.querySelector('.article');
-        var textarea = document.querySelector('#textarea');
-        if(this.value === 'h1'){
-            var newElement = document.createElement("h1");
-            var newContent = document.createTextNode(textarea.value);
-            newElement.appendChild(newContent);
-            article.insertAdjacentElement('beforeend', newElement);
+(function(){
+    var allButtonType = document.querySelectorAll('.b-article button');
+    var articlePresentation = document.querySelector('.article-presentation');
+    var dataArticle = document.querySelector('.data-article');
+    function displayButton(){
+        if(articlePresentation.children.length == 0){
+            for(i = 1; i < allButtonType.length; i++){
+                allButtonType[i].style.display = "none";
+            }
         }
-        if(this.value === 'h2'){
-            var newElement = document.createElement("h2");
-            var newContent = document.createTextNode(textarea.value);
-            newElement.appendChild(newContent);
-            article.insertAdjacentElement('beforeend', newElement);
+        else{
+            for(i = 1; i < allButtonType.length; i++){
+                allButtonType[i].style.display = "block";
+            }
+            allButtonType[0].style.display = "none";
         }
-        if(this.value === 'p'){
-            var newElement = document.createElement("p");
-            var newContent = document.createTextNode(textarea.value);
-            newElement.appendChild(newContent);
-            article.insertAdjacentElement('beforeend', newElement);
-        }
-        textarea.value = "";
-    });
-};
+    }
+    displayButton();
+    //Listener buttons rédaction + action of button
+    for(let buttonType of allButtonType){
+        buttonType.addEventListener('click', function(){
+            var textarea = document.querySelector('#textarea');
+            var valideArticle = document.querySelector('#valide-article');
+            var newContent = textarea.value;
+            if(/\w/.test(textarea.value)){
+                if(this.value === 'h1'){
+                    dataArticle.insertAdjacentHTML('beforeend', '<h1>' + newContent + '</h1>');
+                    articlePresentation.insertAdjacentHTML('beforeend',  '<h1>' + newContent + '</h1>');
+                }
+                if(this.value === 'h2'){
+                    dataArticle.insertAdjacentHTML('beforeend', '<h2>' + newContent + '</h2>');
+                    articlePresentation.insertAdjacentHTML('beforeend',  '<h2>' + newContent + '</h2>');
+                }
+                if(this.value === 'p'){
+                    dataArticle.insertAdjacentHTML('beforeend', '<p>' + newContent + '</p>');
+                    articlePresentation.insertAdjacentHTML('beforeend',  '<p>' + newContent + '</p>');
+                    valideArticle.style.display = "block";
+                }
+            }
+            textarea.value = "";
+            displayButton();
+        });
+    };
+})();
+
 
 
 

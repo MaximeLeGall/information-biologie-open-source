@@ -101,8 +101,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="article">
-                    </div>
+                    <div class="article-presentation"></div>
+                    <textarea type="text" name="data_article" class="data-article" style="display: none;"></textarea>
+                    <button id="valide-article" style="display: none;">Valider</button>
                     <div class="wirting-article">
                         <textarea type="text" id="textarea" placeholder="Vous pouvez écrire ici."></textarea>
                         <div class="b-article">
