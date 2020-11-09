@@ -214,7 +214,7 @@
 
 /*redaction*/
 
-.new-article{
+.information-new-article{
     display: flex;
     flex-direction: column;
     border: 1px solid  rgb(173, 173, 173);
@@ -229,7 +229,7 @@
 }
 
 
-.new-article p{
+.information-new-article p{
     margin-top: 30px;
     margin-bottom: 0;
 }
