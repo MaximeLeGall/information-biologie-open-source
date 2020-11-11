@@ -54,15 +54,15 @@ function modify(information, buttonWord, displayedElement, input, inputName){
                 if(this.value === 'h1'){
                     articleName.value = newContent;
                     dataArticle.insertAdjacentHTML('beforeend', '<h1>' + newContent + '</h1>');
-                    articlePresentation.insertAdjacentHTML('beforeend',  '<h1>' + newContent + '</h1>');
+                    articlePresentation.insertAdjacentHTML('beforeend', '<h1>' + newContent + '</h1>');
                 }
                 else if(this.value === 'h2'){
                     dataArticle.insertAdjacentHTML('beforeend', '<h2>' + newContent + '</h2>');
-                    articlePresentation.insertAdjacentHTML('beforeend',  '<h2>' + newContent + '</h2>');
+                    articlePresentation.insertAdjacentHTML('beforeend', '<h2>' + newContent + '</h2>');
                 }
                 else if(this.value === 'p'){
                     dataArticle.insertAdjacentHTML('beforeend', '<p>' + newContent + '</p>');
-                    articlePresentation.insertAdjacentHTML('beforeend',  '<p>' + newContent + '</p>');
+                    articlePresentation.insertAdjacentHTML('beforeend', '<p>' + newContent + '</p>');
                     valideArticle.style.display = "block";
                 }
             }
