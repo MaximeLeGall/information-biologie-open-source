@@ -93,12 +93,11 @@ h2{
     display: none;
 }
 
-#first-part div .titreArticle{
-    font-weight: bold;
+.titleArticle{
     text-align: center;
 }
 
-#first-part div a{
+.inlineArticle a{
     position: relative;
     display: block;
     margin-left: 10px;

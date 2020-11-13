@@ -17,7 +17,6 @@ if($_GET['article']){
         $article_content = $article['article_content'];
         $article_registration = $article['article_registration'];
         $author_article = $article['user_pseudo'];
-
         
     }
     catch(PDOException $pe){
