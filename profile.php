@@ -1,6 +1,8 @@
 <?php
     require __DIR__ . "../header-footer/header.php";
     require __DIR__ . "../user-informations/request-account-modification.php";
+    require __DIR__ . "../user-informations/request-added-article.php";
+    require __DIR__ . "../user-informations/request-article-author.php";
 ?>
 
 <?php if(!is_logged()):?>
@@ -90,25 +92,30 @@
                     <p>Nombre d'article écrits:</p>
                     <p>Liste des articles:</p>
                     <ul>
-                        <li></li>
+                        <?php echo $allAuthorArticles;?>
                     </ul>
-                    <div class="new-article">
-                        <p>Rédigé un nouvelle article:</p>
-                        <div class="field-choice">
-                            <p>Sélectionné le domaine de l'article:</p>
-                            <select name="field" id="field-name">
-                                <option value="">Choisire le domaine</option>
-                            </select>
+                    <form action="" method="POST" id="new-article">
+                        <div class="information-new-article">
+                            <p>Rédigé un nouvelle article:</p>
+                            <div class="field-choice">
+                                <p>Sélectionné le domaine de l'article:</p>
+                                <select form="new-article" name="article_domain" id="field-name">
+                                    <option value="">Choisire le domaine</option>
+                                    <option value="1">Vieillissement cellulaire</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="article">
-                    </div>
+                        <div class="article-presentation"></div>
+                        <input type="text" form="new-article" name="article_name" class="article-name" style="display: none;">
+                        <textarea type="text" form="new-article" name="article_content" class="data-article" style="display: none;"></textarea>
+                        <button type="submit" form="new-article" name="send_article" id="valide-article" style="display: none;">Valider</button>
+                    </form>
                     <div class="wirting-article">
                         <textarea type="text" id="textarea" placeholder="Vous pouvez écrire ici."></textarea>
                         <div class="b-article">
-                            <button type="button" class="main-title" value="h1">Titre principale</button>
-                            <button type="button" class="other-title" value="h2">Autre titre</button>
-                            <button type="button" class="paragraph" value="p">Paragraphe</button>
+                            <button type="button" class="h1" value="h1">Titre principale</button>
+                            <button type="button" class="h2" value="h2">Autre titre</button>
+                            <button type="button" class="p" value="p">Paragraphe</button>
                         </div>
                     </div>
                 </div>

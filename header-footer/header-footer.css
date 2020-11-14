@@ -199,9 +199,9 @@ nav ul{
 
 
 .menu li{
-        list-style: none;
-        font-size: 14px;
-        margin: auto;
+    list-style: none;
+    font-size: 14px;
+    margin: auto;
 }
 
 .menu li a{
@@ -272,6 +272,7 @@ footer{
     height: 450px;
     background-color: #f9f9f9;
     border-top: 3px solid #ececec;
+    margin-top: 80px;
 }
 
 .container{

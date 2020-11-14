@@ -30,6 +30,7 @@ if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
                 $informations_user = $connection -> fetch(PDO::FETCH_ASSOC);
                 if($informations_user){
                     if(password_verify($password, $informations_user['user_password'])){
+                        $_SESSION['user_id'] = $informations_user['id_user'];
                         $_SESSION['user_pseudo'] = $informations_user['user_pseudo'];
                         $_SESSION['user_email'] = $informations_user['user_email'];
                         $_SESSION['user_status'] = $informations_user['user_status'];
