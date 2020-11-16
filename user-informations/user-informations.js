@@ -21,7 +21,7 @@ function modify(information, buttonWord, displayedElement, input, inputName){
 //cancel modification
 
 
-
+//redaction
 //add element into the article
 
 (function(){

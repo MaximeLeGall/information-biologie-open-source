@@ -20,7 +20,7 @@
                                 $add_close_p = '</p>';
                             }
                         ?>
-                        <a href="http://localhost/Vieillissement/article/articleMitochondrie.php?article=<?php echo $result['id_article']?>"><?php echo $article_content, $add_close_p;?></a>
+                        <a href="http://localhost/Vieillissement/article/article.php?article=<?php echo $result['id_article']?>"><?php echo $article_content, $add_close_p;?></a>
                     </div>
             <?php endforeach?>
         </div>

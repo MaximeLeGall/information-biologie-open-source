@@ -32,12 +32,18 @@ h2{
     line-height: 30px; 
 }
 
-.author-article{
-
+.infos-article{
+    display: block;
+    margin-top: 40px;
+    font-size: 20px;
+    line-height: 30px; 
+    align-items: center;
 }
 
+
 .date-article{
-    
+    float: right;
+    margin: 0;
 }
 
 /*reading-companion*/

@@ -60,6 +60,10 @@ h2{
     overflow-y: scroll;
 }
 
+.article{
+    transition-duration: 5s;
+}
+
 .hideArticle{
     animation: animation_hideArticle 1.3s linear forwards 0s;
 }
@@ -93,7 +97,7 @@ h2{
     display: none;
 }
 
-.titleArticle{
+.inlineArticle h3{
     text-align: center;
 }
 
