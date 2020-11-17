@@ -1,6 +1,6 @@
 <?php 
     require  __DIR__ . "../header-footer/header.php";
-    require  __DIR__ . "../index/request-news-article.php";
+    require  __DIR__ . "../index/request-last-article.php";
 ?>
 
 <div id="first-part">

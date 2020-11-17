@@ -130,4 +130,52 @@ h2{
 }
 
 
+/*comment*/
+.comments{
+    width: calc(100% - 40px);
+    margin-top: 50px;
+    padding: 0 20px 20px 20px;
+    border-radius: 6px;
+}
 
+#form-new-comment{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+.new-comment-content{
+    width: calc(100% - 10px);
+    height: fit-content;
+    min-height: 30px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+}
+
+.selected-comment{
+    height: 2px;
+    display: block;
+    background-color: rgb(173, 173, 173);
+    width: calc(100% - 20px);
+    z-index: 0;
+}
+
+.focus-selected-comment{
+    position: absolute;
+    top: 84px;
+    height: 2px;
+    transition: 300ms;
+    background-color: #069;
+    width: calc(100% - 20px);
+    z-index: 1;
+    width: 0;
+    animation: focus-comment 300ms linear 100ms 1 normal forwards;
+}
+
+@keyframes focus-comment{
+    to{
+         width: calc(100% - 20px);
+    }
+}

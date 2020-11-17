@@ -281,3 +281,14 @@ function desactivationProfileOption(element1, element2){
     }
 };
 
+    //function focus
+var elementFocus = document.querySelector('.new-comment-content');
+var infoFocus = document.querySelector('.focus');
+var focus = function (){
+    infoFocus.classList.add('focus-selected-comment');
+}
+var focusout = function (){
+    infoFocus.classList.remove('focus-selected-comment');
+}
+elementFocus.addEventListener("focusin", focus);
+elementFocus.addEventListener("focusout", focusout);
