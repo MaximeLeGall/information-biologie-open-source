@@ -290,5 +290,32 @@ var focus = function (){
 var focusout = function (){
     infoFocus.classList.remove('focus-selected-comment');
 }
-elementFocus.addEventListener("focusin", focus);
-elementFocus.addEventListener("focusout", focusout);
+if(elementFocus){
+    elementFocus.addEventListener("focusin", focus);
+    elementFocus.addEventListener("focusout", focusout);
+}
+
+    //item pseudo
+var insertLetter = document.querySelector('.item-pseudo');
+function itemPseudo(){
+    var firstLetterPseudo = pseudo.substring(0, 1);
+    insertLetter.innerHTML = firstLetterPseudo;
+}
+if(pseudo){
+    itemPseudo();
+}
+
+    //active button add comment
+var buttonAddComment = document.querySelector('.b-comment');
+function newValue(){
+    if(/\w/.test(elementFocus.value)){
+        buttonAddComment.classList.add('b-comment--active');
+        buttonAddComment.removeAttribute('disabled')
+    }
+    else{
+        buttonAddComment.classList.remove('b-comment--active');
+        buttonAddComment.setAttribute('disabled', "")
+    }
+}
+
+elementFocus.addEventListener('input', newValue)
