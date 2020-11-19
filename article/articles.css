@@ -17,7 +17,7 @@ h2{
     margin-top: 100px;
 }
 
-#article-content{
+.article-content{
     display: block;
     margin-left: 25px;
     margin-right: 25px;
@@ -27,17 +27,23 @@ h2{
     float: left;
 }
 
-#article-content p{
+.article-content p{
     font-size: 20px;
     line-height: 30px; 
 }
 
-.author-article{
-
+.infos-article{
+    display: block;
+    margin-top: 40px;
+    font-size: 20px;
+    line-height: 30px; 
+    align-items: center;
 }
 
+
 .date-article{
-    
+    float: right;
+    margin: 0;
 }
 
 /*reading-companion*/
@@ -124,4 +130,115 @@ h2{
 }
 
 
+/*comment*/
+    /*new comment*/
+/* #user-pseudo{
+    margin-bottom: 0;
+    margin-left: 45px;
+    font-size: 1.1em;
+} */
 
+.inline-pseudo-comment{
+    display: flex;
+}
+
+.item-pseudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    text-transform: uppercase;
+    font-weight: 900;
+    border-radius: 50%;
+    background-color: lightcoral;
+    color: lightcyan;
+}
+
+.style-comments{
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(0.25turn, #4F92B9, white);
+}
+
+h3{
+    width: fit-content;
+    margin: 0;
+    margin-top: 5px;
+    padding: 5px 5px 3px 5px;
+    background-color: #4F92B9;
+    color: white;
+}
+
+.comments{
+    width: calc(100% - 40px);
+    margin-top: 50px;
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid  rgb(173, 173, 173);
+}
+
+#form-new-comment{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+}
+
+.new-comment-content{
+    width: calc(100% - 10px);
+    height: fit-content;
+    min-height: 30px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+}
+
+.selected-comment{
+    height: 2px;
+    display: block;
+    margin-left: 45px;
+    background-color: rgb(173, 173, 173);
+    width: calc(100% - 65px);
+    z-index: 0;
+}
+
+.focus-selected-comment{
+    position: absolute;
+    top: 45px;
+    height: 2px;
+    margin-left: 45px;
+    background-color: #069;
+    width: 0;
+    z-index: 1;
+    width: 50px;
+    animation: focus-comment 300ms linear 100ms 1 normal forwards;
+}
+
+@keyframes focus-comment{
+    to{
+         width: calc(100% - 65px);
+    }
+}
+
+.b-comment{
+    margin-top: 6px;
+    margin-left: 23px;
+    height: fit-content;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: white;
+    background-color: rgb(173, 173, 173);
+    float: right;
+}
+
+.b-comment--active{
+    color: #4F92B9;
+    border: 2px solid  #4F92B9;
+    background-color: white;
+    cursor: pointer;
+}

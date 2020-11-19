@@ -94,7 +94,7 @@
                     <ul>
                         <?php echo $allAuthorArticles;?>
                     </ul>
-                    <form action="" method="POST" id="new-article">
+                    <form action="profile.php" method="POST" id="new-article">
                         <div class="information-new-article">
                             <p>Rédigé un nouvelle article:</p>
                             <div class="field-choice">

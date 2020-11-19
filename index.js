@@ -32,7 +32,9 @@
         activeArticle_all = document.querySelectorAll(".visibleArticle");
         allActiveArticle_width = activeArticle_all.length * article_width;
         allActiveArticle_center = (firstPart_width - allActiveArticle_width) / 2;
-        inlineArticle.style.marginLeft = allActiveArticle_center + "px";
+        if((article_all.length * article_width) > firstPart_width){
+            inlineArticle.style.marginLeft = allActiveArticle_center + "px";
+        }
             //retour au première élément
         if(lastArticle_width != undefined){
             lastArticle_width = 0;
@@ -70,14 +72,18 @@
         if( - lastArticle_width <= article_invisible_width && activeArticle_last.nextElementSibling != undefined){
             lastArticle_width = lastArticle_width - article_width;
             inlineArticle.style.transform = "translateX(" + lastArticle_width +"px)";
-            activeArticle_first.classList.remove("visibleArticle");
-            activeArticle_first.classList.add("hideArticle");
-            activeArticle_last.nextElementSibling.classList.remove("hideArticle");
-            activeArticle_last.nextElementSibling.classList.add("visibleArticle");
+            activeArticle_first.classList.remove("visibleArticle").add("hideArticle");
+            activeArticle_last.nextElementSibling.classList.remove("hideArticle").add("visibleArticle");
         }
     }
     document.querySelector(".leftArrow").addEventListener("click", nextArticle);
     document.querySelector(".rightArrow").addEventListener("click", previousArticle);
+
+    //modification title article
+    var titleArticle = document.querySelectorAll(".article a");
+    titleArticle.forEach(element => {
+        element.innerHTML = element.innerHTML.replace(/<h1>/g, '<h3>').replace(/<\/h1>/g, '<\/h3>');
+    });
 }());
 
 
