@@ -155,10 +155,15 @@ h2{
     color: lightcyan;
 }
 
-.style-comments{
+.style-info-comments{
     height: 2px;
     width: 100%;
     background: linear-gradient(0.25turn, #4F92B9, white);
+}
+
+.info-comments{
+    display: flex;
+    align-items: flex-end;
 }
 
 h3{

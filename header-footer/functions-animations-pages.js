@@ -301,7 +301,7 @@ function itemPseudo(){
     var firstLetterPseudo = pseudo.substring(0, 1);
     insertLetter.innerHTML = firstLetterPseudo;
 }
-if(pseudo){
+if(typeof pseudo != "undefined"){
     itemPseudo();
 }
 
@@ -317,5 +317,6 @@ function newValue(){
         buttonAddComment.setAttribute('disabled', "")
     }
 }
-
-elementFocus.addEventListener('input', newValue)
+if(elementFocus){
+    elementFocus.addEventListener('input', newValue);
+}
