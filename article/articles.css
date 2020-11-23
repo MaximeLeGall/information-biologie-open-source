@@ -190,11 +190,16 @@ h3{
     margin-top: 30px;
 }
 
+.new-comment-content:placeholder-shown{
+    font-family:  Times, serif;
+    font-size: 17px;
+}
 .new-comment-content{
     width: calc(100% - 10px);
     height: fit-content;
     min-height: 30px;
     font-size: 15px;
+    font-family: Roboto, Arial, sans-serif;
     border: none;
     outline: none;
 }
@@ -246,4 +251,33 @@ h3{
     border: 2px solid  #4F92B9;
     background-color: white;
     cursor: pointer;
+}
+
+.all-comments{
+
+}
+
+.user-comment{
+    width: 615px;
+}
+
+.info-user{
+    display: flex;
+}
+
+.comment-added{
+    display: flex;
+}
+
+#user-pseudo{
+    margin: 0 0 0 10px;
+    color:  #069;
+    font-weight: 700;
+}
+
+#comment-content{
+    font-size: 15px;
+    margin: 0 0 0 10px;
+    line-height: 24px;
+    font-family: Roboto, Arial, sans-serif;
 }

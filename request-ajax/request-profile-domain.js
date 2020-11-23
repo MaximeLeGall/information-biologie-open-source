@@ -28,7 +28,7 @@ var getHttpRequest = function(){
 }
 
 var addComment = document.querySelector('#form-new-comment');
-var result = document.querySelector('.all-comments');
+var result = document.querySelector('.comment-added');
 var httpRequest = getHttpRequest();
 if(addComment){
     addComment.addEventListener('submit',function(e){
@@ -38,16 +38,16 @@ if(addComment){
                 result.innerHTML = '';
                 if(httpRequest.status === 200){
                     result.innerHTML = httpRequest.responseText;
-                    console.log(httpRequest.responseText);
                 }
                 else{
                     alert("votre message n'a pas pus être envoyer");
                 }
             }
         }
-        httpRequest.open('POST', '/Vieillissement/article/request-comments.php', true);
+        httpRequest.open('POST', '/Vieillissement/article/request-add-comments.php', true);
         httpRequest.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-        var contentComment = document.querySelector('.new-comment-content').value;
-        httpRequest.send("new_comment=" + encodeURIComponent(contentComment) + "&article=" + encodeURIComponent(idArticle) + '&user_id=' + encodeURIComponent(userId));
+        var contentComment = document.querySelector('.new-comment-content');
+        httpRequest.send("new_comment=" + encodeURIComponent(contentComment.value) + "&article=" + encodeURIComponent(idArticle) + '&user_id=' + encodeURIComponent(userId));
+        contentComment.value = "";
     })
 }

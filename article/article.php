@@ -18,7 +18,6 @@
                                 <div class="style-info-comments"></div>
                         </div>
                         <?php if(is_logged()):?>
-                                <!-- <?php echo '<p id="user-pseudo">' . htmlspecialchars($pseudo) . '</p>';?> -->
                                 <form action="#" id="form-new-comment">
                                         <div class="inline-pseudo-comment">
                                                 <div class="item-pseudo"></div>
@@ -29,7 +28,18 @@
                                         <button type="submit" class="b-comment" disabled>AJOUTER</button>
                                 </form>
                         <?php endif?>
-                        <div class="all-comments"></div>
+                        <div class="all-comments">
+                                <div class="comment-added">
+                                        <div class="item-pseudo"></div>
+                                        <div class="user-comment">
+                                                <div class="info-user">
+                                                        <p id="user-pseudo">maxime</p>
+                                                        <span class="date"></span>
+                                                </div>
+                                                <p id="comment-content">L'ensemble des éléments traités par forEach est défini avant le premier appel à callback. Les éléments ajoutés au tableau après que l'appel à forEach ait commencé ne seront pas visités par callback. Si des éléments déjà présents dans le tableau sont modifiés, leur valeur telle qu'elle est passée au callback sera la valeur au moment du passage du forEach ; les éléments supprimés ne sont pas parcourus. Voir l'exemple ci-après.</p> 
+                                        </div>
+                                </div>
+                        </div>
                 </div> 
         </div>         
         <?php require_once __DIR__ . "../../article/companion-article.php" ?>
@@ -37,7 +47,7 @@
 <script type="text/javascript"> 
         var pseudo = <?php if(isset($pseudo)){echo json_encode($pseudo);}else{echo "undefined";}?>;
         var idArticle = <?php echo json_encode($_GET['article']);?>;
-        var userId = <?php echo json_encode($_SESSION['user_id']);?>;
+        var userId = <?php if(isset($_SESSION['user_id'])){echo json_encode($_SESSION['user_id']);}else{echo 'undefined';}?>;
 </script>
 <script type="text/javascript" src="/Vieillissement/request-ajax/request-profile-domain.js"></script>
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>

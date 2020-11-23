@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . "../connection-verification.php";
 init_php_session();
-require __DIR__ . 'account/db-config.php';
+require 'account/db-config.php';
 
 if(isset($_POST['valid_connection']) || isset($_POST['new_account'])){
     try{

@@ -296,10 +296,12 @@ if(elementFocus){
 }
 
     //item pseudo
-var insertLetter = document.querySelector('.item-pseudo');
+var insertLetter = document.querySelectorAll('.item-pseudo');
 function itemPseudo(){
-    var firstLetterPseudo = pseudo.substring(0, 1);
-    insertLetter.innerHTML = firstLetterPseudo;
+    insertLetter.forEach(element => {
+        var firstLetterPseudo = pseudo.substring(0, 1);
+        element.innerHTML = firstLetterPseudo;
+    });
 }
 if(typeof pseudo != "undefined"){
     itemPseudo();
