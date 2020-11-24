@@ -175,6 +175,10 @@ h3{
     color: white;
 }
 
+.comment-added{
+    margin-top: 20px;
+}
+
 .comments{
     width: calc(100% - 40px);
     margin-top: 50px;
@@ -182,7 +186,7 @@ h3{
     border-top: 1px solid  rgb(173, 173, 173);
 }
 
-#form-new-comment{
+.form-new-comment{
     position: relative;
     display: block;
     width: 100%;
@@ -253,19 +257,11 @@ h3{
     cursor: pointer;
 }
 
-.all-comments{
-
-}
-
 .user-comment{
     width: 615px;
 }
 
-.info-user{
-    display: flex;
-}
-
-.comment-added{
+.info-user-comment, .comment-added{
     display: flex;
 }
 
@@ -275,9 +271,25 @@ h3{
     font-weight: 700;
 }
 
+.date{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
 #comment-content{
     font-size: 15px;
     margin: 0 0 0 10px;
     line-height: 24px;
     font-family: Roboto, Arial, sans-serif;
+}
+
+.resonse-comment{
+    float: right;
+    border: none;
+    padding: 6px;
+    background-color: white;
+    color: rgb(155, 155, 155);
+    font-weight: 600;
+    cursor: pointer;
 }

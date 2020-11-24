@@ -322,3 +322,11 @@ function newValue(){
 if(elementFocus){
     elementFocus.addEventListener('input', newValue);
 }
+
+var allButtonResponse = document.querySelectorAll('.resonse-comment');
+var cloneNewComment = document.querySelector('.form-new-comment').cloneNode(true);
+allButtonResponse.forEach(buttonResponse => {
+    buttonResponse.addEventListener('click', function(){
+        this.insertAdjacentElement('afterend', cloneNewComment);
+    })
+});

@@ -18,7 +18,7 @@
                                 <div class="style-info-comments"></div>
                         </div>
                         <?php if(is_logged()):?>
-                                <form action="#" id="form-new-comment">
+                                <form action="#" class="form-new-comment">
                                         <div class="inline-pseudo-comment">
                                                 <div class="item-pseudo"></div>
                                                 <textarea type="text" rows="2" name="new_comment" class="new-comment-content" placeholder="Ajouter un commentaire"></textarea>
@@ -29,16 +29,19 @@
                                 </form>
                         <?php endif?>
                         <div class="all-comments">
-                                <div class="comment-added">
-                                        <div class="item-pseudo"></div>
-                                        <div class="user-comment">
-                                                <div class="info-user">
-                                                        <p id="user-pseudo">maxime</p>
-                                                        <span class="date"></span>
+                                <?php foreach($all_comment as $comment):?>
+                                        <div class="comment-added">
+                                                <div class="item-pseudo"></div>
+                                                <div class="user-comment">
+                                                        <div class="info-user-comment">
+                                                                <p id="user-pseudo"><?= $comment['user_pseudo']?></p>
+                                                                <a class="date">Le: <?= $comment['DATE_FORMAT(date_comment, "%d/%m/%Y")']?></a>
+                                                        </div>
+                                                        <p id="comment-content"><?= $comment['comment_article']?></p>
+                                                        <button type="button" class="resonse-comment">R&Eacute;PONDRE</button>
                                                 </div>
-                                                <p id="comment-content">L'ensemble des éléments traités par forEach est défini avant le premier appel à callback. Les éléments ajoutés au tableau après que l'appel à forEach ait commencé ne seront pas visités par callback. Si des éléments déjà présents dans le tableau sont modifiés, leur valeur telle qu'elle est passée au callback sera la valeur au moment du passage du forEach ; les éléments supprimés ne sont pas parcourus. Voir l'exemple ci-après.</p> 
                                         </div>
-                                </div>
+                                <?php endforeach;?>
                         </div>
                 </div> 
         </div>         
