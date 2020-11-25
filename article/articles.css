@@ -155,10 +155,15 @@ h2{
     color: lightcyan;
 }
 
-.style-comments{
+.style-info-comments{
     height: 2px;
     width: 100%;
     background: linear-gradient(0.25turn, #4F92B9, white);
+}
+
+.info-comments{
+    display: flex;
+    align-items: flex-end;
 }
 
 h3{
@@ -170,6 +175,10 @@ h3{
     color: white;
 }
 
+.comment-added{
+    margin-top: 20px;
+}
+
 .comments{
     width: calc(100% - 40px);
     margin-top: 50px;
@@ -177,7 +186,7 @@ h3{
     border-top: 1px solid  rgb(173, 173, 173);
 }
 
-#form-new-comment{
+.form-new-comment{
     position: relative;
     display: block;
     width: 100%;
@@ -185,11 +194,16 @@ h3{
     margin-top: 30px;
 }
 
+.new-comment-content:placeholder-shown{
+    font-family:  Times, serif;
+    font-size: 17px;
+}
 .new-comment-content{
     width: calc(100% - 10px);
     height: fit-content;
     min-height: 30px;
     font-size: 15px;
+    font-family: Roboto, Arial, sans-serif;
     border: none;
     outline: none;
 }
@@ -240,5 +254,53 @@ h3{
     color: #4F92B9;
     border: 2px solid  #4F92B9;
     background-color: white;
+    cursor: pointer;
+}
+
+.user-comment{
+    width: 615px;
+}
+
+.info-user-comment, .comment-added{
+    display: flex;
+}
+
+#user-pseudo{
+    margin: 0 0 0 10px;
+    color:  #069;
+    font-weight: 700;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
+#comment-content{
+    font-size: 15px;
+    margin: 0 0 0 10px;
+    line-height: 24px;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.add-resonse-comment{
+    float: right;
+    border: none;
+    padding: 6px;
+    background-color: white;
+    color: rgb(155, 155, 155);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.buttonCancel{
+    float: right;
+    margin-top: 6px;
+    border: none;
+    padding: 12px 15px;
+    background-color: white;
+    color: #4F92B9;
+    font-weight: 600;
     cursor: pointer;
 }

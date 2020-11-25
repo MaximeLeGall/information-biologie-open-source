@@ -17,7 +17,9 @@ if($_GET['article']){
         $article_content = $article['article_content'];
         $article_registration = $article['DATE_FORMAT(article_registration, "%d/%m/%Y")'];
         $author_article = $article['user_pseudo'];
-        
+
+        $req_comment = $PDO -> query('SELECT user_pseudo, comment_article, DATE_FORMAT(date_comment, "%d/%m/%Y") FROM comment INNER JOIN t_users ON comment.user_comment = t_users.id_user WHERE id_article_comment =' . $_GET['article']);
+        $all_comment = $req_comment->fetchAll(PDO::FETCH_ASSOC);
     }
     catch(PDOException $pe){
         echo 'ERREUR: ' . $pe->getMessage();

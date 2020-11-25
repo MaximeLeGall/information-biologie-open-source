@@ -281,41 +281,64 @@ function desactivationProfileOption(element1, element2){
     }
 };
 
-    //function focus
-var elementFocus = document.querySelector('.new-comment-content');
-var infoFocus = document.querySelector('.focus');
-var focus = function (){
-    infoFocus.classList.add('focus-selected-comment');
-}
-var focusout = function (){
-    infoFocus.classList.remove('focus-selected-comment');
-}
-if(elementFocus){
-    elementFocus.addEventListener("focusin", focus);
-    elementFocus.addEventListener("focusout", focusout);
-}
+
+
+
 
     //item pseudo
-var insertLetter = document.querySelector('.item-pseudo');
+var insertLetter = document.querySelectorAll('.item-pseudo');
 function itemPseudo(){
-    var firstLetterPseudo = pseudo.substring(0, 1);
-    insertLetter.innerHTML = firstLetterPseudo;
+    insertLetter.forEach(element => {
+        var firstLetterPseudo = pseudo.substring(0, 1);
+        element.innerHTML = firstLetterPseudo;
+    });
 }
-if(pseudo){
+if(typeof pseudo != "undefined"){
     itemPseudo();
 }
 
-    //active button add comment
-var buttonAddComment = document.querySelector('.b-comment');
-function newValue(){
-    if(/\w/.test(elementFocus.value)){
-        buttonAddComment.classList.add('b-comment--active');
-        buttonAddComment.removeAttribute('disabled')
-    }
-    else{
-        buttonAddComment.classList.remove('b-comment--active');
-        buttonAddComment.setAttribute('disabled', "")
+    //add comment
+function addComment(){
+    var elementsFocus = document.querySelectorAll('.new-comment-content');
+    if(elementsFocus[0] != undefined){
+        elementsFocus.forEach(element =>{
+                //add focus info
+            var infoFocus = element.parentNode.parentNode.querySelector('.focus');
+            element.addEventListener("focusin", function(){
+                infoFocus.classList.add('focus-selected-comment');
+            });
+            element.addEventListener("focusout", function(){
+                infoFocus.classList.remove('focus-selected-comment');
+            });
+                //active button add comment
+            element.addEventListener('input', function(){
+                var buttonAddComment = this.parentNode.parentNode.querySelector('button');
+                if(/\w/.test(element.value)){
+                    buttonAddComment.classList.add('b-comment--active');
+                    buttonAddComment.removeAttribute('disabled')
+                }
+                else{
+                    buttonAddComment.classList.remove('b-comment--active');
+                    buttonAddComment.setAttribute('disabled', "")
+                }
+            });
+        })
     }
 }
+addComment();
 
-elementFocus.addEventListener('input', newValue)
+var allButtonResponse = document.querySelectorAll('.add-resonse-comment');
+var cloneNewComment = document.querySelector('.form-new-comment').cloneNode(true);
+var buttonCancel = document.createElement('button');
+buttonCancel.innerHTML = 'ANULLER';
+buttonCancel.classList.add('buttonCancel');
+cloneNewComment.insertAdjacentElement('beforeend', buttonCancel);
+allButtonResponse.forEach(buttonResponse => {
+    buttonResponse.addEventListener('click', function(){
+        this.insertAdjacentElement('afterend', cloneNewComment);
+        addComment();
+    })
+});
+buttonCancel.addEventListener('click', function(){
+    cloneNewComment.remove();
+})
