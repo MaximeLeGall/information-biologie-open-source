@@ -38,7 +38,7 @@
                                                                 <a class="date">Le: <?= $comment['DATE_FORMAT(date_comment, "%d/%m/%Y")']?></a>
                                                         </div>
                                                         <p id="comment-content"><?= $comment['comment_article']?></p>
-                                                        <button type="button" class="resonse-comment">R&Eacute;PONDRE</button>
+                                                        <button type="button" class="add-resonse-comment">R&Eacute;PONDRE</button>
                                                 </div>
                                         </div>
                                 <?php endforeach;?>
@@ -52,5 +52,5 @@
         var idArticle = <?php echo json_encode($_GET['article']);?>;
         var userId = <?php if(isset($_SESSION['user_id'])){echo json_encode($_SESSION['user_id']);}else{echo 'undefined';}?>;
 </script>
-<script type="text/javascript" src="/Vieillissement/request-ajax/request-profile-domain.js"></script>
+<script type="text/javascript" src="/Vieillissement/request-ajax/request-newcomment.js"></script>
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>

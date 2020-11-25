@@ -284,12 +284,23 @@ h3{
     font-family: Roboto, Arial, sans-serif;
 }
 
-.resonse-comment{
+.add-resonse-comment{
     float: right;
     border: none;
     padding: 6px;
     background-color: white;
     color: rgb(155, 155, 155);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.buttonCancel{
+    float: right;
+    margin-top: 6px;
+    border: none;
+    padding: 12px 15px;
+    background-color: white;
+    color: #4F92B9;
     font-weight: 600;
     cursor: pointer;
 }

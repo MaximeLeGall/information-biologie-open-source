@@ -281,19 +281,9 @@ function desactivationProfileOption(element1, element2){
     }
 };
 
-    //function focus
-var elementFocus = document.querySelector('.new-comment-content');
-var infoFocus = document.querySelector('.focus');
-var focus = function (){
-    infoFocus.classList.add('focus-selected-comment');
-}
-var focusout = function (){
-    infoFocus.classList.remove('focus-selected-comment');
-}
-if(elementFocus){
-    elementFocus.addEventListener("focusin", focus);
-    elementFocus.addEventListener("focusout", focusout);
-}
+
+
+
 
     //item pseudo
 var insertLetter = document.querySelectorAll('.item-pseudo');
@@ -307,26 +297,48 @@ if(typeof pseudo != "undefined"){
     itemPseudo();
 }
 
-    //active button add comment
-var buttonAddComment = document.querySelector('.b-comment');
-function newValue(){
-    if(/\w/.test(elementFocus.value)){
-        buttonAddComment.classList.add('b-comment--active');
-        buttonAddComment.removeAttribute('disabled')
-    }
-    else{
-        buttonAddComment.classList.remove('b-comment--active');
-        buttonAddComment.setAttribute('disabled', "")
+    //add comment
+function addComment(){
+    var elementsFocus = document.querySelectorAll('.new-comment-content');
+    if(elementsFocus[0] != undefined){
+        elementsFocus.forEach(element =>{
+                //add focus info
+            var infoFocus = element.parentNode.parentNode.querySelector('.focus');
+            element.addEventListener("focusin", function(){
+                infoFocus.classList.add('focus-selected-comment');
+            });
+            element.addEventListener("focusout", function(){
+                infoFocus.classList.remove('focus-selected-comment');
+            });
+                //active button add comment
+            element.addEventListener('input', function(){
+                var buttonAddComment = this.parentNode.parentNode.querySelector('button');
+                if(/\w/.test(element.value)){
+                    buttonAddComment.classList.add('b-comment--active');
+                    buttonAddComment.removeAttribute('disabled')
+                }
+                else{
+                    buttonAddComment.classList.remove('b-comment--active');
+                    buttonAddComment.setAttribute('disabled', "")
+                }
+            });
+        })
     }
 }
-if(elementFocus){
-    elementFocus.addEventListener('input', newValue);
-}
+addComment();
 
-var allButtonResponse = document.querySelectorAll('.resonse-comment');
+var allButtonResponse = document.querySelectorAll('.add-resonse-comment');
 var cloneNewComment = document.querySelector('.form-new-comment').cloneNode(true);
+var buttonCancel = document.createElement('button');
+buttonCancel.innerHTML = 'ANULLER';
+buttonCancel.classList.add('buttonCancel');
+cloneNewComment.insertAdjacentElement('beforeend', buttonCancel);
 allButtonResponse.forEach(buttonResponse => {
     buttonResponse.addEventListener('click', function(){
         this.insertAdjacentElement('afterend', cloneNewComment);
+        addComment();
     })
 });
+buttonCancel.addEventListener('click', function(){
+    cloneNewComment.remove();
+})
