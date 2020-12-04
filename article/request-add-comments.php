@@ -11,12 +11,13 @@ if(isset($_POST['article']) && !empty($_POST['article']) && isset($_POST['new_co
     
         $PDO = new PDO($DB_BSN, $DB_USER, $DB_PASS);
         
-        $new_comment = $PDO->prepare('INSERT INTO comment (id_article_comment, user_comment, comment_article, date_comment) VALUES(?, ?, ?, NOW())');
-        $new_comment -> bindValue(1, $_POST['article'], PDO::PARAM_INT);
-        $new_comment -> bindValue(2, $_POST['user_id'], PDO::PARAM_INT);
-        $new_comment -> bindValue(3, $_POST['new_comment'], PDO::PARAM_STR);
+        // $new_comment = $PDO->prepare('INSERT INTO comment (id_article_comment, user_comment, comment_article, response_to_comment, date_comment) VALUES(?, ?, ?, ?, NOW())');
+        // $new_comment -> bindValue(1, $_POST['article'], PDO::PARAM_INT);
+        // $new_comment -> bindValue(2, $_POST['user_id'], PDO::PARAM_INT);
+        // $new_comment -> bindValue(3, $_POST['new_comment'], PDO::PARAM_STR);
+        // $new_comment -> bindValue(4, $_POST['response_comment'], PDO::PARAM_INT);
         
-        $new_comment -> execute();
+        // $new_comment -> execute();
         echo $_POST['new_comment'];
     }
     catch(PDOException $pe){

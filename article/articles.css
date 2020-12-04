@@ -175,8 +175,8 @@ h3{
     color: white;
 }
 
-.comment-added{
-    margin-top: 20px;
+.comment-added, .clone-comment-added{
+    margin-top: 30px;
 }
 
 .comments{
