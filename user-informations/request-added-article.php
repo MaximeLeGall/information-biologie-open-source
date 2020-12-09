@@ -26,7 +26,7 @@ if(isset($_POST['send_article'])){
                 $invalid_article_name = true;
             }
             else{
-                $added_article = $account_creation = $PDO -> prepare('INSERT INTO article (article_domain, author_article, article_registration, article_content, article_name) VALUES(?, ?, NOW(), ?, ?)');
+                $added_article = $PDO -> prepare('INSERT INTO article (article_domain, author_article, article_registration, article_content, article_name) VALUES(?, ?, NOW(), ?, ?)');
                 $added_article -> bindValue(1, $article_domain);
                 $added_article -> bindValue(2, $_SESSION['user_id']);
                 $added_article -> bindValue(3, $article_content);

@@ -37,6 +37,13 @@ function sendComment(){
                 var commentAdded = document.querySelector('.clone-comment-added');
                 var contentComment = this.querySelector('.new-comment-content');
                 if(contentComment.value != ""){
+                    var idComment = null;
+                    if(formNewComment.parentNode.getAttribute('class') === 'user-comment'){
+                        idComment = formNewComment.parentNode.querySelector('.add-response-comment').getAttribute('data-id');
+                    }
+                    else{
+                        idComment = 0;
+                    }
                     httpRequest.onreadystatechange = function(){
                         if(httpRequest.readyState === 4){
                             if(httpRequest.status === 200){
@@ -47,6 +54,9 @@ function sendComment(){
                                 cloneCommentAdded.querySelector('#user-pseudo').innerHTML = pseudo;
                                 cloneCommentAdded.querySelector('.date').innerHTML = 'Le: ' + new Date().toLocaleDateString();
                                 insertionLocation.insertAdjacentElement('beforeend', cloneCommentAdded);
+                                if(formNewComment.parentNode.getAttribute('class') === 'user-comment'){
+                                    formNewComment.style.display = 'none';
+                                }
                             }
                             else{
                                 alert("votre message n'a pas pus être envoyer");
@@ -55,16 +65,10 @@ function sendComment(){
                     }
                     httpRequest.open('POST', '/Vieillissement/article/request-add-comments.php', true);
                     httpRequest.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-                    httpRequest.send("new_comment=" + encodeURIComponent(contentComment.value) + "&article=" + encodeURIComponent(idArticle) + '&user_id=' + encodeURIComponent(userId));
+                    console.log(idArticle + ' ' + userId +' ' + idComment);
+                    httpRequest.send("new_comment=" + encodeURIComponent(contentComment.value) + "&id_article=" + idArticle + "&user_id=" + userId + "&response_comment=" + idComment);
                     
-                    if(formNewComment.parentNode){
-                        if(formNewComment.parentNode.getAttribute('class') === 'user-comment'){
-                            formNewComment.style.display = 'none';
-                        }
-                    }
                     formNewComment.querySelector('.new-comment-content').value = "";
-                    // console.log(responseComment.parentNode);
-                    // console.log(responseComment.parentNode.getAttribute('class'));
                 }
             })
         });

@@ -335,7 +335,7 @@ function addComment(){
 }
 addComment();
 
-var allButtonResponse = document.querySelectorAll('.add-resonse-comment');
+var allButtonResponse = document.querySelectorAll('.add-response-comment');
 var formNewComment = document.querySelector('.form-new-comment');
 if(formNewComment){
     var buttonCancel = document.createElement('button');
@@ -361,3 +361,24 @@ if(formNewComment){
         responseComment.style.display = 'none';
     })
 }
+(function(){
+    var commentAdded = document.querySelector('.clone-comment-added');
+    var allComments = document.querySelectorAll('.add-response-comment');
+    allResponseComment.forEach(response => {
+        allComments.forEach(comment => {
+            var cloneCommentAdded = commentAdded.cloneNode(true);
+            var dataId = comment.getAttribute('data-id');
+            var idCommentResponse = response['response_to_comment'];
+            if(dataId == idCommentResponse){
+                cloneCommentAdded.querySelector('#comment-content').innerHTML = response['comment_article'];
+                cloneCommentAdded.querySelector('#user-pseudo').innerHTML = response['user_pseudo'];
+                cloneCommentAdded.querySelector('.date').innerHTML = 'Le: ' + response['DATE_FORMAT(date_comment, "%d/%m/%Y")'];
+                cloneCommentAdded.style.display = 'flex';
+                comment.insertAdjacentElement('afterend', cloneCommentAdded);
+            }
+        });
+    });
+})();
+
+
+

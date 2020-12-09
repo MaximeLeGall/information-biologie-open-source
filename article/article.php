@@ -35,7 +35,6 @@
                                                         <a class="date"></a>
                                                 </div>
                                                 <p id="comment-content"></p>
-                                                <button type="button" class="add-resonse-comment">R&Eacute;PONDRE</button>
                                         </div>
                                 </div>
                                 <?php foreach($all_comment as $comment):?>
@@ -47,7 +46,7 @@
                                                                 <a class="date">Le: <?= $comment['DATE_FORMAT(date_comment, "%d/%m/%Y")']?></a>
                                                         </div>
                                                         <p id="comment-content"><?= htmlspecialchars($comment['comment_article'])?></p>
-                                                        <button type="button" class="add-resonse-comment">R&Eacute;PONDRE</button>
+                                                        <button type="button" class="add-response-comment" data-id="<?=$comment['id_comment']?>">R&Eacute;PONDRE</button>
                                                 </div>
                                         </div>
                                 <?php endforeach;?>
@@ -57,11 +56,12 @@
         <?php require_once __DIR__ . "../../article/companion-article.php" ?>
 </div>
 <script type="text/javascript"> 
+        var allResponseComment = <?php echo json_encode($all_response_comment);?>;
         <?php if(is_logged()):?>
                 var pseudo = <?php echo json_encode($_SESSION['user_pseudo']);?>;
                 var idArticle = <?php echo json_encode($_GET['article']);?>;
                 var userId = <?php echo json_encode($_SESSION['user_id']);?>;
         <?php endif?>
 </script>
-<script type="text/javascript" src="/Vieillissement/request-ajax/request-newcomment.js"></script>
+<script type="text/javascript" src="/Vieillissement/request-ajax/ajax-request-add-comment.js"></script>
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>

@@ -18,8 +18,18 @@ if($_GET['article']){
         $article_registration = $article['DATE_FORMAT(article_registration, "%d/%m/%Y")'];
         $author_article = $article['user_pseudo'];
 
-        $req_comment = $PDO -> query('SELECT user_pseudo, comment_article, DATE_FORMAT(date_comment, "%d/%m/%Y") FROM comment INNER JOIN t_users ON comment.user_comment = t_users.id_user WHERE id_article_comment =' . $_GET['article']);
-        $all_comment = $req_comment->fetchAll(PDO::FETCH_ASSOC);
+        $req_comment = $PDO -> query('SELECT user_pseudo, comment_article, id_comment, response_to_comment, DATE_FORMAT(date_comment, "%d/%m/%Y") FROM comment INNER JOIN t_users ON comment.user_comment = t_users.id_user WHERE id_article_comment =' . $_GET['article']);
+        $invert_all_comment = $req_comment->fetchAll(PDO::FETCH_ASSOC);
+        $invert_all_response_comment = [];
+        foreach($invert_all_comment as $key => $comment){
+            if($comment['response_to_comment'] != 0){
+                array_push($invert_all_response_comment, $comment);
+                unset($invert_all_comment[$key]); 
+            }
+        }
+        $all_comment = array_reverse($invert_all_comment);
+        $all_response_comment = array_reverse($invert_all_response_comment);
+        $all_comment = array_values($all_comment);
     }
     catch(PDOException $pe){
         echo 'ERREUR: ' . $pe->getMessage();
