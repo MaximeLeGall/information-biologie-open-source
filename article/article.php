@@ -3,8 +3,23 @@
         require  __DIR__ . "../../article/request-article.php";
  ?>
 <div class="article">
-        <div class="article-content">
-                <?php echo $article_content;?>
+        <div class="article-content-comment">
+                <div id="article-name">
+                        <h1><?= $article_name ?></h1>
+                </div>
+                <div class="sharing">
+                        <div class="popularity">
+                        </div>
+                        <ul class="social-bar">
+                                <?php $arraySrcImage = find_image("social-network-printer/svg-logo/");?>
+                                <?php foreach($arraySrcImage as $social_logo):?>
+                                        <li><?php include  __DIR__ . "../$social_logo";?></li>
+                                <?php endforeach;?>
+                        </ul>
+                </div>
+                <div id="article-content">
+                        <?php echo $article_content;?>
+                </div>
                 <div class="infos-article">
                         <?php echo '<a class="author-article"> Auteur: ' . $author_article . '</a>';?>
                         <?php echo '<p class="date-article"> Publié le: ' . $article_registration . '</p>';?>
@@ -63,5 +78,6 @@
                 var userId = <?php echo json_encode($_SESSION['user_id']);?>;
         <?php endif?>
 </script>
+<script type="text/javascript" src="/Vieillissement/article/article.js"></script>
 <script type="text/javascript" src="/Vieillissement/request-ajax/ajax-request-add-comment.js"></script>
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>

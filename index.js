@@ -9,7 +9,7 @@
         allActiveArticle_width,
         allActiveArticle_center,
         inlineArticle,
-        activeArticle_all,
+        allActiveArticle,
         element;
     var visibleArticle = function(){
         firstPart_width = document.querySelector("#first-part").getBoundingClientRect().width;
@@ -29,12 +29,16 @@
             }
         }
             //centrage des éléments actifs
-        activeArticle_all = document.querySelectorAll(".visibleArticle");
-        allActiveArticle_width = activeArticle_all.length * article_width;
+        allActiveArticle = document.querySelectorAll(".visibleArticle");
+        allActiveArticle_width = allActiveArticle.length * article_width;
         allActiveArticle_center = (firstPart_width - allActiveArticle_width) / 2;
-        if((article_all.length * article_width) > firstPart_width){
+        if(allActiveArticle.length < article_all.length){
             inlineArticle.style.marginLeft = allActiveArticle_center + "px";
         }
+        else{
+            inlineArticle.style.marginLeft = "0px";
+        }
+
             //retour au première élément
         if(lastArticle_width != undefined){
             lastArticle_width = 0;
@@ -46,15 +50,15 @@
         
 
     var lastArticle_width = 0;
-    var activeArticle_all,
+    var allActiveArticle,
         activeArticle_last,
         activeArticle_first,
         article_invisible_width;
     function nextArticle(){
         if(lastArticle_width < 0){
-            activeArticle_all = document.querySelectorAll(".visibleArticle");
-            activeArticle_first = activeArticle_all[0];
-            activeArticle_last = activeArticle_all[activeArticle_all.length - 1];
+            allActiveArticle = document.querySelectorAll(".visibleArticle");
+            activeArticle_first = allActiveArticle[0];
+            activeArticle_last = allActiveArticle[allActiveArticle.length - 1];
             lastArticle_width = lastArticle_width + article_width;
             inlineArticle.style.transform = "translateX(" + lastArticle_width + "px)";
             activeArticle_first.previousElementSibling.classList.add("visibleArticle");
@@ -65,15 +69,17 @@
     }
 
     function previousArticle(){
-        activeArticle_all = document.querySelectorAll(".visibleArticle");
-        activeArticle_first = activeArticle_all[0];
-        activeArticle_last = activeArticle_all[activeArticle_all.length - 1];
-        article_invisible_width = article_width * (article_last_index - 1 - activeArticle_all.length);
+        allActiveArticle = document.querySelectorAll(".visibleArticle");
+        activeArticle_first = allActiveArticle[0];
+        activeArticle_last = allActiveArticle[allActiveArticle.length - 1];
+        article_invisible_width = article_width * (article_last_index - 1 - allActiveArticle.length);
         if( - lastArticle_width <= article_invisible_width && activeArticle_last.nextElementSibling != undefined){
             lastArticle_width = lastArticle_width - article_width;
             inlineArticle.style.transform = "translateX(" + lastArticle_width +"px)";
-            activeArticle_first.classList.remove("visibleArticle").add("hideArticle");
-            activeArticle_last.nextElementSibling.classList.remove("hideArticle").add("visibleArticle");
+            activeArticle_first.classList.remove("visibleArticle");
+            activeArticle_first.classList.add("hideArticle");
+            activeArticle_last.nextElementSibling.classList.remove("hideArticle");
+            activeArticle_last.nextElementSibling.classList.add("visibleArticle");
         }
     }
     document.querySelector(".leftArrow").addEventListener("click", nextArticle);

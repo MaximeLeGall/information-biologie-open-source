@@ -50,7 +50,6 @@ function modify(information, buttonWord, displayedElement, input, inputName){
                 var textarea = document.querySelector('#textarea');
                 var valideArticle = document.querySelector('#valide-article');
                 var newContent = textarea.value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-                console.log(newContent);
                 if(/\w/.test(textarea.value)){
                     if(this.value === 'h1'){
                         articleName.value = newContent;

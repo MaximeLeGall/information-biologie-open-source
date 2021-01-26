@@ -3,6 +3,7 @@
     require __DIR__ . "../user-informations/request-account-modification.php";
     require __DIR__ . "../user-informations/request-added-article.php";
     require __DIR__ . "../user-informations/request-article-author.php";
+    require __DIR__ . "../request-reuse/request-article-domain.php";
 ?>
 
 <?php if(!is_logged()):?>
@@ -89,7 +90,7 @@
             </div>
             <div class="reading-companion-panel redaction-panel reading-companion-panel--active" name="redaction">
                 <div>
-                    <p>Nombre d'article écrits:</p>
+                    <p>Nombre d'article écrits: <?php echo $numberArticles?></p>
                     <p>Liste des articles:</p>
                     <ul>
                         <?php echo $allAuthorArticles;?>
@@ -101,7 +102,9 @@
                                 <p>Sélectionné le domaine de l'article:</p>
                                 <select form="new-article" name="article_domain" id="field-name">
                                     <option value="">Choisire le domaine</option>
-                                    <option value="1">Vieillissement cellulaire</option>
+                                    <?php foreach($articles_domain as $article_domain):?>
+                                        <option value="<?= $article_domain['id_domain']?>"><?= $article_domain['article_domain_name']?></option>
+                                    <?php endforeach?>
                                 </select>
                             </div>
                         </div>
