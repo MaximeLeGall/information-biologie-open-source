@@ -268,14 +268,41 @@ nav ul{
 
 footer{
     clear: both;
-    position: relative;
-    height: 450px;
+    display: flex;
+    justify-content: space-around;
+    min-height: 200px;
     background-color: #f9f9f9;
     border-top: 3px solid #ececec;
     margin-top: 80px;
+    padding: 50px 250px;
+    color: gray;
+    font-family: sans-serif;
+    line-height: 1.5em;
 }
 
-.container{
-    width: inherit;
-    height: inherit;
+footer .title-col{
+    font-weight: 800;
+    color: #069;
+}
+
+footer .col-1{
+    max-width: 550px;
+}
+
+
+footer .col-2{
+    max-width: 550px;
+    margin: 0 20px;
+}
+
+footer .col-3{
+    display: flex;
+    flex-direction: column;
+}
+
+footer a{
+    text-decoration: none;
+    color: gray;
+    line-height: normal;
+    margin-top: 8px;
 }
