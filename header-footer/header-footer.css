@@ -140,10 +140,10 @@ body{
 .overlay{
     display: flex;
     justify-content: center;
+    overflow: hidden;
     height: var(--height-carousel);
     font-size: 40px;
     position: relative;
-    overflow-x: hidden;
     white-space: nowrap;
     text-transform: uppercase;
     font-family: sans-serif;
@@ -305,4 +305,21 @@ footer a{
     color: gray;
     line-height: normal;
     margin-top: 8px;
+}
+
+@media (max-width: 1310px){ 
+    footer{
+        flex-wrap: wrap;
+        padding: 50px 125px;
+    }
+    footer .col-2{
+        margin: 0;
+    }
+}
+
+@media (max-width: 1015px){
+    footer{
+        justify-content: start;
+        padding: 50px 20%;
+    }
 }

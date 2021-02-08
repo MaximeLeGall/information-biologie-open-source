@@ -11,7 +11,7 @@
                 <span class="title-col">Contact et information</span>
                 <a href="">Par email</a>
                 <a href="http://localhost/Vieillissement/about.php">A propos</a>
-                <a href="">politique de confidentialité</a>
+                <a href="http://localhost/Vieillissement/privacy-policy.php">Politique de confidentialité</a>
             </div>
         </footer>
         <script src="/Vieillissement/header-footer/functions-animations-pages.js" type="text/javascript"></script>
