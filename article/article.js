@@ -12,3 +12,9 @@ document.querySelector('#printer').addEventListener("click", function printTarge
     win.document.close();
     win.print();
 });
+
+(function readingCompanionHeight(){
+    let articleHeight = document.querySelector('#article-content').offsetHeight;
+    let readingCompanion = document.querySelector('.reading-companion');
+    readingCompanion.style.height = articleHeight + "px";
+})();
