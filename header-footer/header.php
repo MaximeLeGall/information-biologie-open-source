@@ -6,6 +6,7 @@
         header('Location: http://localhost/Vieillissement/index.php');
         exit;
     }
+    require_once __DIR__ . "../../function-find-image/find-image.php";
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,19 +31,7 @@
     </head>
     <body>
         <?php 
-            $srcImage = "header-footer/image-overlay-1920/";
-            $newpath = "../";
-            if(!file_exists($srcImage)){
-                while(!file_exists($srcImage)){
-                    $srcImage = $newpath . $srcImage;
-                    $newpath .= $newpath;
-                }
-            }
-            $images = array_diff(scandir($srcImage), ["..", "."]);
-            $arraySrcImage = [];
-            foreach ($images as $image){
-                array_push($arraySrcImage, $srcImage . $image);
-            }
+            $arraySrcImage = find_image("header-footer/image-overlay-1920/");
         ?>
         <script>
             var arraySrcImage = <?php echo json_encode($arraySrcImage); ?>;

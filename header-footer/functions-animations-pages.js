@@ -281,64 +281,103 @@ function desactivationProfileOption(element1, element2){
     }
 };
 
+    
 
 
-
-
-    //item pseudo
-var insertLetter = document.querySelectorAll('.item-pseudo');
-function itemPseudo(){
-    insertLetter.forEach(element => {
-        var firstLetterPseudo = pseudo.substring(0, 1);
-        element.innerHTML = firstLetterPseudo;
+var commentAdded = document.querySelector('.clone-comment-added');
+var allComments = document.querySelectorAll('.add-response-comment');
+allResponseComment.forEach(response => {
+    allComments.forEach(comment => {
+        var cloneCommentAdded = commentAdded.cloneNode(true);
+        var dataId = comment.getAttribute('data-id');
+        var idCommentResponse = response['response_to_comment'];
+        if(dataId == idCommentResponse){
+            cloneCommentAdded.querySelector('#comment-content').innerHTML = response['comment_article'];
+            cloneCommentAdded.querySelector('#user-pseudo').innerHTML = response['user_pseudo'];
+            cloneCommentAdded.querySelector('.date').innerHTML = 'Le: ' + response['DATE_FORMAT(date_comment, "%d/%m/%Y")'];
+            cloneCommentAdded.style.display = 'flex';
+            comment.insertAdjacentElement('afterend', cloneCommentAdded);
+        }
     });
+});
+            //item pseudo (first letter of pseudo)
+var allPseudos = document.querySelectorAll('#user-pseudo');
+var currentUserPseudo = document.querySelector('#currentUserPseudo');
+function itemPseudo(pseudo){
+    if(pseudo.getAttribute('id') === 'user-pseudo'){
+        var itemPseudo = pseudo.parentNode.parentNode.parentNode.querySelector('.item-pseudo');
+    }
+    else{
+        var itemPseudo = pseudo.parentNode.querySelector('.item-pseudo');
+    }
+    var firstLetterPseudo = pseudo.textContent.substring(0, 1);
+    itemPseudo.innerHTML = firstLetterPseudo;
 }
-if(typeof pseudo != "undefined"){
-    itemPseudo();
+allPseudos.forEach(pseudo =>{
+    itemPseudo(pseudo);
+});
+if(currentUserPseudo){
+    itemPseudo(currentUserPseudo);
 }
 
-    //add comment
-function addComment(){
-    var elementsFocus = document.querySelectorAll('.new-comment-content');
-    if(elementsFocus[0] != undefined){
-        elementsFocus.forEach(element =>{
-                //add focus info
-            var infoFocus = element.parentNode.parentNode.querySelector('.focus');
-            element.addEventListener("focusin", function(){
-                infoFocus.classList.add('focus-selected-comment');
-            });
-            element.addEventListener("focusout", function(){
-                infoFocus.classList.remove('focus-selected-comment');
-            });
-                //active button add comment
-            element.addEventListener('input', function(){
-                var buttonAddComment = this.parentNode.parentNode.querySelector('button');
-                if(/\w/.test(element.value)){
-                    buttonAddComment.classList.add('b-comment--active');
-                    buttonAddComment.removeAttribute('disabled')
-                }
-                else{
-                    buttonAddComment.classList.remove('b-comment--active');
-                    buttonAddComment.setAttribute('disabled', "")
-                }
-            });
+
+        //add comment
+(function(){
+    function addComment(){
+        var elementsFocus = document.querySelectorAll('.new-comment-content');
+        if(elementsFocus[0] != undefined){
+            elementsFocus.forEach(element =>{
+                    //add focus info
+                var infoFocus = element.parentNode.parentNode.querySelector('.focus');
+                element.addEventListener("focusin", function(){
+                    infoFocus.classList.add('focus-selected-comment');
+                });
+                element.addEventListener("focusout", function(){
+                    infoFocus.classList.remove('focus-selected-comment');
+                });
+                    //active button add comment
+                element.addEventListener('input', function(){
+                    var buttonAddComment = this.parentNode.parentNode.querySelector('button');
+                    if(/\w/.test(element.value)){
+                        buttonAddComment.classList.add('b-comment--active');
+                        buttonAddComment.removeAttribute('disabled')
+                    }
+                    else{
+                        buttonAddComment.classList.remove('b-comment--active');
+                        buttonAddComment.setAttribute('disabled', "")
+                    }
+                });
+            })
+        }
+    }
+    addComment();
+                //creation button cancel + displayed of response comment and insertion
+    var allButtonResponse = document.querySelectorAll('.add-response-comment');
+    var formNewComment = document.querySelector('.form-new-comment');
+    if(formNewComment){
+        var buttonCancel = document.createElement('button');
+        var responseComment = formNewComment.cloneNode(true);
+        buttonCancel.innerHTML = 'ANULLER';
+        buttonCancel.classList.add('buttonCancel');
+        buttonCancel.setAttribute('type', 'button');
+        responseComment.insertAdjacentElement('beforeend', buttonCancel);
+        allButtonResponse.forEach(buttonResponse => {
+            buttonResponse.addEventListener('click', function(){
+                var buttonAddComment = responseComment.querySelector('.b-comment');
+                this.insertAdjacentElement('afterend', responseComment);
+                buttonAddComment.classList.remove('b-comment--active');
+                buttonAddComment.setAttribute('disabled', "");
+                responseComment.style.display = 'block';
+                addComment();
+                sendComment();
+            })
+        });
+        buttonCancel.addEventListener('click', function(){
+            responseComment.querySelector('.new-comment-content').value = "";
+            responseComment.style.display = 'none';
         })
     }
-}
-addComment();
+})();
 
-var allButtonResponse = document.querySelectorAll('.add-resonse-comment');
-var cloneNewComment = document.querySelector('.form-new-comment').cloneNode(true);
-var buttonCancel = document.createElement('button');
-buttonCancel.innerHTML = 'ANULLER';
-buttonCancel.classList.add('buttonCancel');
-cloneNewComment.insertAdjacentElement('beforeend', buttonCancel);
-allButtonResponse.forEach(buttonResponse => {
-    buttonResponse.addEventListener('click', function(){
-        this.insertAdjacentElement('afterend', cloneNewComment);
-        addComment();
-    })
-});
-buttonCancel.addEventListener('click', function(){
-    cloneNewComment.remove();
-})
+
+
