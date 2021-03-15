@@ -13,7 +13,7 @@ document.querySelector('#printer').addEventListener("click", function printTarge
     win.print();
 });
 
-(function readingCompanionHeight(){
+(function sliderReadingCompanionHeight(){
     let articleHeight = document.querySelector('#article-content').offsetHeight;
     let readingCompanion = document.querySelector('.reading-companion');
     readingCompanion.style.height = articleHeight + "px";
