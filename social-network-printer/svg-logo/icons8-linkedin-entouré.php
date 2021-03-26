@@ -1,4 +1,4 @@
-<a title="linkedin" style="background-color: #0078D4">
+<a href="https://www.linkedin.com/shareArticle?url<?=$share_url ?>" title="linkedin" style="background-color: #0078D4" is="social-share">
     <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path opacity="0.05" d="M20 23V14C20 12.897 19.103 12 18 12C16.897 12 16 12.897 16 14V23H10V6H16V7.027C17.04 6.359 18.252 6 19.5 6C23.084 6 26 8.916 26 12.5V23H20ZM3 23V6H5.966C4.247 6 3 4.738 3 2.999C3 1.261 4.267 0 6.011 0C7.707 0 8.964 1.252 9 2.979C9 4.733 7.733 6 5.988 6H9V23H3Z" fill="black"/>
         <path opacity="0.07" d="M20 23V14.5C20 13.122 18.879 12 17.5 12C16.121 12 15 13.122 15 14.5V23H10V7H15V8.534C16.09 7.557 17.512 7 19 7C22.309 7 25 9.691 25 13V23H20ZM3 23V7H8V23H3ZM5.466 6C4.037 6 3 4.948 3 3.499C3 2.051 4.056 1 5.511 1C6.947 1 7.97 2.023 8 3.489C8 4.948 6.943 6 5.488 6H5.466Z" fill="black"/>

@@ -11,6 +11,7 @@
                         <div class="popularity">
                         </div>
                         <ul class="social-bar">
+                                <?php $share_url = urlencode( 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'])?>
                                 <?php $arraySrcImage = find_image("social-network-printer/svg-logo/");?>
                                 <?php foreach($arraySrcImage as $social_logo):?>
                                         <li><?php include  __DIR__ . "../$social_logo";?></li>
@@ -78,6 +79,7 @@
                 var userId = <?php echo json_encode($_SESSION['user_id']);?>;
         <?php endif?>
 </script>
+<script type="text/javascript" src="/Vieillissement/social-network-printer/share.js"></script>
 <script type="text/javascript" src="/Vieillissement/article/article.js"></script>
 <script type="text/javascript" src="/Vieillissement/request-ajax/ajax-request-add-comment.js"></script>
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>

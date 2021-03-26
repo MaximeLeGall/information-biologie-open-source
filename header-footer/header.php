@@ -26,6 +26,10 @@
                 <link rel="stylesheet" type="text/css" href="account/connection.css">
             <?php elseif(in_array("profile", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="user-informations/user-informations.css">
+            <?php elseif(in_array("about", $itemSelected)):?>
+                <link rel="stylesheet" type="text/css" href="about/about.css">
+            <?php elseif(in_array("privacy-policy", $itemSelected)):?>
+                <link rel="stylesheet" type="text/css" href="about/about.css">
             <?php endif?>
         <title>vieillissement</title>
     </head>
