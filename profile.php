@@ -1,8 +1,8 @@
 <?php
     require __DIR__ . "../header-footer/header.php";
-    require __DIR__ . "../user-informations/request-account-modification.php";
-    require __DIR__ . "../user-informations/request-added-article.php";
-    require __DIR__ . "../user-informations/request-article-author.php";
+    require __DIR__ . "../profile/user/request-account-modification.php";
+    require __DIR__ . "../profile/user/request-added-article.php";
+    require __DIR__ . "../profile/user/request-article-author.php";
     require __DIR__ . "../request-reuse/request-article-domain.php";
 ?>
 
@@ -14,8 +14,11 @@
             <input type="button" value="profil" id="profil" class="reading-companion-tab" onclick="switchButton(this)">
             <input type="button" value="message" id="message" class="reading-companion-tab" onclick="switchButton(this)">
             <input type="button" value="paramètres" id="parametres" class="reading-companion-tab" onclick="switchButton(this)">
-            <?php if(user_status() == 1 || user_status() == 2):?>
-                <input type="button" value="rédaction" id="redaction" class="reading-companion-tab reading-companion-tab--active" onclick="switchButton(this)">
+            <?php if(user_status() !== 0):?>
+                <input type="button" value="rédaction" id="redaction" class="reading-companion-tab" onclick="switchButton(this)">
+            <?php endif;?>
+            <?php if(user_status() === 2):?>
+                <input type="button" value="home-page" id="home-page" class="reading-companion-tab reading-companion-tab--active" onclick="switchButton(this)">
             <?php endif;?>
         </div>
         <div class="dashboard-profil">
@@ -88,45 +91,86 @@
                     </form>
                 </div>
             </div>
-            <div class="reading-companion-panel redaction-panel reading-companion-panel--active" name="redaction">
-                <div>
-                    <p>Nombre d'article écrits: <?php echo $numberArticles?></p>
-                    <p>Liste des articles:</p>
-                    <ul>
-                        <?php echo $allAuthorArticles;?>
-                    </ul>
-                    <form action="profile.php" method="POST" id="new-article">
-                        <div class="information-new-article">
-                            <p>Rédigé un nouvelle article:</p>
-                            <div class="field-choice">
-                                <p>Sélectionné le domaine de l'article:</p>
-                                <select form="new-article" name="article_domain" id="field-name">
-                                    <option value="">Choisire le domaine</option>
-                                    <?php foreach($articles_domain as $article_domain):?>
-                                        <option value="<?= $article_domain['id_domain']?>"><?= $article_domain['article_domain_name']?></option>
-                                    <?php endforeach?>
-                                </select>
+            <?php if(user_status() !== 0):?>
+                <div class="reading-companion-panel redaction-panel" name="redaction">
+                    <div>
+                        <p>Nombre d'article écrits: <?php echo $numberArticles?></p>
+                        <p>Liste des articles:</p>
+                        <ul>
+                            <?php echo $allAuthorArticles;?>
+                        </ul>
+                        <form action="profile.php" method="POST" id="new-article">
+                            <div class="information-new-article">
+                                <p>Rédigé un nouvelle article:</p>
+                                <div class="field-choice">
+                                    <p>Sélectionné le domaine de l'article:</p>
+                                    <select form="new-article" name="article_domain" id="field-name">
+                                        <option value="">Choisir le domaine</option>
+                                        <?php foreach($articles_domain as $article_domain):?>
+                                            <option value="<?= $article_domain['id_domain']?>"><?= $article_domain['article_domain_name']?></option>
+                                        <?php endforeach?>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="article-presentation"></div>
-                        <input type="text" form="new-article" name="article_name" class="article-name" style="display: none;">
-                        <textarea type="text" form="new-article" name="article_content" class="data-article" style="display: none;"></textarea>
-                        <button type="submit" form="new-article" name="send_article" id="valide-article" style="display: none;">Valider</button>
-                    </form>
-                    <div class="wirting-article">
-                        <textarea type="text" id="textarea" placeholder="Vous pouvez écrire ici."></textarea>
-                        <div class="b-article">
-                            <button type="button" class="h1" value="h1">Titre principale</button>
-                            <button type="button" class="h2" value="h2">Autre titre</button>
-                            <button type="button" class="p" value="p">Paragraphe</button>
+                            <div class="article-presentation"></div>
+                            <input type="text" form="new-article" name="article_name" class="article-name" style="display: none;">
+                            <textarea type="text" form="new-article" name="article_content" class="data-article" style="display: none;"></textarea>
+                            <button type="submit" form="new-article" name="send_article" id="valide-article" style="display: none;">Valider</button>
+                        </form>
+                        <div class="wirting-article">
+                            <textarea type="text" id="textarea" placeholder="Vous pouvez écrire ici."></textarea>
+                            <div class="b-article">
+                                <button type="button" class="h1" value="h1">Titre principale</button>
+                                <button type="button" class="h2" value="h2">Autre titre</button>
+                                <button type="button" class="p" value="p">Paragraphe</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endif?>
+            <?php if(user_status() === 2):?>
+                <div class="reading-companion-panel home-page-panel reading-companion-panel--active" name="home-page">
+                    <div class="home-page-content">
+                        <h2>Modificationt élément page d'acceuil</h2>
+                        <h3>Deuxième partie</h3>
+                        <div class="elements">
+                            <form action="" class="change-home-page">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <select id="data-type" class="form-control linked-select" data-target="#domaine" data-source="profile/admin/request-home-page.php?type=domaine&filter=$id">
+                                            <option value="0">Type de données</option>
+                                            <option value="image">image</option>
+                                            <option value="article">article</option>
+                                            <option value="graphic">graphique</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="domaine" class="form-control linked-select" data-target="#element" data-source="profile/admin/request-home-page.php?type=element&filter=$id">
+                                            <option value="0">Domaine</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <select id="element" class="form-control linked-select">
+                                            <option value="0">Elément</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="element-part2 first-element"></div>
+                            <div class="element-part2 seconde-element"></div>
+                            <div class="element-part2 third-element"></div>
+                            <div class="element-part2 fourth-element"></div>
+                            <div class="element-part2 fifth-element"></div>
+                            <div class="element-part2 sixth-element"></div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif?>
         </div>
     </div>
 <?php endif;?>
-<script src="/Vieillissement/user-informations/user-informations.js"></script>
+<script src="/Vieillissement/profile/profile.js"></script>
+<script src="/Vieillissement/request-ajax/request-change-home-page.js"></script>
 <?php 
     if(isset($invalid_pseudo)){
         echo '<script> modify(' . $modifyPseudoSetting . ') </script>';

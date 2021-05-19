@@ -25,7 +25,7 @@ var getHttpRequest = function(){
     else{
         return httpRequest;
     }
-}
+};
 
 function sendComment(){
     var allFormNewComment = document.querySelectorAll('.form-new-comment');
@@ -65,7 +65,6 @@ function sendComment(){
                     }
                     httpRequest.open('POST', '/Vieillissement/article/request-add-comments.php', true);
                     httpRequest.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-                    console.log(idArticle + ' ' + userId +' ' + idComment);
                     httpRequest.send("new_comment=" + encodeURIComponent(contentComment.value) + "&id_article=" + idArticle + "&user_id=" + userId + "&response_comment=" + idComment);
                     
                     formNewComment.querySelector('.new-comment-content').value = "";

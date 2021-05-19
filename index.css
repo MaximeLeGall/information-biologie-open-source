@@ -9,7 +9,6 @@
 #first-part{
     width: var(--width-part);
     margin: var(--margin-part);
-    background-color: var(--background-first-part);
     text-align: center;
     overflow: hidden;
 }
@@ -34,7 +33,6 @@ h2{
     padding: 122px 0;
     cursor: pointer;
     position: absolute;
-    background-color: var(--background-first-part);
     z-index: 1;
 }
 
@@ -58,6 +56,7 @@ h2{
     height: 264px;
     margin: 15px;
     overflow-y: scroll;
+    box-shadow: 0px 0px 15px #d1d1d1;
 }
 
 .article{
@@ -112,11 +111,24 @@ h2{
 }
 
 
-/* seconde-part */
-#seconde-part{
+/* part2 */
+#part2{
     display: flex;
     height: 400px;
     width: var(--width-part);
     margin: var(--margin-part);
 }
 
+#part2 img{
+    width: 244.64px;
+    height: 330px;
+    position: relative;
+    z-index: -1;
+    /* filter: invert(100%); */
+}
+
+.imageShadow{
+    width: 244.64px;
+    height: 330px;
+    box-shadow: inset -20px 0 15px -3px white;
+}

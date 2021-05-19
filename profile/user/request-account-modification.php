@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../../account/db-config.php';
+require __DIR__ . '../../../account/db-config.php';
 if(isset($_POST['account_modification'])){
     try{
         $options = [
