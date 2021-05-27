@@ -81,5 +81,5 @@
 </script>
 <script type="text/javascript" src="/Vieillissement/social-network-printer/share.js"></script>
 <script type="text/javascript" src="/Vieillissement/article/article.js"></script>
-<script type="text/javascript" src="/Vieillissement/request-ajax/ajax-request-add-comment.js"></script>
+<script type="text/javascript" src="/Vieillissement/request-ajax/request-add-comment.js"></script>
 <?php require_once __DIR__ . "../../header-footer/footer.php" ?>

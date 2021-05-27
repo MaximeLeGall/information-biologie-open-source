@@ -332,4 +332,12 @@ h1, h2{
     border-color: black;
 }
 
-
+.element-part2{
+    min-height: 50px;
+    margin-top: 20px;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 10px;
+}
+.element-part2:hover{
+    background-color: #e8f0fe;
+}

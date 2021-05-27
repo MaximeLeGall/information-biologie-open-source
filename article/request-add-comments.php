@@ -19,7 +19,7 @@ if(isset($_POST['id_article']) && !empty($_POST['id_article']) && isset($_POST['
         
         $new_comment -> execute();
         $new_comment -> closeCursor();
-        echo $_POST['new_comment'] . $_POST['id_article'] . $_POST['user_id'] . $_POST['response_comment'];
+        echo $_POST['new_comment'];
     }
     catch(PDOException $pe){
         echo 'ERREUR: ' . $pe->getMessage();

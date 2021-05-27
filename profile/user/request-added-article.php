@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../../account/db-config.php';
+require __DIR__ . '../../../account/db-config.php';
 
 if(isset($_POST['send_article'])){
     try{

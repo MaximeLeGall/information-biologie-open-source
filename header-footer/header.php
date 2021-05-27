@@ -25,7 +25,7 @@
             <?php elseif(in_array("connection-page", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="account/connection.css">
             <?php elseif(in_array("profile", $itemSelected)):?>
-                <link rel="stylesheet" type="text/css" href="user-informations/user-informations.css">
+                <link rel="stylesheet" type="text/css" href="profile/profile.css">
             <?php elseif(in_array("about", $itemSelected)):?>
                 <link rel="stylesheet" type="text/css" href="about/about.css">
             <?php elseif(in_array("privacy-policy", $itemSelected)):?>
