@@ -67,7 +67,7 @@ function sendComment(){
                     httpRequest.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
                     httpRequest.send("new_comment=" + encodeURIComponent(contentComment.value) + "&id_article=" + idArticle + "&user_id=" + userId + "&response_comment=" + idComment);
                     
-                    formNewComment.querySelector('.new-comment-content').value = "";
+                    contentComment.value = "";
                 }
             })
         });
