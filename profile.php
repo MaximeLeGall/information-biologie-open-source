@@ -107,7 +107,7 @@
                                     <select form="new-article" name="article_domain" id="field-name">
                                         <option value="">Choisir le domaine</option>
                                         <?php foreach($articles_domain as $article_domain):?>
-                                            <option value="<?= $article_domain['id_domain']?>"><?= $article_domain['article_domain_name']?></option>
+                                            <option value="<?= $article_domain['id_domain']?>"><?= $article_domain['domain_name']?></option>
                                         <?php endforeach?>
                                     </select>
                                 </div>
@@ -129,7 +129,14 @@
                 </div>
             <?php endif?>
             <?php if(user_status() === 2):?>
+                <?php 
+                    //require __DIR__ . '../profile/admin/request-load-home-page-part2.php';
+                ?>
                 <div class="reading-companion-panel home-page-panel reading-companion-panel--active" name="home-page">
+                    <form action="" class="form-add-image">
+                        <input type="file" name="image" id="image"></br>
+                        <input type="submit" name="envoyer" value="Charger">
+                    </form>
                     <div class="home-page-content">
                         <h2>Modificationt élément page d'acceuil</h2>
                         <h3>Deuxième partie</h3>
@@ -150,18 +157,18 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <select id="element" class="form-control linked-select">
+                                        <select id="element" class="form-control">
                                             <option value="0">Elément</option>
                                         </select>
                                     </div>
                                 </div>
                             </form>
-                            <div class="element-part2 first-element"></div>
-                            <div class="element-part2 seconde-element"></div>
-                            <div class="element-part2 third-element"></div>
-                            <div class="element-part2 fourth-element"></div>
-                            <div class="element-part2 fifth-element"></div>
-                            <div class="element-part2 sixth-element"></div>
+                            <div class="element-part2 first-element"><div class="position">position 1</div></div>
+                            <div class="element-part2 seconde-element"><div class="position">position 2</div></div>
+                            <div class="element-part2 third-element"><div class="position">position 3</div></div>
+                            <div class="element-part2 fourth-element"><div class="position">position 4</div></div>
+                            <div class="element-part2 fifth-element"><div class="position">position 5</div></div>
+                            <div class="element-part2 sixth-element"><div class="position">position 6</div></div>
                         </div>
                     </div>
                 </div>
@@ -171,6 +178,7 @@
 <?php endif;?>
 <script src="/Vieillissement/profile/profile.js"></script>
 <script src="/Vieillissement/request-ajax/request-change-home-page.js"></script>
+<script src="/Vieillissement/profile/admin/request-add-image.js"></script>
 <?php 
     if(isset($invalid_pseudo)){
         echo '<script> modify(' . $modifyPseudoSetting . ') </script>';
