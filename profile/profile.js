@@ -75,4 +75,3 @@ function modify(information, buttonWord, displayedElement, input, inputName){
 
 
 
-

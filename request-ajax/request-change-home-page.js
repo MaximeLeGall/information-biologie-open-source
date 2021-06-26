@@ -1,3 +1,32 @@
+
+
+function callSelector(e){
+    let $formPart2 = document.querySelector('.change-home-page');
+    let $allSelector = document.querySelectorAll('.form-control');
+    e.addEventListener('click', function(){
+        if($formPart2.parentElement != e){ //check if element have focus
+            $allSelector.forEach($selector => resetSelector($selector));
+            this.classList.add('s-actuals-elements', 's-element-part2');
+            $formPart2.style.display = 'block';
+            this.insertAdjacentElement('beforeend', $formPart2);
+        }
+    });
+
+    function resetSelector($selector){
+        $selector.selectedIndex = 0;
+        if($selector != $allSelector[0]){
+            var lengthSelector = $selector.options.length - 1;
+            for(i = lengthSelector; i > 0; i--){
+                $selector.remove(i);
+            }
+        }
+    }
+}
+let $allElementPart2 = document.querySelectorAll('.element-part2');
+$allElementPart2.forEach($elementPart2 => callSelector($elementPart2));
+
+
+//Ajax request
 class linkedSelect{
     constructor($select){
         this.$select = $select;

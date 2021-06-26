@@ -14,7 +14,7 @@ try{
         $table_1 = 'domain';
         $table_2 = $_GET['filter'];
     }
-    $result = $PDO->query("SELECT id_domain, domain_name FROM $table_1 INNER JOIN $table_2 ON $table_1.id_domain = $table_2.fk_domain");
+    $result = $PDO->query("SELECT DISTINCT id_domain, domain_name FROM $table_1 INNER JOIN $table_2 ON $table_1.id_domain = $table_2.fk_domain");
     
     // if(isset($_POST['change-home-page'])){
     //     $query = $PDO->query('UPDATE home_page_part2 SET  ' .  $varNewElement . '  WHERE position_element = ' . $positionElement);

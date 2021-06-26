@@ -331,13 +331,46 @@ h1, h2{
     filter: brightness(90%);
     border-color: black;
 }
-
+/* home-page */
 .element-part2{
     min-height: 50px;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid rgb(173, 173, 173);
     border-radius: 10px;
+    background-color: white;
 }
 .element-part2:hover{
     background-color: #e8f0fe;
+}
+.s-element-part2{
+    animation: displaySelector 1s ease 0.1s forwards;
+}
+/* .apparition-form{
+    animation: displaySelector 1s ease 0.2s forwards;
+} */
+@keyframes displaySelector{
+    to{
+        height: fit-content;
+    }
+}
+.actuals-elements{
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.s-actuals-elements{
+    animation: selector-separation 1s ease 0.1s forwards;
+}
+
+@keyframes selector-separation{
+    to{
+        border-bottom: 1px solid rgb(173, 173, 173);
+    }
 }
