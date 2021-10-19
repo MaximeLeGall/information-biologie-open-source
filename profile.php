@@ -141,7 +141,7 @@
                         <h2>Modificationt élément page d'acceuil</h2>
                         <h3>Deuxième partie</h3>
                         <div class="elements">
-                            <form action="" class="change-home-page" style="display: none;">
+                            <form action="" class="form-homePage" style="display: none;">
                                 <div class="col">
                                     <div class="form-group">
                                         <select id="data-type" class="form-control linked-select" data-target="#domaine" data-source="profile/admin/request-home-page.php?type=domaine&filter=$id">
@@ -152,7 +152,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <select id="domaine" class="form-control linked-select" data-target="#element" data-source="profile/admin/request-home-page.php?type=element&filter=$id">
+                                        <select id="domaine" class="form-control linked-select" data-target="#element" data-source="profile/admin/request-home-page.php?type=element&filter=$id&previousFilter=$previousId">
                                             <option value="0">Domaine</option>
                                         </select>
                                     </div>
@@ -161,6 +161,7 @@
                                             <option value="0">Elément</option>
                                         </select>
                                     </div>
+                                    <button type="button" class="b-change" value="validated_change">Valide</button>
                                 </div>
                             </form>
                             <div class="part2">
