@@ -141,18 +141,18 @@
                         <h2>Modificationt élément page d'acceuil</h2>
                         <h3>Deuxième partie</h3>
                         <div class="elements">
-                            <form action="" class="change-home-page">
+                            <form action="" class="form-homePage" style="display: none;">
                                 <div class="col">
                                     <div class="form-group">
                                         <select id="data-type" class="form-control linked-select" data-target="#domaine" data-source="profile/admin/request-home-page.php?type=domaine&filter=$id">
                                             <option value="0">Type de données</option>
-                                            <option value="image">image</option>
+                                            <option value="images">images</option>
                                             <option value="article">article</option>
                                             <option value="graphic">graphique</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <select id="domaine" class="form-control linked-select" data-target="#element" data-source="profile/admin/request-home-page.php?type=element&filter=$id">
+                                        <select id="domaine" class="form-control linked-select" data-target="#element" data-source="profile/admin/request-home-page.php?type=element&filter=$id&previousFilter=$previousId">
                                             <option value="0">Domaine</option>
                                         </select>
                                     </div>
@@ -161,14 +161,17 @@
                                             <option value="0">Elément</option>
                                         </select>
                                     </div>
+                                    <button type="button" class="b-change" value="validated_change">Valide</button>
                                 </div>
                             </form>
-                            <div class="element-part2 first-element"><div class="position">position 1</div></div>
-                            <div class="element-part2 seconde-element"><div class="position">position 2</div></div>
-                            <div class="element-part2 third-element"><div class="position">position 3</div></div>
-                            <div class="element-part2 fourth-element"><div class="position">position 4</div></div>
-                            <div class="element-part2 fifth-element"><div class="position">position 5</div></div>
-                            <div class="element-part2 sixth-element"><div class="position">position 6</div></div>
+                            <div class="part2">
+                                <div class="first-element element-part2"><div class="actuals-elements"><span class="span-p">position 1</span></div></div>
+                                <div class="seconde-element element-part2"><div class="actuals-elements"><span class="span-p">position 2</span></div></div>
+                                <div class="third-element element-part2"><div class="actuals-elements"><span class="span-p">position 3</span></div></div>
+                                <div class="fourth-element element-part2"><div class="actuals-elements"><span class="span-p">position 4</span></div></div>
+                                <div class="fifth-element element-part2"><div class="actuals-elements"><span class="span-p">position 5</span></div></div>
+                                <div class="sixth-element element-part2"><div class="actuals-elements"><span class="span-p">position 6</span></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>

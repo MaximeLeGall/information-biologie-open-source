@@ -1,6 +1,6 @@
 
 
-//bouton modification
+//modification profile data
 
 function modify(information, buttonWord, displayedElement, input, inputName){
     var paragrapheInformation = document.querySelector('.information');
@@ -43,7 +43,7 @@ function modify(information, buttonWord, displayedElement, input, inputName){
                 allButtonType[0].style.display = "none";
             }
         }
-            displayButton();
+        displayButton();
         //Listener buttons rédaction + action of button
         for(let buttonType of allButtonType){
             buttonType.addEventListener('click', function(){
@@ -72,7 +72,6 @@ function modify(information, buttonWord, displayedElement, input, inputName){
         };
     }
 })();
-
 
 
 
